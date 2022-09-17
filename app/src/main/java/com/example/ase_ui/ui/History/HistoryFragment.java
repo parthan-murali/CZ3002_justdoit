@@ -1,4 +1,4 @@
-package com.example.ase_ui.ui.dashboard;
+package com.example.ase_ui.ui.History;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,18 +10,20 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.ase_ui.databinding.FragmentDashboardBinding;
+import com.example.ase_ui.R;
+import com.example.ase_ui.databinding.FragmentHistoryBinding;
 
-public class DashboardFragment extends Fragment {
 
-    private FragmentDashboardBinding binding;
+public class HistoryFragment extends Fragment {
+
+    private FragmentHistoryBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DashboardViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+        HistoryViewModel dashboardViewModel =
+                new ViewModelProvider(this).get(HistoryViewModel.class);
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = FragmentHistoryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textDashboard;
