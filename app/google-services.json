@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "252491842395",
+    "project_id": "ntu-e-commerce",
+    "storage_bucket": "ntu-e-commerce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252491842395:android:09c593921a63a8fad1507e",
+        "android_client_info": {
+          "package_name": "main.ui.Authenticate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "252491842395-lbndd1vafbtne2lpbvngtvfdatpv6a21.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxMnr1QiuIsvRFmeW_O9Hht7PjlQe9Ato"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "252491842395-lbndd1vafbtne2lpbvngtvfdatpv6a21.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
