@@ -1,0 +1,81 @@
+#tsparticles {
+  position: absolute;
+}
+
+.reset {
+  width: 20rem;
+  margin: auto;
+  margin-top: 8%;
+}
+.reset__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #fad0c4;
+  background-image: linear-gradient(315deg, #ffddd3 0%, #f3d3dc 74%);
+  padding: 50px 30px;
+  border-radius: 10px;
+  border: 2px solid #ad9ff3;
+}
+.reset__textBox {
+  border-radius: 5px;
+  border: 1px solid #cfc7f8;
+  padding: 10px;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.reset__btn {
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  border: none;
+  color: white;
+  background-color: #ee8e6b;
+  background-image: linear-gradient(315deg, #ee8e6b 0%, #ef6da0 74%);
+}
+.reset div {
+  margin-top: 7px;
+}
+
+.register__now {
+  color: crimson;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.register__now:hover {
+  background-color: transparent;
+  border-bottom: 4px solid rgb(182, 20, 133);
+  color: crimson;
+}
+
+@media screen and (max-width: 1000px) {
+  .reset {
+    width: 25rem;
+    margin: auto;
+    margin-top: 10%;
+  }
+
+  .reset__container {
+    padding-top: 20%;
+    padding-bottom: 20%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .reset {
+    width: 19rem;
+    margin: auto;
+    margin-top: 20%;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .reset {
+    width: 15rem;
+    margin: auto;
+    margin-top: 20%;
+  }
+}

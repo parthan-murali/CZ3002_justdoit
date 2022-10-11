@@ -1,0 +1,696 @@
+.more-info-heading{
+  font-family: "Saira Condensed", sans-serif;
+  color: #151a1b;
+  padding-top: 1rem;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 40px;
+  padding-left: 5px;
+  text-align: center;
+}
+
+.gen-info{
+  text-align: center;
+  color: #3b8185;
+  padding-top: 1rem;
+  margin-bottom: 12px;
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 30px;
+  padding-right: 43px; 
+}
+
+.school-info {
+  font-family: "Saira Condensed", sans-serif;
+  font-size: 24px;
+  background-color: #f2c0c0;
+  width: 47rem;
+  height: fit-content;
+  margin: auto;
+  border-radius: 1rem;
+  padding-left: 3rem;
+  margin-top: 10px;
+  margin-bottom: 2rem;
+  border-bottom: 4px solid #103b79;
+}
+
+
+/* Location, MRT, Bus */
+.school-location-mf {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 0.5rem;
+}
+
+.school-address-mf {
+  text-transform: capitalize;
+  padding-left: 0.3rem;
+  padding-top: 0.3rem;
+}
+
+.school-postal-mf {
+  padding-left: 1rem;
+  padding-top: 0.3rem;
+}
+
+.fa-location-dot-icon-mf {
+  width: 3rem;
+  font-size: 30px;
+  margin-top: 0.5rem;
+  color: rgb(21, 78, 80);
+}
+
+.school-mrt-wrapper-mf {
+  display: flex;
+  margin-left: 10px;
+}
+
+.school-mrt-desc-mf {
+  text-transform: capitalize;
+  text-align-last: left;
+  padding-left: 0.65rem;
+}
+
+.school-bus-wrapper {
+  display: flex;
+  margin-left: 10px;
+}
+
+.school-bus-desc {
+  text-transform: capitalize;
+  text-align-last: left;
+  padding-left: 0.8rem; 
+  margin-top: 0.1rem;
+}
+
+.fa-bus-icon{
+  width: 2rem;
+  margin-top: 0.5rem;
+  font-size: 25px;
+  color: rgb(21, 78, 80);
+}
+
+/* Email, Telephone, Principal, school website */
+.email-address{
+  position: static;  
+  font-size: 25px;
+  color: black;
+  font-family: "Saira Condensed", sans-serif;
+}
+
+.school-tele{
+  position: relative;
+  font-size: 25px;
+  color: black;
+  font-family: "Saira Condensed", sans-serif;
+  margin-left: 0px;
+}
+
+.principal{
+  position: relative;
+  font-size: 25px;
+  color: black;
+  font-family: "Saira Condensed", sans-serif;
+  margin-left: 1px;
+}
+
+.website{
+  text-align: center;
+  font-size: 25px;
+  color: white;
+  margin-top: 0.5rem;
+  padding-right: 35px;
+}
+
+/*Subjects*/
+.subjects-card-mf {
+  font-family: "Saira Condensed", sans-serif;
+  background-color: #f2c0c0;
+  width: 47rem;
+  height: fit-content;
+  margin: auto;
+  border-radius: 1rem;
+  padding-left: 3rem;
+  margin-bottom: 2rem;
+  border-bottom: 4px solid #103b79;;
+}
+
+.subjects-mf{
+  text-align: center;
+  color: #3b8185;
+  padding-top: 1rem;
+  margin-bottom: 12px;
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 30px;
+  padding-right: 35px; 
+}
+
+.subjects-desc-mf {
+  color: black;
+  margin-top: 1rem;
+  text-transform: capitalize;
+  font-size: 24px;
+  font-weight: 200;
+  text-align: justify;
+  padding-left: 5px;
+  padding-right: 10px;
+}
+
+
+/* CCA */
+.cca-card-mf {
+  font-family: "Saira Condensed", sans-serif;
+  font-size: 24px;
+  background-color: #f2c0c0;
+  width: 47rem;
+  height: fit-content;
+  margin: auto;
+  border-radius: 1rem;
+  padding-left: 3rem;
+  margin-bottom: 2rem;
+  border-bottom: 4px solid #103b79;;
+}
+
+.cca-container-mf{
+  text-align: center;
+  color: #3b8185;
+  padding-top: 1rem;
+  margin-bottom: 12px;
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 30px;
+  padding-right: 35px; 
+}
+
+.cca-div-mf {
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  text-align: justify;
+}
+
+.cca-category-mf {
+  color: #da277d;
+  background-color: #f3e0eaaf;
+  border-radius: 5px;
+  border-bottom: 2px solid #dd69a1;
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+}
+
+.cca-name-mf {
+  color: black;
+  font-weight: 200;
+  font-size: 24px;
+  margin-top: 1rem;
+  padding-left: 10px;
+  text-align: justify;
+}
+
+
+/* Electives */
+.elective-card-mf {
+  font-family: "Saira Condensed", sans-serif;
+  font-size: 24px;
+  background-color: #f2c0c0;
+  width: 47rem;
+  height: fit-content;
+  margin: auto;
+  border-radius: 1rem;
+  padding-left: 3rem;
+  margin-bottom: 2rem;
+  border-bottom: 4px solid #103b79;;
+}
+
+.elective-container-mf {
+  text-align: center;
+  color: #3b8185;
+  padding-top: 1rem;
+  margin-bottom: 12px;
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 30px;
+  padding-right: 35px; 
+}
+
+.elective-div-mf {
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  text-align: justify;
+}
+
+.elective-category-mf {
+  color: #da277d;
+  background-color: #f3e0eaaf;
+  border-radius: 5px;
+  border-bottom: 2px solid #dd69a1;
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+}
+
+.elective-name-mf {
+  color: black;
+  font-weight: 200;
+  margin-top: 1rem;
+  padding-left: 10px;
+  font-size: 24px;
+}
+
+@media screen and (max-width: 1024px) {
+  .more-info-heading{
+    font-size: 28px;
+    padding-right: 1rem;
+  }
+  
+  .gen-info{
+    font-size: 30px;
+    text-align: center;
+    padding-left: 1rem;
+  }
+  
+  .school-info {
+    width: 35rem;
+    padding-right: 0;
+    padding-left: 1.8rem;
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+  
+  /* Location, MRT, Bus */
+  
+  .school-address-mf {
+    padding-left: 0;
+    font-size: 24px;
+  }
+  
+  .school-postal-mf {
+    padding-left: 0rem;
+    font-size: 24px;
+  }
+  
+  .fa-location-dot-icon-mf {
+    font-size: 24px;
+    margin-left: 0.4rem ;
+  }
+  
+  .school-mrt-wrapper-mf {
+    margin-left: 15px;
+  }
+  
+  .school-mrt-desc-mf {
+    padding-left: 0.6rem;
+    font-size: 24px;
+  }
+  
+  .school-bus-wrapper {
+    margin-left: 6px;
+  }
+  
+  .school-bus-desc {
+   font-size: 24px;
+   padding-left: 0.4rem;
+  }
+  
+  .fa-bus-icon{
+    font-size: 24px;
+    margin-left: 0.5rem ;
+  }
+  
+  /* Email, Telephone, Principal, school website */
+  .email-address{
+    font-size: 24px;
+  }
+  
+  .school-tele{
+    font-size: 24px;
+  }
+  
+  .principal{
+    font-size: 24px;
+  }
+  
+  .website{
+    font-size: 24px;
+  }
+
+
+  /* subjects */ 
+  .subjects-card-mf {
+    width: 35rem;
+    padding-right: 0;
+    padding-left: 1.8rem;
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+  
+  .subjects-mf{
+    font-size: 30px;
+    padding-left: 0.6rem;
+  }
+  
+  .subjects-desc-mf {
+    font-size: 25px;
+  }
+  
+  
+  /* CCA */
+  .cca-card-mf {
+    width: 35rem;
+    padding-right: 0;
+    padding-left: 1.8rem;
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+  
+  .cca-container-mf{
+    font-size: 30px;
+    padding-left: 0.6rem;
+  }
+  
+  .cca-category-mf {
+    font-size: 25px;
+  }
+  
+  .cca-name-mf {
+    font-size: 22px;
+  }
+  
+  
+  /* Electives */
+  .elective-card-mf {
+    width: 35rem;
+    padding-right: 0;
+    padding-left: 1.8rem;
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+  
+  .elective-container-mf {
+    font-size: 30x;
+    padding-left: 0.6rem;
+  }
+  
+  .elective-category-mf {
+    font-size: 25px;
+  }
+  
+  .elective-name-mf {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .more-info-heading{
+    font-size: 28px;
+    padding-right: 1rem;
+  }
+  
+  .gen-info{
+    font-size: 28px;
+    text-align: center;
+    padding-left: 1rem;
+  }
+  
+  .school-info {
+    width: 18rem;
+    padding-right: 0;
+    padding-left: 1.8rem;
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+  
+  /* Location, MRT, Bus */
+  
+  .school-address-mf {
+    padding-left: 0;
+    font-size: 20px;
+  }
+  
+  .school-postal-mf {
+    padding-left: 0rem;
+    font-size: 20px;
+  }
+  
+  .fa-location-dot-icon-mf {
+    font-size: 20px;
+  }
+  
+  .school-mrt-wrapper-mf {
+    margin-left: 15px;
+  }
+  
+  .school-mrt-desc-mf {
+    padding-left: 0.6rem;
+    font-size: 20px;
+  }
+  
+  .school-bus-wrapper {
+    margin-left: 6px;
+  }
+  
+  .school-bus-desc {
+   font-size: 20px;
+   padding-left: 0.6rem;
+  }
+  
+  .fa-bus-icon{
+    font-size: 20px;
+  }
+  
+  /* Email, Telephone, Principal, school website */
+  .email-address{
+    font-size: 21px;
+  }
+  
+  .school-tele{
+    font-size: 22px;
+  }
+  
+  .principal{
+    font-size: 22px;
+  }
+  
+  .website{
+    font-size: 22px;
+  }
+
+
+  /* subjects */ 
+  .subjects-card-mf {
+    width: 18rem;
+    padding-right: 0;
+    padding-left: 1.8rem;
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+  
+  .subjects-mf{
+    font-size: 28px;
+    padding-left: 0.6rem;
+  }
+  
+  .subjects-desc-mf {
+    font-size: 22px;
+  }
+  
+  
+  /* CCA */
+  .cca-card-mf {
+    width: 18rem;
+    padding-right: 0;
+    padding-left: 1.8rem;
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+  
+  .cca-container-mf{
+    font-size: 28px;
+    padding-left: 0.6rem;
+  }
+  
+  .cca-category-mf {
+    font-size: 22px;
+  }
+  
+  .cca-name-mf {
+    font-size: 22px;
+  }
+  
+  
+  /* Electives */
+  .elective-card-mf {
+    width: 18rem;
+    padding-right: 0;
+    padding-left: 1.8rem;
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+  
+  .elective-container-mf {
+    font-size: 28px;
+    padding-left: 0.6rem;
+  }
+  
+  .elective-category-mf {
+    font-size: 22px;
+  }
+  
+  .elective-name-mf {
+    font-size: 20px;
+  }
+  
+}
+
+@media screen and (max-width: 300px) {
+  .more-info-heading{
+    font-size: 24px;
+    padding-right: 1rem;
+  }
+  
+  .gen-info{
+    font-size: 22px;
+    text-align: center;
+    padding-left: 1rem;
+  }
+  
+  .school-info {
+    width: 14rem;
+    padding-right: 0;
+    padding-left: 1.8rem;
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+  
+  /* Location, MRT, Bus */
+  
+  .school-address-mf {
+    padding-left: 0;
+    font-size: 15px;
+    
+  }
+  
+  .school-postal-mf {
+    padding-left: 5rem;
+    font-size: 15px;
+    
+  }
+
+  .school-location-mf {
+    display: block;
+  }
+  
+  .fa-location-dot-icon-mf {
+    font-size: 20px;
+    
+  }
+  
+  .school-mrt-wrapper-mf {
+    margin-left: 22px;
+  }
+  
+  .school-mrt-desc-mf {
+    padding-left: 0.6rem;
+    font-size: 18px;
+  }
+  
+  .school-bus-wrapper {
+    margin-left: 6px;
+  }
+  
+  .school-bus-desc {
+   font-size: 18px;
+   padding-left: 0.6rem;
+  }
+  
+  .fa-bus-icon{
+    font-size: 20px;
+  }
+  
+  /* Email, Telephone, Principal, school website */
+  .email-address{
+    font-size: 18px;
+  }
+  
+  .school-tele{
+    font-size: 18px;
+  }
+  
+  .principal{
+    font-size: 18px;
+  }
+  
+  .website{
+    font-size: 18px;
+  }
+
+
+  /* subjects */ 
+  .subjects-card-mf {
+    width: 14rem;
+    padding-right: 0;
+    padding-left: 1.8rem;
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+  
+  .subjects-mf{
+    font-size: 22px;
+    padding-left: 0.6rem;
+  }
+  
+  .subjects-desc-mf {
+    font-size: 18px;
+  }
+  
+  
+  /* CCA */
+  .cca-card-mf {
+    width: 14rem;
+    padding-right: 0;
+    padding-left: 1.8rem;
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+  
+  .cca-container-mf{
+    font-size: 22px;
+    padding-left: 0.6rem;
+  }
+  
+  .cca-category-mf {
+    font-size: 18px;
+  }
+  
+  .cca-name-mf {
+    font-size: 18px;
+  }
+  
+  
+  /* Electives */
+  .elective-card-mf {
+    width: 14rem;
+    padding-right: 0;
+    padding-left: 1.8rem;
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+  
+  .elective-container-mf {
+    font-size: 20px;
+    padding-left: 0.6rem;
+  }
+  
+  .elective-category-mf {
+    font-size: 18px;
+  }
+  
+  .elective-name-mf {
+    font-size: 18px;
+  }
+  
+}

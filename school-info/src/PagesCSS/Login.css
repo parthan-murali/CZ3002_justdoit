@@ -1,0 +1,94 @@
+#tsparticles {
+  position: absolute;
+}
+
+.login {
+  width: 20rem;
+  margin: auto;
+  margin-top: 8%;
+  z-index: 2;
+}
+.login__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #e2d5e6;
+  background-image: linear-gradient(315deg, #f4d2ff 0%, #b8d0e2 74%);
+  padding: 50px 30px;
+  border-radius: 10px;
+  border: 2px solid #ad9ff3;
+}
+.login__textBox {
+  border-radius: 5px;
+  border: 1px solid #cfc7f8;
+  padding: 10px;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+.login__btn {
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  border: none;
+  color: white;
+  background-color: #ee8e6b;
+  background-image: linear-gradient(315deg, #ee8e6b 0%, #ef6da0 74%);
+}
+.login div {
+  margin-top: 7px;
+}
+
+.forget__password {
+  color: crimson;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.forget__password:hover {
+  background-color: transparent;
+  border-bottom: 4px solid rgb(182, 20, 133);
+  margin-bottom: 0;
+}
+
+.sign__up {
+  color: crimson;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.sign__up:hover {
+  background-color: transparent;
+  border-bottom: 4px solid rgb(182, 20, 133);
+  color: crimson;
+}
+
+@media screen and (max-width: 1000px) {
+  .login {
+    width: 25rem;
+    margin: auto;
+    margin-top: 10%;
+  }
+
+  .login__container {
+    padding-top: 20%;
+    padding-bottom: 20%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .login {
+    width: 19rem;
+    margin: auto;
+    margin-top: 20%;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .login {
+    width: 15rem;
+    margin: auto;
+    margin-top: 20%;
+  }
+}

@@ -1,0 +1,86 @@
+.fav-header {
+  padding: 70px;
+  text-align: center;
+}
+
+.fav-title {
+  color: black;
+  display: inline;
+  font-size: 45px;
+  background: linear-gradient(120deg, #80ced7 0%, #80ced7 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 50%;
+  background-position: 0% 120%;
+}
+
+.fav-empty {
+  text-align: center;
+}
+
+.fav-img {
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.fav-empty-heading {
+  font-size: 30px;
+  margin-bottom: 0.5em;
+  color: #0c7187;
+}
+
+.fav-empty-text {
+  font-size: 20px;
+  margin-bottom: 0.5em;
+  color: #0c7187;
+}
+
+.fav-button {
+  cursor: pointer;
+  background-color: #80ced7;
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0c7187;
+  border-style: none;
+  margin-top: 1em;
+}
+
+.fav-button:hover {
+  background-color: #83c5cc;
+  box-shadow: 0.5px 0.5px 10px 2px;
+}
+
+.fav-button:active {
+  color: #c1e7eb;
+  background-color: #0c7187;
+  box-shadow: none;
+}
+
+
+@media screen and (max-width: 700px) {
+  .fav-title {
+    font-size: 35px;
+  }
+  
+  .fav-empty-heading {
+    font-size: 2px;
+    margin-bottom: 0.5em;
+    color: #0c7187;
+  }
+  
+  .fav-empty-text {
+    font-size: 15px;
+    margin-bottom: 0.5em;
+    color: #0c7187;
+  }
+  
+  .fav-button {
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
+  .fav-img {
+    width: 160px;
+  }
+}

@@ -1,0 +1,130 @@
+.dashboard {
+  width: 24rem;
+  margin: auto;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+.dashboard__container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #fcbfaa;
+  background-image: linear-gradient(315deg, #fcbfaa 0%, #f8e4c8 74%);
+  padding: 28px 32px;
+  border-radius: 10px;
+  border: 2px solid #f7d08a;
+}
+
+.dashboard-details {
+  font-size: 24px;
+  border-bottom: 2px solid #6a4bf5;
+  background-color: #e4defd;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+  width: fit-content;
+  margin: auto;
+}
+
+.dashboard-logout-btn {
+  padding: 10px;
+  font-size: 18px;
+  border: none;
+  color: white;
+  background-color: #ee8e6b;
+  background-image: linear-gradient(315deg, #ee8e6b 0%, #ef6da0 74%);
+  border-radius: 5px;
+  width: 90%;
+  margin: auto;
+  margin-top: 10px;
+}
+.dashboard div {
+  margin-top: 7px;
+}
+
+.dashboard-attachment {
+  margin-top: 5px;
+  padding: 6px;
+  border-radius: 5px;
+}
+
+.dashboard-img {
+  width: 200px;
+  clip-path: circle(50%);
+  margin-top: 10px;
+}
+
+.dashboard-name {
+  padding: 8px 0 8px 10px;
+  font-size: 14px;
+  width: 85%;
+  margin: auto;
+  margin-top: 12px;
+  border-radius: 4px;
+  background-color: #fff5f5;
+  border: 1px solid rgb(175, 166, 166);
+}
+
+.dashboard-email {
+  padding: 8px 0 8px 10px;
+  font-size: 14px;
+  width: 85%;
+  margin: auto;
+  margin-top: 12px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  background-color: #fff5f5;
+  border: 1px solid rgb(175, 166, 166);
+}
+
+.dashboard-buttons {
+  padding: 8px 6px 8px 6px;
+  font-size: 14px;
+  border: none;
+  color: white;
+  background-color: #5de6de;
+  background-image: linear-gradient(315deg, #5de6de 0%, #b58ecc 74%);
+  border-radius: 5px;
+  width: 90%;
+  margin: auto;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+  .dashboard {
+    width: 25rem;
+    margin: auto;
+    margin-top: 12%;
+    margin-bottom: 12%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .dashboard {
+    width: 20rem;
+    margin: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+
+  .dashboard-img {
+    width: 60%;
+  }
+
+  .dashboard-details {
+    font-size: 20px;
+  }
+
+  .dashboard-logout-btn {
+    padding: 8px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .dashboard {
+    width: 15rem;
+    margin: auto;
+    margin-top: 20%;
+  }
+}

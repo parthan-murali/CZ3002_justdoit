@@ -1,0 +1,53 @@
+.compare-button {
+  position: relative;
+  font-family: "Saira Condensed", sans-serif;
+  width: fit-content;
+  height: fit-content;
+  font-size: 25px;
+  background-color: #1bc3a5;
+  padding: 2px 6px 2px 6px;
+  border-radius: 5px;
+  top: 7.8rem;
+  left: 9rem;
+  border: 1px solid rgb(42, 153, 142);
+}
+
+.compare-button:hover {
+  border: 1px solid black;
+}
+
+@media screen and (max-width: 1280px) {
+  .compare-button {
+    font-size: 22px;
+    top: 0rem;
+    left: 0rem;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .compare-button {
+    font-size: 22px;
+    top: 0rem;
+    left: 0rem;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .compare-button {
+    font-size: 18px;
+    top: 0rem;
+    left: 0rem;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .compare-button {
+    font-size: 18px;
+    top: 0rem;
+    left: 0rem;
+    margin: auto;
+  }
+}
