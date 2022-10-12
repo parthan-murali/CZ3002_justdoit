@@ -32,7 +32,7 @@ function Navbar() {
       <ul className="navbar-ul">
         <div className="fa-book-icon">
           <FontAwesomeIcon className="fa-book-icon" icon={faBookOpen} />
-          SchoolCompare
+          SchoolInfo
         </div>
         <div className="navbar-headers">
           {/* To Home page */}
