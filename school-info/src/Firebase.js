@@ -37,14 +37,13 @@ import { toast } from "react-toastify";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCnpkoXtoilGMF7PDmWH_zS-wDdB_nsKz0",
-  authDomain: "school-compare-cffbf.firebaseapp.com",
-  databaseURL:
-    "https://school-compare-cffbf-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "school-compare-cffbf",
-  storageBucket: "school-compare-cffbf.appspot.com",
-  messagingSenderId: "788961608159",
-  appId: "1:788961608159:web:d63d54c0a1486aadb6446a",
+  apiKey: "AIzaSyA4pR0JJtgWcUFJeqhOZnz5ZLYoStyVEZA",
+  authDomain: "ntu-e-commerce.firebaseapp.com",
+  projectId: "ntu-e-commerce",
+  storageBucket: "ntu-e-commerce.appspot.com",
+  messagingSenderId: "252491842395",
+  appId: "1:252491842395:web:25cbfc49ce70caa7d1507e",
+  measurementId: "G-8PYCY3QC5H"
 };
 
 // Initialize Firebase
