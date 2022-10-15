@@ -1,5 +1,5 @@
 .search-bar {
-  position: absolute;
+  /* position: absolute; */
   background-color: #e9dddd;
   font-family: "Saira Condensed", sans-serif;
   font-size: 20px;
@@ -7,9 +7,10 @@
   border-radius: 5px;
   padding: 0.4rem;
   text-align: right;
-  width: 28%;
-  top: 6rem;
-  left: 55rem;
+  width: 35rem;
+  /* top: 6rem;
+  left: 55rem; */
+  margin: 1rem;
   padding-right: 5px;
 }
 
