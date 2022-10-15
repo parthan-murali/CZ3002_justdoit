@@ -4,7 +4,7 @@ import ReactPaginate from "react-paginate";
 import { useState } from "react";
 import Dropdown from "../../../Components/Dropdown";
 //import CompareButton from "../../../Components/CompareButton";
-import SideDrawer from "../../../Components/SideDrawer";
+import SchoolsFilter from "../../../Components/SchoolsFilter";
 import data from "../../../JSON/combined_data.json"; // COMBINED DATASET OF EVERYTHING WE NEED
 
 import "../../../ComponentsCSS/PaginationButtons.css";
@@ -76,7 +76,7 @@ function Secondary() {
 
   return searchTerm !== "" ? (
     <>
-      <SideDrawer level="Secondary" />
+      <SchoolsFilter level = "SECONDARY" data={schools}/>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <Dropdown currentPage={"Secondary"} />
         <input
@@ -104,7 +104,7 @@ function Secondary() {
     </>
   ) : (
     <>
-      <SideDrawer level="Secondary" />
+      <SchoolsFilter level="SECONDARY" data={schools}/>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <Dropdown currentPage={"Secondary"} />
         <input

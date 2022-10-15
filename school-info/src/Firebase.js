@@ -32,7 +32,6 @@ import {
 } from "firebase/storage";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
-// import { getDatabase } from "firebase/database";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -43,7 +42,7 @@ const firebaseConfig = {
   storageBucket: "ntu-e-commerce.appspot.com",
   messagingSenderId: "252491842395",
   appId: "1:252491842395:web:25cbfc49ce70caa7d1507e",
-  measurementId: "G-8PYCY3QC5H"
+  measurementId: "G-8PYCY3QC5H",
 };
 
 // Initialize Firebase
