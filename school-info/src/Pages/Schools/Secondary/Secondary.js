@@ -1,5 +1,6 @@
 import React from "react";
 import SchoolsCard from "../../../Components/SchoolsCard";
+import SchoolsList from "../../../Components/SchoolsList";
 import ReactPaginate from "react-paginate";
 import { useState } from "react";
 import Dropdown from "../../../Components/Dropdown";
@@ -10,10 +11,10 @@ import data from "../../../JSON/combined_data.json"; // COMBINED DATASET OF EVER
 import "../../../ComponentsCSS/PaginationButtons.css";
 import "../../../ComponentsCSS/SchoolsCard.css";
 import "../../../ComponentsCSS/SchoolSearchBar.css";
-import "../../../PagesCSS/Schools/Schools.css";
 
 import { SchoolsContext } from "../../../Contexts/SchoolsContext";
 import { useContext } from "react";
+import SecFiltersContext from "../../../Contexts/SecFiltersContext";
 
 function Secondary() {
     const [pageNumber, setPageNumber] = useState(0);
@@ -22,6 +23,7 @@ function Secondary() {
     const [searchTerm, setSearchTerm] = useState("");
 
     const { schoolsContext } = useContext(SchoolsContext);
+    const secFiltersCtx = useContext(SecFiltersContext);
     //let data = schoolsContext.schools;
 
     // initialize schools
@@ -40,14 +42,26 @@ function Secondary() {
         }
     }
 
+    // Determine number of pages
+    let pageCount = Math.ceil(schools.length / schoolsPerPage);
+
     // get only the schools we want
-    const displaySchools = schools
-        .slice(noOfSchoolsVisited, noOfSchoolsVisited + schoolsPerPage)
-        .map((school) => (
-            <div key={school.school_name}>
-                <SchoolsCard data={school} />
-            </div>
-        ));
+    const displaySchools = () => {
+        if (secFiltersCtx.totalFilters === 0) {
+            return schools
+                .slice(noOfSchoolsVisited, noOfSchoolsVisited + schoolsPerPage)
+                .map((school) => (
+                    <div key={school.school_name}>
+                        <SchoolsCard data={school} />
+                    </div>
+                ));
+        } else {
+            pageCount = Math.ceil(
+                secFiltersCtx.filteredSchools.length / schoolsPerPage
+            );
+            return <SchoolsList schools={secFiltersCtx.filteredSchools} />;
+        }
+    };
 
     const searchSchools = schools
         .filter((value) => {
@@ -68,13 +82,13 @@ function Secondary() {
             }
         })
         .map((school) => (
-            <div key={school.school_name} className="d-flex justify-content-center">
+            <div
+                key={school.school_name}
+                className="d-flex justify-content-center"
+            >
                 <SchoolsCard data={school} />
             </div>
         ));
-
-    // Determine number of pages
-    const pageCount = Math.ceil(schools.length / schoolsPerPage);
 
     const handlePageClick = (event) => {
         setPageNumber(event.selected);
@@ -136,7 +150,7 @@ function Secondary() {
                             }}
                         />
                     </div>
-                    {displaySchools}
+                    {displaySchools()}
                     <ReactPaginate
                         previousLabel="<"
                         nextLabel=" >"

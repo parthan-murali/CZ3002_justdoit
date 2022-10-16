@@ -1,10 +1,12 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import SecFiltersContext from "../Contexts/SecFiltersContext";
 // import { collection, query, where, getDocs } from "firebase/firestore";
 // import { db } from "../Firebase";
 
 function SchoolsFilter(props) {
     const schools = props.data;
+    // console.log(schools);
 
     const inLevel = (schName) => {
         let nameList = schools.map((school) => {
@@ -15,6 +17,7 @@ function SchoolsFilter(props) {
     };
 
     const level = props.level;
+    const lvlName = level.toLowerCase();
     const districts = getDistricts(schools);
     const [ccaGrps, setCCAGrps] = useState(null);
     const [subjects, setSubjects] = useState(null);
@@ -30,6 +33,19 @@ function SchoolsFilter(props) {
         "Specialised School",
     ];
     const others = ["Gifted Education Programme", "Integrated Programme"];
+
+    const [locationF, setLocationF] = useState("");
+    const [ccaF, setCCAF] = useState("");
+    const [subjectF, setSubjectF] = useState([]);
+    const [electiveF, setElectiveF] = useState([]);
+    const [minF, setMinF] = useState(4);
+    const [maxF, setMaxF] = useState(32);
+    let genderDict = Object.assign({}, ...genders.map((x) => ({ [x]: false })));
+    const [genderF, setGenderF] = useState(genderDict);
+    let typeDict = Object.assign({}, ...types.map((x) => ({ [x]: false })));
+    const [typeF, setTypeF] = useState(typeDict);
+    let otherDict = Object.assign({}, ...others.map((x) => ({ [x]: false })));
+    const [otherF, setOtherF] = useState(otherDict);
 
     async function fetchData() {
         let controller = new AbortController();
@@ -49,6 +65,7 @@ function SchoolsFilter(props) {
                     rec.school_section === "MIXED LEVELS"
                 );
             });
+            localStorage.setItem(lvlName + "CCAData", JSON.stringify(ccaData));
             let groups = new Set(
                 ccaData.map((rec) => {
                     return rec.cca_grouping_desc;
@@ -62,6 +79,10 @@ function SchoolsFilter(props) {
             subjectData = subjectData.filter((rec) => {
                 return inLevel(rec.school_name);
             });
+            localStorage.setItem(
+                lvlName + "subjectData",
+                JSON.stringify(subjectData)
+            );
             let subjSet = new Set(
                 subjectData.map((rec) => {
                     return rec.subject_desc;
@@ -75,6 +96,10 @@ function SchoolsFilter(props) {
             electiveData = electiveData.filter((rec) => {
                 return inLevel(rec.school_name);
             });
+            localStorage.setItem(
+                lvlName + "electiveData",
+                JSON.stringify(electiveData)
+            );
             let elecSet = new Set(
                 electiveData.map((rec) => {
                     return rec.moe_programme_desc;
@@ -96,11 +121,12 @@ function SchoolsFilter(props) {
 
         if (isMounted) {
             fetchData();
+            localStorage.setItem(lvlName + "Schools", JSON.stringify(schools));
         }
         return () => {
             isMounted = false;
         };
-    }, []);
+    }, [level]);
 
     function titleCase(str) {
         // console.log("str =", str);
@@ -129,6 +155,111 @@ function SchoolsFilter(props) {
         return sortedDistricts;
     }
 
+    const secFiltersCtx = useContext(SecFiltersContext);
+
+    function toggleFilterAdd(filter, value) {
+        console.log("Handling filter add");
+        secFiltersCtx.addFilter(filter, value);
+    }
+
+    function toggleFilterRemove(filter, value) {
+        console.log("Handling filter remove");
+        secFiltersCtx.removeFilter(filter, value);
+    }
+
+    function validTerm(field, term) {
+        let upper = term.toUpperCase();
+
+        if (field === "subjects") {
+            return subjects.indexOf(upper);
+        } else if (field === "electives") {
+            return electives.indexOf(upper);
+        }
+    }
+
+    function handleChange(e) {
+        console.log("Entering HANDLE CHANGE");
+        let id = e.target.id;
+        let val = e.target.value;
+        // console.log("val =", val, "val type =", typeof val);
+        if (id === "location") {
+            console.log("Before =", locationF);
+            setLocationF(val);
+            console.log("After Change =", locationF);
+        } else if (id === "cca") {
+            console.log("Before =", ccaF);
+            setCCAF(val);
+            console.log("After =", ccaF);
+        } else if (id === "subjects") {
+            console.log("Before =", subjectF);
+            let idx = subjectF.indexOf(val);
+            let validIdx = validTerm(id, val);
+            // check if already in Subject filter and if typed input is valid
+            if (idx === -1 && validIdx !== -1) {
+                console.log("Valid");
+                subjectF.push(subjects[validIdx]);
+            } else if (validIdx !== -1 && idx !== -1) {
+                console.log("Already filtered");
+            }
+            // TODO: Delete from multi-filters
+            // subjectF.splice(idx, 1);
+
+            setSubjectF(subjectF);
+            console.log("After =", subjectF);
+        } else if (id === "electives") {
+            console.log("Before =", electiveF);
+            let idx = electiveF.indexOf(val);
+            let validIdx = validTerm(id, val);
+            // check if already in Elective filter and if typed input is valid
+            if (idx === -1 && validIdx !== -1) {
+                console.log("Valid");
+                electiveF.push(electives[validIdx]);
+            } else if (validIdx !== -1 && idx !== -1) {
+                console.log("Already filtered");
+            }
+            // TODO: Delete from multi-filters
+            // subjectF.splice(idx, 1);
+
+            setElectiveF(electiveF);
+            console.log("After =", electiveF);
+        } else if (id === "min") {
+            console.log("Before =", minF);
+            setMinF(val);
+            console.log("After Change =", minF);
+        } else if (id === "max") {
+            console.log("Before =", maxF);
+            setMaxF(val);
+            console.log("After Change =", maxF);
+        }
+    }
+
+    // TODO: Disable filters when fetchData() not completed yet!
+
+    function handleClick(e) {
+        console.log("Entering HANDLE CLICK");
+
+        let id = e.target.id;
+        let val = e.target.value;
+        if (id === "location") {
+            setLocationF(val);
+            console.log("After click =", locationF);
+            if (val !== "") {
+                toggleFilterAdd(id, val);
+            } else {
+                console.log("Clicked on select =", val);
+            }
+        } else if (id === "cca") {
+            setLocationF(val);
+            console.log("After click =", ccaF);
+        } else if (id === "min") {
+            setMinF(val);
+            console.log("After click =", minF);
+        } else if (id === "max") {
+            setMaxF(val);
+            console.log("After click =", maxF);
+        }
+    }
+
     return (
         <form id="school-filters">
             <div className="accordian" id="filterSections">
@@ -153,7 +284,13 @@ function SchoolsFilter(props) {
                     >
                         <div className="accordion-body">
                             <label htmlFor="location">Location</label>
-                            <select className="form-select" id="location">
+                            <select
+                                className="form-select"
+                                id="location"
+                                value={locationF}
+                                onChange={handleChange}
+                                onClick={handleClick}
+                            >
                                 <option value="">Select an area</option>
                                 {districts.map(function (district) {
                                     return (
@@ -189,7 +326,13 @@ function SchoolsFilter(props) {
                             <label htmlFor="cca" className="form-label">
                                 CCAs
                             </label>
-                            <select className="form-select" id="cca">
+                            {/* TODO: Add specific CCA name search */}
+                            <select
+                                className="form-select"
+                                id="cca"
+                                onChange={handleChange}
+                                onClick={handleClick}
+                            >
                                 <option value="">All categories</option>
                                 {ccaGrps?.map(function (ccaGrp) {
                                     return (
@@ -230,6 +373,7 @@ function SchoolsFilter(props) {
                                 list="subjectOptions"
                                 id="subjects"
                                 placeholder="Search for subjects"
+                                onChange={handleChange}
                             />
                             <datalist id="subjectOptions">
                                 {subjects?.map(function (subj) {
@@ -272,6 +416,7 @@ function SchoolsFilter(props) {
                                 list="electiveOptions"
                                 id="electives"
                                 placeholder="Search for electives or programmes"
+                                onChange={handleChange}
                             />
                             <datalist id="electiveOptions">
                                 {electives?.map(function (elec) {
@@ -309,21 +454,42 @@ function SchoolsFilter(props) {
                             <label htmlFor="scoreRange" className="form-label">
                                 PSLE Score
                             </label>
-                            <div class="input-group">
-                                <span class="input-group-text">From</span>
-                                <input
-                                    type="text"
-                                    aria-label="Min score"
-                                    placeholder="4"
-                                    class="form-control"
-                                />
-                                <span class="input-group-text">To</span>
-                                <input
-                                    type="text"
-                                    aria-label="Max score"
-                                    placeholder="32"
-                                    class="form-control"
-                                />
+                            <div className="input-group">
+                                <span className="input-group-text">From</span>
+                                <select
+                                    className="form-select"
+                                    id="min"
+                                    onChange={handleChange}
+                                    onClick={handleClick}
+                                >
+                                    {[...Array(29).keys()].map((i) => {
+                                        return (
+                                            <option value={i + 4} key={i + 4}>
+                                                {i + 4}
+                                            </option>
+                                        );
+                                    })}
+                                </select>
+                                <span className="input-group-text">To</span>
+                                <select
+                                    className="form-select"
+                                    id="max"
+                                    onChange={handleChange}
+                                    onClick={handleClick}
+                                >
+                                    {[...Array(29).keys()]
+                                        .reverse()
+                                        .map((i) => {
+                                            return (
+                                                <option
+                                                    value={i + 4}
+                                                    key={i + 4}
+                                                >
+                                                    {i + 4}
+                                                </option>
+                                            );
+                                        })}
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -358,6 +524,15 @@ function SchoolsFilter(props) {
                                                 type="checkbox"
                                                 value={item}
                                                 id={item}
+                                                onClick={(e) => {
+                                                    let temp = genderF;
+                                                    temp[item] = !temp[item];
+                                                    setGenderF(temp);
+                                                    console.log(
+                                                        "Gender =",
+                                                        genderF
+                                                    );
+                                                }}
                                             />
                                             <label
                                                 className="form-check-label"
@@ -379,6 +554,15 @@ function SchoolsFilter(props) {
                                                 type="checkbox"
                                                 value={item}
                                                 id={item}
+                                                onClick={(e) => {
+                                                    let temp = typeF;
+                                                    temp[item] = !temp[item];
+                                                    setTypeF(temp);
+                                                    console.log(
+                                                        "Type =",
+                                                        typeF
+                                                    );
+                                                }}
                                             />
                                             <label
                                                 className="form-check-label"
@@ -400,6 +584,15 @@ function SchoolsFilter(props) {
                                                 type="checkbox"
                                                 value={item}
                                                 id={item}
+                                                onClick={(e) => {
+                                                    let temp = otherF;
+                                                    temp[item] = !temp[item];
+                                                    setOtherF(temp);
+                                                    console.log(
+                                                        "Other =",
+                                                        otherF
+                                                    );
+                                                }}
                                             />
                                             <label
                                                 className="form-check-label"

@@ -11,15 +11,18 @@ import "react-bootstrap";
 import { ToastContainer } from "react-toastify";
 import { SchoolsContextProvider } from "./Contexts/SchoolsContext";
 import { CompareContextProvider } from "./Contexts/CompareContext";
+import { SecFiltersContextProvider } from "./Contexts/SecFiltersContext";
 
 ReactDOM.render(
     <SchoolsContextProvider>
         <FavouritesContextProvider>
             <CompareContextProvider>
-                <BrowserRouter>
-                    <App />
-                    <ToastContainer />
-                </BrowserRouter>
+                <SecFiltersContextProvider>
+                    <BrowserRouter>
+                        <App />
+                        <ToastContainer />
+                    </BrowserRouter>
+                </SecFiltersContextProvider>
             </CompareContextProvider>
         </FavouritesContextProvider>
     </SchoolsContextProvider>,
