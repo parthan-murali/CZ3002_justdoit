@@ -97,10 +97,10 @@ function Secondary() {
 
     return searchTerm !== "" ? (
         <div className="d-flex">
-            <div id="sidebar" className="p-2 flex-fill">
+            <div id="sidebar" className="w-25 p-2 flex-fill">
                 <SchoolsFilter level="SECONDARY" data={schools} />
             </div>
-            <div id="content" className="p-5 flex-fill">
+            <div id="content" className="w-75 p-5 flex-fill">
                 <div className="p-2 flex-fill">
                     <Dropdown currentPage={"Secondary"} />
                     <input
@@ -128,11 +128,11 @@ function Secondary() {
             </div>
         </div>
     ) : (
-        <div className="d-flex">
-            <div id="sidebar" className="p-2 flex-fill">
+        <div className="d-flex m-5">
+            <div id="sidebar" className="col-3 me-3">
                 <SchoolsFilter level="SECONDARY" data={schools} />
             </div>
-            <div id="content" className="p-5 flex-fill">
+            <div id="content" className="col ms-3">
                 <div className="d-flex flex-column">
                     <div className="d-flex justify-content-center">
                         <div className="school-level-title">
