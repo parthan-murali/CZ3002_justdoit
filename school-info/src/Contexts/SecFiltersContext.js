@@ -1,13 +1,13 @@
-import React from "react";
 import { createContext } from "react";
 import { useState, useEffect } from "react";
+import cutOffs from "../JSON/PSLE Cut-Off.json";
 
 const SecFiltersContext = createContext({
     filters: {},
-    totalFilters: 0,
     filteredSchools: [],
     addFilter: (filter, value) => {},
     removeFilter: (filter, value) => {},
+    getFilterCount: () => {},
     itemIsFilter: (schoolId) => {},
 }); //context is a javascript object
 // these are initial values
@@ -15,95 +15,294 @@ const SecFiltersContext = createContext({
 export function SecFiltersContextProvider(props) {
     const [userFilters, setuserFilters] = useState({
         location: null,
-        cca: null,
-        subject: [],
-        min: 4,
-        max: 32,
-        gender: [],
-        type: [],
-        other: [],
+        ccas: new Set(),
+        subjects: new Set(),
+        min: "4",
+        max: "32",
+        genders: new Set(),
+        types: new Set(),
+        others: new Set(),
     });
-
-    const [count, setCount] = useState(0);
 
     const savedSchools = localStorage.getItem("secondarySchools");
     const initialSchools = JSON.parse(savedSchools);
-    const [schools, setSchools] = useState(initialSchools);
+    var schools = initialSchools;
+    const [filtered, setFiltered] = useState([]);
 
-    function byLocation(location) {
-        let res = schools.filter((s) => {
+    const savedCCAs = JSON.parse(localStorage.getItem("secondaryCCAData"));
+
+    useEffect(() => {
+        let isMounted = true;
+
+        if (isMounted) {
+            doFiltering();
+        }
+        return () => {
+            isMounted = false;
+        };
+    }, [userFilters]);
+
+    useEffect(() => {}, [filtered]);
+
+    function byLocation() {
+        let location = userFilters.location;
+
+        schools = schools.filter((s) => {
             return s.dgp_code === location;
         });
-        return res;
     }
 
-    // function by
+    function byCCAs() {
+        let ccaArr = userFilters.ccas;
+        console.log("by CCAs schools =", schools);
+
+        // get rows in CCAData that has chosen CCA filters
+        let chosenRows = savedCCAs.filter((rec) => {
+            return ccaArr.has(rec.cca_generic_name);
+        });
+
+        let chosenNames = new Set(
+            chosenRows.map((row) => {
+                return row.school_name;
+            })
+        );
+
+        schools = schools.filter((s) => {
+            return chosenNames.has(s.school_name);
+        });
+    }
+
+    function byScore() {
+        let min = userFilters.min;
+        let max = userFilters.max;
+        console.log("min =", min);
+        console.log("max =", max);
+
+        // get all rows of cutoffs where the requested range fits
+        let withinRange = cutOffs.filter((rec) => {
+            let ranges = [];
+
+            console.log("Name =", rec.Name);
+            let ex1 = rec.Express.Affiliated;
+            console.log("ex1 =", ex1);
+            if (ex1 !== "Nil" && ex1 !== "NIL") {
+                ex1 = ex1.split("-");
+                ex1 = ex1.map((n) => {
+                    return n.replace(/\D/g, "");
+                });
+                ranges.push(ex1);
+            }
+
+            // console.log("Get ex2");
+            let ex2 = rec.Express.Non_affiliated;
+            console.log("ex2 =", ex2);
+            if (ex2 !== "Nil" && ex2 !== "NIL") {
+                ex2 = ex2.split("-");
+                console.log("ex2 =", ex2);
+                ex2 = ex2.map((n) => {
+                    return n.replace(/\D/g, "");
+                });
+                console.log("ex2 =", ex2);
+                ranges.push(ex2);
+            }
+
+            // console.log("Get na1");
+            let na1 = rec.Na.Affiliated;
+            if (na1 !== "Nil" && na1 !== "NIL") {
+                na1 = na1.split("-");
+                ranges.push(na1);
+            }
+
+            // console.log("Get na2");
+            let na2 = rec.Na.Non_affiliated;
+            if (na2 !== "Nil" && na2 !== "NIL") {
+                na2 = na2.split("-");
+                ranges.push(na2);
+            }
+
+            let nt1 = rec.Nt.Affiliated;
+            if (nt1 !== "Nil" && nt1 !== "NIL") {
+                nt1 = nt1.split("-");
+                ranges.push(nt1);
+            }
+
+            let nt2 = rec.Nt.Non_affiliated;
+            if (nt2 !== "Nil" && nt2 !== "NIL") {
+                nt2 = nt2.split("-");
+                ranges.push(nt2);
+            }
+
+            for (let i = parseInt(min); i <= parseInt(max); i++) {
+                console.log("Hello");
+                for (let j = 0; j < ranges.length; j++) {
+                    console.log(
+                        "Name =",
+                        rec.Name,
+                        "i =",
+                        i,
+                        "range =",
+                        ranges[j][0],
+                        ranges[j][1]
+                    );
+                    if (i >= ranges[j][0] && i <= ranges[j][1]) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        });
+
+        let chosenNames = withinRange.map((row) => {
+            let name = row.Name;
+            if (
+                name.charAt(name.length - 2) + name.charAt(name.length - 1) ===
+                "IP"
+            ) {
+                console.log("IP!");
+                name = name.slice(0, -3);
+            }
+            return name.toUpperCase();
+        });
+
+        console.log("chosenNames =", chosenNames);
+
+        schools = schools.filter((s) => {
+            return chosenNames.includes(s.school_name);
+        });
+    }
+
+    function doFiltering() {
+        schools = initialSchools;
+        console.log("Schools reset: ", schools);
+        if (userFilters.location) {
+            console.log("Filtering by location", userFilters.location);
+            byLocation();
+        }
+        if (userFilters.ccas.size !== 0) {
+            console.log("Filtering by CCAs", userFilters.ccas);
+            byCCAs();
+        }
+        if (userFilters.min !== "4" || userFilters.max !== "32") {
+            console.log(
+                "Filtering by score range",
+                userFilters.min,
+                "-",
+                userFilters.max
+            );
+            byScore();
+        }
+        setFiltered(schools);
+        // console.log("filtered =", filtered);
+    }
 
     function addFilterHandler(filter, value) {
-        setuserFilters((prevUserFilters) => {
-            console.log("Prev filters =", prevUserFilters);
-            if (prevUserFilters[filter] === null) {
-                console.log("Single-value");
-                prevUserFilters[filter] = value;
-                return prevUserFilters;
-            } else if (typeof prevUserFilters[filter] === "string") {
-                console.log("Single-value, removing existing first");
-                removeFilterHandler(filter, value);
-                prevUserFilters[filter] = value;
-                return prevUserFilters;
-            } else {
-                prevUserFilters[filter].push(value);
-                return prevUserFilters;
+        console.log("In SecFiltersContext > addFilterHandler...");
+
+        setuserFilters((prev) => {
+            console.log("Prev filters =", prev);
+            let newSet;
+
+            switch (filter) {
+                case "location":
+                    return { ...prev, location: value };
+                case "min":
+                    return { ...prev, min: value };
+                case "max":
+                    return { ...prev, max: value };
+                case "ccas":
+                    // newSet = prev.ccas.add(value);
+                    return { ...prev, ccas: value };
+                case "subjects":
+                    // newSet = prev.subjects.add(value);
+                    return { ...prev, subjects: value };
+                case "genders":
+                    // newSet = prev.genders.add(value);
+                    return { ...prev, genders: value };
+                case "types":
+                    // newSet = prev.types.add(value);
+                    return { ...prev, types: value };
+                case "others":
+                    // newSet = prev.others.add(value);
+                    return { ...prev, others: value };
+                default:
+                    return prev;
             }
         });
         console.log("New filters =", userFilters);
         // TODO: Handle duplicates
 
-        setCount(count + 1);
+        // setCount(count + 1);
 
-        if (filter === "location") {
-            console.log("Adding location filter", value);
-            setSchools(byLocation(value));
-        }
+        // doFiltering();
     }
 
     function removeFilterHandler(filter, value) {
-        setuserFilters((prevUserFilters) => {
-            console.log("Prev filters =", prevUserFilters);
-            if (typeof prevUserFilters[filter] === "string") {
-                console.log("Removing single-value");
-                prevUserFilters[filter] = null;
-                return prevUserFilters;
-            } else if (prevUserFilters[filter] === null) {
-                setCount(count + 1); // prevent getting negative number when setting count below
-                return prevUserFilters;
-            } else {
-                let idx = prevUserFilters[filter].indexOf(value);
-                prevUserFilters[filter].splice(idx, 1);
-                return prevUserFilters;
+        console.log("In SecFiltersContext > removeFilterHandler...");
+
+        setuserFilters((prev) => {
+            console.log("Prev filters =", prev);
+            let newSet;
+
+            switch (filter) {
+                case "location":
+                    return { ...prev, location: null };
+                case "min":
+                    return { ...prev, min: 4 };
+                case "max":
+                    return { ...prev, max: 32 };
+                case "ccas":
+                    newSet = prev.ccas.delete(value);
+                    return { ...prev, ccas: newSet };
+                case "subjects":
+                    newSet = prev.subjects.delete(value);
+                    return { ...prev, subjects: newSet };
+                case "genders":
+                    newSet = prev.genders.delete(value);
+                    return { ...prev, genders: newSet };
+                case "types":
+                    newSet = prev.types.delete(value);
+                    return { ...prev, types: newSet };
+                case "others":
+                    newSet = prev.others.delete(value);
+                    return { ...prev, others: newSet };
+                default:
+                    return prev;
             }
         });
         console.log("New filters =", userFilters);
         // TODO: Handle duplicates
 
-        setCount(count - 1);
+        // setCount(count - 1);
 
-        if (filter === "location") {
-            console.log("Removing location filter", value);
-            setSchools(initialSchools);
-        }
+        // doFiltering();
     }
 
     function itemIsFilterHandler(schoolId) {
         return userFilters.some((school) => school._id === schoolId);
     }
 
+    function getFilterCount() {
+        let count =
+            userFilters.ccas.size +
+            userFilters.genders.size +
+            userFilters.subjects.size +
+            userFilters.types.size +
+            userFilters.others.size;
+        if (userFilters.location) {
+            count += 1;
+        }
+        if (userFilters.min !== "4" || userFilters.max !== "32") {
+            count += 1;
+        }
+        return count;
+    }
+
     const context = {
         filters: userFilters,
-        totalFilters: count,
-        filteredSchools: schools,
+        filteredSchools: filtered,
         addFilter: addFilterHandler,
         removeFilter: removeFilterHandler,
+        countFilters: getFilterCount,
         itemIsFilter: itemIsFilterHandler,
         // exposes these functions to all wrapped components
     };

@@ -47,7 +47,8 @@ function Secondary() {
 
     // get only the schools we want
     const displaySchools = () => {
-        if (secFiltersCtx.totalFilters === 0) {
+        console.log("Filter count:", secFiltersCtx.countFilters());
+        if (secFiltersCtx.countFilters() === 0) {
             return schools
                 .slice(noOfSchoolsVisited, noOfSchoolsVisited + schoolsPerPage)
                 .map((school) => (

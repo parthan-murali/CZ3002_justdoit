@@ -36,10 +36,10 @@ function SchoolsFilter(props) {
 
     const [locationF, setLocationF] = useState("");
     const [ccaF, setCCAF] = useState("");
-    const [subjectF, setSubjectF] = useState([]);
-    const [electiveF, setElectiveF] = useState([]);
-    const [minF, setMinF] = useState(4);
-    const [maxF, setMaxF] = useState(32);
+    const [subjectF, setSubjectF] = useState(new Set());
+    const [electiveF, setElectiveF] = useState(new Set());
+    const [minF, setMinF] = useState("4");
+    const [maxF, setMaxF] = useState("32");
     let genderDict = Object.assign({}, ...genders.map((x) => ({ [x]: false })));
     const [genderF, setGenderF] = useState(genderDict);
     let typeDict = Object.assign({}, ...types.map((x) => ({ [x]: false })));
@@ -80,7 +80,7 @@ function SchoolsFilter(props) {
                 return inLevel(rec.school_name);
             });
             localStorage.setItem(
-                lvlName + "subjectData",
+                lvlName + "SubjectData",
                 JSON.stringify(subjectData)
             );
             let subjSet = new Set(
@@ -97,7 +97,7 @@ function SchoolsFilter(props) {
                 return inLevel(rec.school_name);
             });
             localStorage.setItem(
-                lvlName + "electiveData",
+                lvlName + "ElectiveData",
                 JSON.stringify(electiveData)
             );
             let elecSet = new Set(
@@ -120,6 +120,7 @@ function SchoolsFilter(props) {
         let isMounted = true;
 
         if (isMounted) {
+            console.log("Fetching...");
             fetchData();
             localStorage.setItem(lvlName + "Schools", JSON.stringify(schools));
         }
@@ -158,12 +159,12 @@ function SchoolsFilter(props) {
     const secFiltersCtx = useContext(SecFiltersContext);
 
     function toggleFilterAdd(filter, value) {
-        console.log("Handling filter add");
+        console.log("SchoolsFilter > toggleFilterAdd");
         secFiltersCtx.addFilter(filter, value);
     }
 
     function toggleFilterRemove(filter, value) {
-        console.log("Handling filter remove");
+        console.log("SchoolsFilter > toggleFilterRemove");
         secFiltersCtx.removeFilter(filter, value);
     }
 
@@ -178,87 +179,63 @@ function SchoolsFilter(props) {
     }
 
     function handleChange(e) {
-        console.log("Entering HANDLE CHANGE");
         let id = e.target.id;
         let val = e.target.value;
-        // console.log("val =", val, "val type =", typeof val);
-        if (id === "location") {
-            console.log("Before =", locationF);
-            setLocationF(val);
-            console.log("After Change =", locationF);
-        } else if (id === "cca") {
-            console.log("Before =", ccaF);
-            setCCAF(val);
-            console.log("After =", ccaF);
-        } else if (id === "subjects") {
-            console.log("Before =", subjectF);
-            let idx = subjectF.indexOf(val);
-            let validIdx = validTerm(id, val);
-            // check if already in Subject filter and if typed input is valid
-            if (idx === -1 && validIdx !== -1) {
-                console.log("Valid");
-                subjectF.push(subjects[validIdx]);
-            } else if (validIdx !== -1 && idx !== -1) {
-                console.log("Already filtered");
-            }
-            // TODO: Delete from multi-filters
-            // subjectF.splice(idx, 1);
+        let newSet;
 
-            setSubjectF(subjectF);
-            console.log("After =", subjectF);
-        } else if (id === "electives") {
-            console.log("Before =", electiveF);
-            let idx = electiveF.indexOf(val);
-            let validIdx = validTerm(id, val);
-            // check if already in Elective filter and if typed input is valid
-            if (idx === -1 && validIdx !== -1) {
-                console.log("Valid");
-                electiveF.push(electives[validIdx]);
-            } else if (validIdx !== -1 && idx !== -1) {
-                console.log("Already filtered");
-            }
-            // TODO: Delete from multi-filters
-            // subjectF.splice(idx, 1);
+        switch (id) {
+            case "location":
+                console.log("Before Change:", locationF);
+                setLocationF(val);
+                console.log("After Change:", locationF);
+                toggleFilterRemove("location", locationF);
+                toggleFilterAdd("location", locationF);
+                break;
+            case "ccas":
+                console.log("Before:", ccaF);
+                newSet = ccaF.add(val);
+                setCCAF(newSet);
+                console.log("After: ", ccaF);
+                toggleFilterAdd(id, newSet); // when adding, input the whole array
+                break;
+            case "min":
+                console.log("Before Change:", minF);
+                setMinF(val);
+                console.log("After Change:", minF);
+                toggleFilterRemove("min", minF);
+                toggleFilterAdd("min", minF);
+                break;
+            case "max":
+                console.log("Before Change:", maxF);
+                setMaxF(val);
+                console.log("After Change:", maxF);
+                toggleFilterRemove("max", maxF);
+                toggleFilterAdd("max", maxF);
+                break;
+            default:
+                console.log("Default Change");
+        }
+    }
 
-            setElectiveF(electiveF);
-            console.log("After =", electiveF);
-        } else if (id === "min") {
-            console.log("Before =", minF);
-            setMinF(val);
-            console.log("After Change =", minF);
-        } else if (id === "max") {
-            console.log("Before =", maxF);
-            setMaxF(val);
-            console.log("After Change =", maxF);
+    function handleClick(e) {
+        let id = e.target.id;
+        let val = e.target.value;
+
+        switch (id) {
+            case "location":
+                console.log("val =", val, "locationF =", locationF);
+                if (val !== "" && val !== locationF) {
+                    setLocationF(val);
+                    console.log("After Click:", locationF);
+                    toggleFilterRemove("location", locationF);
+                    toggleFilterAdd("location", locationF);
+                }
+            default:
+                console.log("Default Click");
         }
     }
 
     // TODO: Disable filters when fetchData() not completed yet!
-
-    function handleClick(e) {
-        console.log("Entering HANDLE CLICK");
-
-        let id = e.target.id;
-        let val = e.target.value;
-        if (id === "location") {
-            setLocationF(val);
-            console.log("After click =", locationF);
-            if (val !== "") {
-                toggleFilterAdd(id, val);
-            } else {
-                console.log("Clicked on select =", val);
-            }
-        } else if (id === "cca") {
-            setLocationF(val);
-            console.log("After click =", ccaF);
-        } else if (id === "min") {
-            setMinF(val);
-            console.log("After click =", minF);
-        } else if (id === "max") {
-            setMaxF(val);
-            console.log("After click =", maxF);
-        }
-    }
 
     return (
         <form id="school-filters">
@@ -288,8 +265,10 @@ function SchoolsFilter(props) {
                                 className="form-select"
                                 id="location"
                                 value={locationF}
-                                onChange={handleChange}
-                                onClick={handleClick}
+                                onChange={(e) => {
+                                    setLocationF(e.target.value);
+                                }}
+                                onClick={handleChange}
                             >
                                 <option value="">Select an area</option>
                                 {districts.map(function (district) {
@@ -323,25 +302,26 @@ function SchoolsFilter(props) {
                         data-bs-parent="#filterSections"
                     >
                         <div className="accordion-body">
-                            <label htmlFor="cca" className="form-label">
+                            <label htmlFor="ccas" className="form-label">
                                 CCAs
                             </label>
-                            {/* TODO: Add specific CCA name search */}
-                            <select
-                                className="form-select"
-                                id="cca"
+                            <input
+                                className="form-control"
+                                list="ccaOptions"
+                                id="ccas"
+                                placeholder="Search for CCAs"
                                 onChange={handleChange}
-                                onClick={handleClick}
-                            >
-                                <option value="">All categories</option>
-                                {ccaGrps?.map(function (ccaGrp) {
+                            />
+                            <datalist id="ccaOptions">
+                                {ccaGrps?.map(function (cca) {
                                     return (
-                                        <option value={ccaGrp} key={ccaGrp}>
-                                            {titleCase(ccaGrp)}
-                                        </option>
+                                        <option
+                                            value={titleCase(cca)}
+                                            key={cca}
+                                        ></option>
                                     );
                                 })}
-                            </select>
+                            </datalist>
                         </div>
                     </div>
                 </div>
@@ -459,8 +439,10 @@ function SchoolsFilter(props) {
                                 <select
                                     className="form-select"
                                     id="min"
-                                    onChange={handleChange}
-                                    onClick={handleClick}
+                                    onChange={(e) => {
+                                        setMinF(e.target.value);
+                                    }}
+                                    onClick={handleChange}
                                 >
                                     {[...Array(29).keys()].map((i) => {
                                         return (
@@ -474,8 +456,10 @@ function SchoolsFilter(props) {
                                 <select
                                     className="form-select"
                                     id="max"
-                                    onChange={handleChange}
-                                    onClick={handleClick}
+                                    onChange={(e) => {
+                                        setMaxF(e.target.value);
+                                    }}
+                                    onClick={handleChange}
                                 >
                                     {[...Array(29).keys()]
                                         .reverse()

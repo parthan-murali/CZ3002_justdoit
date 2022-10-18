@@ -6,9 +6,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "15-20" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "15-20" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Ahmad Ibrahim Secondary School",
@@ -17,9 +17,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "10-17" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "10-17" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Anderson Secondary School",
@@ -28,9 +28,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "4-10" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-23" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-27" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "4-10" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-23" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-27" }
   },
   {
     "Name": "Ang Mo Kio Secondary School",
@@ -39,9 +39,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "11-16" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "11-16" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Anglican High School",
@@ -50,9 +50,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "Yes",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "5(D)-12(P)" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "5(D)-12(P)" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Anglo-Chinese School (Barker Road)",
@@ -61,9 +61,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "7-22", "Non-affiliated": "6-11" },
-    "NA": { "Affiliated": "21-24", "Non-affiliated": "21-21" },
-    "NT": { "Affiliated": "25-28", "Non-affiliated": "25-26" }
+    "Express": { "Affiliated": "7-22", "Non_affiliated": "6-11" },
+    "Na": { "Affiliated": "21-24", "Non_affiliated": "21-21" },
+    "Nt": { "Affiliated": "25-28", "Non_affiliated": "25-26" }
   },
   {
     "Name": "Anglo-Chinese School (Independent)",
@@ -72,9 +72,9 @@
     "Independent": "Yes",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "7-13", "Non-affiliated": "6-9" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "7-13", "Non_affiliated": "6-9" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Anglo-Chinese School (Independent) IP",
@@ -83,9 +83,9 @@
     "Independent": "Yes",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "4-7" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "4-7" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Assumption English School",
@@ -94,9 +94,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "10-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "22-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-29" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "10-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "22-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-29" }
   },
   {
     "Name": "Bartley Secondary School",
@@ -105,9 +105,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "13-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "13-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Beatty Secondary School",
@@ -116,9 +116,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "12-18" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-27" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "12-18" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-27" }
   },
   {
     "Name": "Bedok Green Secondary School",
@@ -127,9 +127,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "13-20" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-26" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "13-20" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-26" }
   },
   {
     "Name": "Bedok South Secondary School",
@@ -138,9 +138,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "14-19" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "14-19" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Bedok View Secondary School",
@@ -149,9 +149,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "13-18" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "13-18" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Bendemeer Secondary School",
@@ -160,9 +160,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "8-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-29" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "8-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-29" }
   },
   {
     "Name": "Boon Lay Secondary School",
@@ -171,9 +171,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "8-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-30" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "8-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-30" }
   },
   {
     "Name": "Bowen Secondary School",
@@ -182,9 +182,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "10-16" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-27" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "10-16" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-27" }
   },
   {
     "Name": "Broadrick Secondary School",
@@ -193,9 +193,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "7-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-30" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "7-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-30" }
   },
   {
     "Name": "Bukit Batok Secondary School",
@@ -204,9 +204,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "11-15" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-23" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "11-15" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-23" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Bukit Merah Secondary School",
@@ -215,9 +215,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "9-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "9-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Bukit Panjang Government High School",
@@ -226,9 +226,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "6-11" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-22" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-26" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "6-11" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-22" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-26" }
   },
   {
     "Name": "Bukit View Secondary School",
@@ -237,9 +237,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "14-19" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "26-30" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "14-19" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "26-30" }
   },
   {
     "Name": "Canberra Secondary School",
@@ -248,9 +248,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "11-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-29" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "11-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-29" }
   },
   {
     "Name": "Catholic High School",
@@ -259,9 +259,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "Yes",
-    "Express": { "Affiliated": "6(M)-12", "Non-affiliated": "6(M)-9(M)" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "6(M)-12", "Non_affiliated": "6(M)-9(M)" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Catholic High School IP",
@@ -270,9 +270,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "Yes",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "5(M)-8(M)" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "5(M)-8(M)" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Cedar Girls' Secondary School",
@@ -281,9 +281,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "4-9" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "4-9" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Cedar Girls' Secondary School IP",
@@ -292,9 +292,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "4-8" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "4-8" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Changkat Changi Secondary School",
@@ -303,9 +303,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "13-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "13-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "CHIJ Katong Convent",
@@ -314,9 +314,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "No",
-    "Express": { "Affiliated": "11-20", "Non-affiliated": "11-15" },
-    "NA": { "Affiliated": "21-25", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "26-28", "Non-affiliated": "25-30" }
+    "Express": { "Affiliated": "11-20", "Non_affiliated": "11-15" },
+    "Na": { "Affiliated": "21-25", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "26-28", "Non_affiliated": "25-30" }
   },
   {
     "Name": "CHIJ Secondary (Toa Payoh)",
@@ -325,9 +325,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "No",
-    "Express": { "Affiliated": "7-20", "Non-affiliated": "6-10" },
-    "NA": { "Affiliated": "21-25", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "27-27", "Non-affiliated": "25-30" }
+    "Express": { "Affiliated": "7-20", "Non_affiliated": "6-10" },
+    "Na": { "Affiliated": "21-25", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "27-27", "Non_affiliated": "25-30" }
   },
   {
     "Name": "CHIJ St. Joseph's Convent",
@@ -336,9 +336,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "8-20", "Non-affiliated": "9-13" },
-    "NA": { "Affiliated": "21-25", "Non-affiliated": "21-23" },
-    "NT": { "Affiliated": "25-29", "Non-affiliated": "25-27" }
+    "Express": { "Affiliated": "8-20", "Non_affiliated": "9-13" },
+    "Na": { "Affiliated": "21-25", "Non_affiliated": "21-23" },
+    "Nt": { "Affiliated": "25-29", "Non_affiliated": "25-27" }
   },
   {
     "Name": "CHIJ St. Nicholas Girls' School",
@@ -347,9 +347,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "Yes",
-    "Express": { "Affiliated": "5(D)-14", "Non-affiliated": "5(D)-8(M)" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "5(D)-14", "Non_affiliated": "5(D)-8(M)" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "CHIJ St. Nicholas Girls' School IP",
@@ -358,9 +358,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "Yes",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "4(D)-7(M)" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "4(D)-7(M)" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "CHIJ St. Theresa's Convent",
@@ -369,9 +369,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "8-20", "Non-affiliated": "11-13" },
-    "NA": { "Affiliated": "21-25", "Non-affiliated": "22-24" },
-    "NT": { "Affiliated": "25-28", "Non-affiliated": "25-29" }
+    "Express": { "Affiliated": "8-20", "Non_affiliated": "11-13" },
+    "Na": { "Affiliated": "21-25", "Non_affiliated": "22-24" },
+    "Nt": { "Affiliated": "25-28", "Non_affiliated": "25-29" }
   },
   {
     "Name": "Christ Church Secondary School",
@@ -380,9 +380,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "12-19" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "12-19" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Chung Cheng High School (Main)",
@@ -391,9 +391,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "Yes",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "6(M)-11(M)" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "6(M)-11(M)" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Chung Cheng High School (Yishun)",
@@ -402,9 +402,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "6-11" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-23" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-27" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "6-11" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-23" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-27" }
   },
   {
     "Name": "Clementi Town Secondary School",
@@ -413,9 +413,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "8-14" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "8-14" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Commonwealth Secondary School",
@@ -424,9 +424,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "8-12" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-23" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "8-12" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-23" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Compassvale Secondary School",
@@ -435,9 +435,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "11-18" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-27" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "11-18" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-27" }
   },
   {
     "Name": "Crescent Girls' School",
@@ -446,9 +446,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "6-11" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "6-11" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Damai Secondary School",
@@ -457,9 +457,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "15-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "15-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Deyi Secondary School",
@@ -468,9 +468,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "13-17" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "13-17" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Dunearn Secondary School",
@@ -479,9 +479,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "9-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-30" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "9-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-30" }
   },
   {
     "Name": "Dunman High School IP",
@@ -490,9 +490,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "Yes",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "4(D)-8(D)" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "4(D)-8(D)" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Dunman Secondary School",
@@ -501,9 +501,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "9-14" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-23" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-27" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "9-14" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-23" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-27" }
   },
   {
     "Name": "East Spring Secondary School",
@@ -512,9 +512,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "12-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "22-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "12-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "22-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Edgefield Secondary School",
@@ -523,9 +523,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "7-14" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-22" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-27" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "7-14" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-22" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-27" }
   },
   {
     "Name": "Evergreen Secondary School",
@@ -534,9 +534,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "9-15" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-23" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-27" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "9-15" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-23" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-27" }
   },
   {
     "Name": "Fairfield Methodist School (Secondary)",
@@ -545,9 +545,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "No",
-    "Express": { "Affiliated": "8-20", "Non-affiliated": "8-11" },
-    "NA": { "Affiliated": "21-24", "Non-affiliated": "21-21" },
-    "NT": { "Affiliated": "25-28", "Non-affiliated": "25-27" }
+    "Express": { "Affiliated": "8-20", "Non_affiliated": "8-11" },
+    "Na": { "Affiliated": "21-24", "Non_affiliated": "21-21" },
+    "Nt": { "Affiliated": "25-28", "Non_affiliated": "25-27" }
   },
   {
     "Name": "Fajar Secondary School",
@@ -556,9 +556,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "8-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-30" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "8-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-30" }
   },
   {
     "Name": "Fuhua Secondary School",
@@ -567,9 +567,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "6-13" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-23" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "6-13" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-23" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Gan Eng Seng School",
@@ -578,9 +578,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "7-15" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-23" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-26" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "7-15" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-23" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-26" }
   },
   {
     "Name": "Geylang Methodist School (Secondary)",
@@ -589,9 +589,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "13-21", "Non-affiliated": "11-15" },
-    "NA": { "Affiliated": "21-25", "Non-affiliated": "21-23" },
-    "NT": { "Affiliated": "25-29", "Non-affiliated": "25-26" }
+    "Express": { "Affiliated": "13-21", "Non_affiliated": "11-15" },
+    "Na": { "Affiliated": "21-25", "Non_affiliated": "21-23" },
+    "Nt": { "Affiliated": "25-29", "Non_affiliated": "25-26" }
   },
   {
     "Name": "Greendale Secondary School",
@@ -600,9 +600,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "8-18" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-23" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-27" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "8-18" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-23" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-27" }
   },
   {
     "Name": "Guangyang Secondary School",
@@ -611,9 +611,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "16-21" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "26-29" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "16-21" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "26-29" }
   },
   {
     "Name": "Hai Sing Catholic School",
@@ -622,9 +622,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "10-16" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "10-16" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Hillgrove Secondary School",
@@ -633,9 +633,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "14-19" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "14-19" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Holy Innocents' High School",
@@ -644,9 +644,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "11-22", "Non-affiliated": "10-15" },
-    "NA": { "Affiliated": "21-25", "Non-affiliated": "21-23" },
-    "NT": { "Affiliated": "25-28", "Non-affiliated": "25-26" }
+    "Express": { "Affiliated": "11-22", "Non_affiliated": "10-15" },
+    "Na": { "Affiliated": "21-25", "Non_affiliated": "21-23" },
+    "Nt": { "Affiliated": "25-28", "Non_affiliated": "25-26" }
   },
   {
     "Name": "Hougang Secondary School",
@@ -655,9 +655,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "15-20" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "26-27" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "15-20" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "26-27" }
   },
   {
     "Name": "Hua Yi Secondary School",
@@ -666,9 +666,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "10-16" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-23" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-29" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "10-16" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-23" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-29" }
   },
   {
     "Name": "Hwa Chong Institution IP",
@@ -677,9 +677,9 @@
     "Independent": "Yes",
     "Autonomous": "No",
     "SAP": "Yes",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "4(D)-7(M)" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "4(D)-7(M)" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Junyuan Secondary School",
@@ -688,9 +688,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "17-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "17-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Jurong Secondary School",
@@ -699,9 +699,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "8-16" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-23" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "8-16" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-23" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Jurong West Secondary School",
@@ -710,9 +710,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "10-18" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "10-18" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Jurongville Secondary School",
@@ -721,9 +721,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "16-20" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-30" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "16-20" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-30" }
   },
   {
     "Name": "Juying Secondary School",
@@ -732,9 +732,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "12-21" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "12-21" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Kent Ridge Secondary School",
@@ -743,9 +743,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "10-19" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-30" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "10-19" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-30" }
   },
   {
     "Name": "Kranji Secondary School",
@@ -754,9 +754,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "10-14" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-23" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-27" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "10-14" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-23" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-27" }
   },
   {
     "Name": "Kuo Chuan Presbyterian Secondary School",
@@ -765,9 +765,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "11-20", "Non-affiliated": "8-13" },
-    "NA": { "Affiliated": "21-25", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "11-20", "Non_affiliated": "8-13" },
+    "Na": { "Affiliated": "21-25", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Loyang View Secondary School",
@@ -776,9 +776,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "13-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "23-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "26-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "13-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "23-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "26-28" }
   },
   {
     "Name": "Manjusri Secondary School",
@@ -787,9 +787,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "13-22", "Non-affiliated": "15-21" },
-    "NA": { "Affiliated": "23-25", "Non-affiliated": "22-25" },
-    "NT": { "Affiliated": "26-28", "Non-affiliated": "26-28" }
+    "Express": { "Affiliated": "13-22", "Non_affiliated": "15-21" },
+    "Na": { "Affiliated": "23-25", "Non_affiliated": "22-25" },
+    "Nt": { "Affiliated": "26-28", "Non_affiliated": "26-28" }
   },
   {
     "Name": "Maris Stella High School",
@@ -798,9 +798,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "Yes",
-    "Express": { "Affiliated": "8-16", "Non-affiliated": "7(M)-12" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "8-16", "Non_affiliated": "7(M)-12" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Marsiling Secondary School",
@@ -809,9 +809,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "9-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-30" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "9-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-30" }
   },
   {
     "Name": "Mayflower Secondary School",
@@ -820,9 +820,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "12-17" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "12-17" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Meridian Secondary School",
@@ -831,9 +831,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "15-19" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-27" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "15-19" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-27" }
   },
   {
     "Name": "Methodist Girls' School (Secondary)",
@@ -842,9 +842,9 @@
     "Independent": "Yes",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "7-17", "Non-affiliated": "6-8" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "7-17", "Non_affiliated": "6-8" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Methodist Girls' School (Secondary) IP",
@@ -853,9 +853,9 @@
     "Independent": "Yes",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "4-6" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "4-6" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Montfort Secondary School",
@@ -864,9 +864,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "13-21", "Non-affiliated": "15-20" },
-    "NA": { "Affiliated": "23-25", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "26-28", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "13-21", "Non_affiliated": "15-20" },
+    "Na": { "Affiliated": "23-25", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "26-28", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Nan Chiau High School",
@@ -875,9 +875,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "Yes",
-    "Express": { "Affiliated": "NIL", "Non-affiliated": "4(M)-11(M)" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "NIL", "Non_affiliated": "4(M)-11(M)" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Nan Hua High School",
@@ -886,9 +886,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "Yes",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "6(M)-11(D)" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "6(M)-11(D)" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Nanyang Girls' High School IP",
@@ -897,9 +897,9 @@
     "Independent": "Yes",
     "Autonomous": "No",
     "SAP": "Yes",
-    "Express": { "Affiliated": "4(D)-8(M)", "Non-affiliated": "4(D)-7(M)" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "4(D)-8(M)", "Non_affiliated": "4(D)-7(M)" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "National Junior College IP",
@@ -908,9 +908,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "5-7" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "5-7" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Naval Base Secondary School",
@@ -919,9 +919,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "11-20" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "11-20" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "New Town Secondary School",
@@ -930,9 +930,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "13-20" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "13-20" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Ngee Ann Secondary School",
@@ -941,9 +941,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "No",
-    "Express": { "Affiliated": "12-16", "Non-affiliated": "5-12" },
-    "NA": { "Affiliated": "21-25", "Non-affiliated": "21-22" },
-    "NT": { "Affiliated": "26-28", "Non-affiliated": "25-26" }
+    "Express": { "Affiliated": "12-16", "Non_affiliated": "5-12" },
+    "Na": { "Affiliated": "21-25", "Non_affiliated": "21-22" },
+    "Nt": { "Affiliated": "26-28", "Non_affiliated": "25-26" }
   },
   {
     "Name": "North Vista Secondary School",
@@ -952,9 +952,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "12-18" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-27" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "12-18" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-27" }
   },
   {
     "Name": "Northbrooks Secondary School",
@@ -963,9 +963,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "12-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "12-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Northland Secondary School",
@@ -974,9 +974,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "8-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "22-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "26-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "8-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "22-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "26-28" }
   },
   {
     "Name": "Orchid Park Secondary School",
@@ -985,9 +985,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "12-19" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "12-19" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Outram Secondary School",
@@ -996,9 +996,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "4-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "22-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "26-30" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "4-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "22-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "26-30" }
   },
   {
     "Name": "Pasir Ris Crest Secondary School",
@@ -1007,9 +1007,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "9-17" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "9-17" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Pasir Ris Secondary School",
@@ -1018,9 +1018,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "11-18" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "11-18" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Paya Lebar Methodist Girls' School (Secondary)",
@@ -1029,9 +1029,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "No",
-    "Express": { "Affiliated": "4-20", "Non-affiliated": "8-11" },
-    "NA": { "Affiliated": "21-25", "Non-affiliated": "21-23" },
-    "NT": { "Affiliated": "26-28", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "4-20", "Non_affiliated": "8-11" },
+    "Na": { "Affiliated": "21-25", "Non_affiliated": "21-23" },
+    "Nt": { "Affiliated": "26-28", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Pei Hwa Secondary School",
@@ -1040,9 +1040,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "11-16" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-26" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "11-16" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-26" }
   },
   {
     "Name": "Peicai Secondary School",
@@ -1051,9 +1051,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "8-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "22-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "26-29" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "8-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "22-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "26-29" }
   },
   {
     "Name": "Peirce Secondary School",
@@ -1062,9 +1062,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "12-19" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "22-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "26-29" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "12-19" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "22-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "26-29" }
   },
   {
     "Name": "Presbyterian High School",
@@ -1073,9 +1073,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "8-13" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-23" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-27" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "8-13" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-23" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-27" }
   },
   {
     "Name": "Punggol Secondary School",
@@ -1084,9 +1084,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "15-20" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-27" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "15-20" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-27" }
   },
   {
     "Name": "Queenstown Secondary School",
@@ -1095,9 +1095,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "16-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "16-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Queensway Secondary School",
@@ -1106,9 +1106,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "11-17" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-27" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "11-17" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-27" }
   },
   {
     "Name": "Raffles Girls' School (Secondary) IP",
@@ -1117,9 +1117,9 @@
     "Independent": "Yes",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "4-6" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "4-6" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Raffles Institution IP",
@@ -1128,9 +1128,9 @@
     "Independent": "Yes",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "4-6" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "4-6" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Regent Secondary School",
@@ -1139,9 +1139,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "15-21" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "NIL" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "15-21" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "NIL" }
   },
   {
     "Name": "River Valley High School IP",
@@ -1150,9 +1150,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "Yes",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "4(M)-9(D)" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "4(M)-9(D)" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Riverside Secondary School",
@@ -1161,9 +1161,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "6-14" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-23" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-27" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "6-14" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-23" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-27" }
   },
   {
     "Name": "Sembawang Secondary School",
@@ -1172,9 +1172,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "9-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "9-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Seng Kang Secondary School",
@@ -1183,9 +1183,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "13-19" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "NIL", "Non-affiliated": "25-27" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "13-19" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "NIL", "Non_affiliated": "25-27" }
   },
   {
     "Name": "Serangoon Garden Secondary School",
@@ -1194,9 +1194,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "8-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "8-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Serangoon Secondary School",
@@ -1205,9 +1205,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "16-21" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "22-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "16-21" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "22-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Singapore Chinese Girls' School",
@@ -1216,9 +1216,9 @@
     "Independent": "Yes",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "8-17", "Non-affiliated": "5-9" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "8-17", "Non_affiliated": "5-9" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Singapore Chinese Girls' School IP",
@@ -1227,9 +1227,9 @@
     "Independent": "Yes",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "4-8" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "4-8" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Springfield Secondary School",
@@ -1238,9 +1238,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "10-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "10-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "St. Andrew's Secondary School",
@@ -1249,9 +1249,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "7-22", "Non-affiliated": "7-10" },
-    "NA": { "Affiliated": "21-25", "Non-affiliated": "21-23" },
-    "NT": { "Affiliated": "25-29", "Non-affiliated": "25-26" }
+    "Express": { "Affiliated": "7-22", "Non_affiliated": "7-10" },
+    "Na": { "Affiliated": "21-25", "Non_affiliated": "21-23" },
+    "Nt": { "Affiliated": "25-29", "Non_affiliated": "25-26" }
   },
   {
     "Name": "St. Anthony's Canossian Secondary School",
@@ -1260,9 +1260,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "No",
-    "Express": { "Affiliated": "10-22", "Non-affiliated": "11-15" },
-    "NA": { "Affiliated": "21-25", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "25-28", "Non-affiliated": "25-27" }
+    "Express": { "Affiliated": "10-22", "Non_affiliated": "11-15" },
+    "Na": { "Affiliated": "21-25", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "25-28", "Non_affiliated": "25-27" }
   },
   {
     "Name": "St. Gabriel's Secondary School",
@@ -1271,9 +1271,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "13-22", "Non-affiliated": "10-17" },
-    "NA": { "Affiliated": "22-25", "Non-affiliated": "21-23" },
-    "NT": { "Affiliated": "26-27", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "13-22", "Non_affiliated": "10-17" },
+    "Na": { "Affiliated": "22-25", "Non_affiliated": "21-23" },
+    "Nt": { "Affiliated": "26-27", "Non_affiliated": "25-28" }
   },
   {
     "Name": "St. Hilda's Secondary School",
@@ -1282,9 +1282,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "13-22", "Non-affiliated": "12-15" },
-    "NA": { "Affiliated": "21-25", "Non-affiliated": "21-23" },
-    "NT": { "Affiliated": "26-28", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "13-22", "Non_affiliated": "12-15" },
+    "Na": { "Affiliated": "21-25", "Non_affiliated": "21-23" },
+    "Nt": { "Affiliated": "26-28", "Non_affiliated": "25-28" }
   },
   {
     "Name": "St. Joseph's Institution",
@@ -1293,9 +1293,9 @@
     "Independent": "Yes",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "8-12", "Non-affiliated": "5-10" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "8-12", "Non_affiliated": "5-10" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "St. Joseph's Institution IP",
@@ -1304,9 +1304,9 @@
     "Independent": "Yes",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "4-8" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "4-8" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "St. Margaret's Secondary School",
@@ -1315,9 +1315,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "No",
-    "Express": { "Affiliated": "9-20", "Non-affiliated": "9-11" },
-    "NA": { "Affiliated": "22-25", "Non-affiliated": "21-22" },
-    "NT": { "Affiliated": "25-28", "Non-affiliated": "25-27" }
+    "Express": { "Affiliated": "9-20", "Non_affiliated": "9-11" },
+    "Na": { "Affiliated": "22-25", "Non_affiliated": "21-22" },
+    "Nt": { "Affiliated": "25-28", "Non_affiliated": "25-27" }
   },
   {
     "Name": "St. Patrick's School",
@@ -1326,9 +1326,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "12-20", "Non-affiliated": "10-14" },
-    "NA": { "Affiliated": "21-24", "Non-affiliated": "21-22" },
-    "NT": { "Affiliated": "26-28", "Non-affiliated": "25-27" }
+    "Express": { "Affiliated": "12-20", "Non_affiliated": "10-14" },
+    "Na": { "Affiliated": "21-24", "Non_affiliated": "21-22" },
+    "Nt": { "Affiliated": "26-28", "Non_affiliated": "25-27" }
   },
   {
     "Name": "Swiss Cottage Secondary School",
@@ -1337,9 +1337,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "4-11" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-22" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-26" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "4-11" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-22" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-26" }
   },
   {
     "Name": "Tampines Secondary School",
@@ -1348,9 +1348,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "13-19" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "13-19" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Tanjong Katong Girls' School",
@@ -1359,9 +1359,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "5-13" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "5-13" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Tanjong Katong Secondary School",
@@ -1370,9 +1370,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "9-14" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "9-14" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Teck Whye Secondary School",
@@ -1381,9 +1381,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "6-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-29" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "6-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-29" }
   },
   {
     "Name": "Temasek Junior College IP",
@@ -1392,9 +1392,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "4-9" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "4-9" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Temasek Secondary School",
@@ -1403,9 +1403,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "7-13" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-22" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-27" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "7-13" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-22" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-27" }
   },
   {
     "Name": "Unity Secondary School",
@@ -1414,9 +1414,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "13-18" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "13-18" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Victoria School",
@@ -1425,9 +1425,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "6-9" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "6-9" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Victoria School IP",
@@ -1436,9 +1436,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "5-8" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "5-8" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "West Spring Secondary School",
@@ -1447,9 +1447,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "10-17" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-23" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-26" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "10-17" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-23" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-26" }
   },
   {
     "Name": "Westwood Secondary School",
@@ -1458,9 +1458,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "11-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "11-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Whitley Secondary School",
@@ -1469,9 +1469,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "7-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "26-29" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "7-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "26-29" }
   },
   {
     "Name": "Woodgrove Secondary School",
@@ -1480,9 +1480,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "13-20" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-23" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-27" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "13-20" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-23" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-27" }
   },
   {
     "Name": "Woodlands Ring Secondary School",
@@ -1491,9 +1491,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "14-19" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "14-19" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Woodlands Secondary School",
@@ -1502,9 +1502,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "9-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "9-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Xinmin Secondary School",
@@ -1513,9 +1513,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "8-14" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-23" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-27" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "8-14" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-23" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-27" }
   },
   {
     "Name": "Yio Chu Kang Secondary School",
@@ -1524,9 +1524,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "16-21" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "22-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "16-21" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "22-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Yishun Secondary School",
@@ -1535,9 +1535,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "11-20" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "11-20" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Yishun Town Secondary School",
@@ -1546,9 +1546,9 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "6-13" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-23" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-27" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "6-13" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-23" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-27" }
   },
   {
     "Name": "Yuan Ching Secondary School",
@@ -1557,9 +1557,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "8-19" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "8-19" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-28" }
   },
   {
     "Name": "Yuhua Secondary School",
@@ -1568,9 +1568,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "14-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-30" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "14-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-30" }
   },
   {
     "Name": "Yusof Ishak Secondary School",
@@ -1579,9 +1579,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "Nil" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "Nil" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "Nil" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "Nil" }
   },
   {
     "Name": "Yuying Secondary School",
@@ -1590,9 +1590,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "8-22" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-25" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "26-28" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "8-22" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-25" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "26-28" }
   },
   {
     "Name": "Zhenghua Secondary School",
@@ -1601,9 +1601,9 @@
     "Independent": "No",
     "Autonomous": "No",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "12-20" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-24" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-27" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "12-20" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-24" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-27" }
   },
   {
     "Name": "Zhonghua Secondary School",
@@ -1612,8 +1612,8 @@
     "Independent": "No",
     "Autonomous": "Yes",
     "SAP": "No",
-    "Express": { "Affiliated": "Nil", "Non-affiliated": "9-13" },
-    "NA": { "Affiliated": "Nil", "Non-affiliated": "21-23" },
-    "NT": { "Affiliated": "Nil", "Non-affiliated": "25-27" }
+    "Express": { "Affiliated": "Nil", "Non_affiliated": "9-13" },
+    "Na": { "Affiliated": "Nil", "Non_affiliated": "21-23" },
+    "Nt": { "Affiliated": "Nil", "Non_affiliated": "25-27" }
   }
 ]
