@@ -1,34 +1,34 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import {
-  getFirestore,
-  query,
-  getDocs,
-  collection,
-  where,
-  addDoc,
-  updateDoc,
-  deleteDoc,
+    getFirestore,
+    query,
+    getDocs,
+    collection,
+    where,
+    addDoc,
+    updateDoc,
+    deleteDoc,
 } from "firebase/firestore";
 import {
-  getAuth,
-  deleteUser,
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  sendPasswordResetEmail,
-  signOut,
-  onAuthStateChanged,
-  updateProfile,
-  updateEmail,
-  EmailAuthProvider,
-  reauthenticateWithCredential,
+    getAuth,
+    deleteUser,
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
+    sendPasswordResetEmail,
+    signOut,
+    onAuthStateChanged,
+    updateProfile,
+    updateEmail,
+    EmailAuthProvider,
+    reauthenticateWithCredential,
 } from "firebase/auth";
 import {
-  getDownloadURL,
-  getStorage,
-  ref,
-  uploadBytes,
-  deleteObject,
+    getDownloadURL,
+    getStorage,
+    ref,
+    uploadBytes,
+    deleteObject,
 } from "firebase/storage";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
@@ -36,241 +36,295 @@ import { toast } from "react-toastify";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyA4pR0JJtgWcUFJeqhOZnz5ZLYoStyVEZA",
-  authDomain: "ntu-e-commerce.firebaseapp.com",
-  projectId: "ntu-e-commerce",
-  storageBucket: "ntu-e-commerce.appspot.com",
-  messagingSenderId: "252491842395",
-  appId: "1:252491842395:web:25cbfc49ce70caa7d1507e",
-  measurementId: "G-8PYCY3QC5H",
+    apiKey: "AIzaSyA4pR0JJtgWcUFJeqhOZnz5ZLYoStyVEZA",
+    authDomain: "ntu-e-commerce.firebaseapp.com",
+    projectId: "ntu-e-commerce",
+    storageBucket: "ntu-e-commerce.appspot.com",
+    messagingSenderId: "252491842395",
+    appId: "1:252491842395:web:25cbfc49ce70caa7d1507e",
+    measurementId: "G-8PYCY3QC5H",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
 const logInWithEmailAndPassword = async (email, password) => {
-  try {
-    await signInWithEmailAndPassword(auth, email, password);
-  } catch (err) {
-    console.error(err);
-    toast(err.message, { type: "error" });
-  }
+    try {
+        await signInWithEmailAndPassword(auth, email, password);
+    } catch (err) {
+        console.error(err);
+        toast(err.message, { type: "error" });
+    }
 };
 
 const registerWithEmailAndPassword = async (
-  name,
-  email,
-  password,
-  setIsLoading
+    name,
+    email,
+    password,
+    setIsLoading
 ) => {
-  try {
-    setIsLoading(true);
-    const res = await createUserWithEmailAndPassword(auth, email, password);
-    const user = res.user;
-    await addDoc(collection(db, "users"), {
-      uid: user.uid,
-      name,
-      authProvider: "local",
-      email,
-    });
-    await updateProfile(auth.currentUser, {
-      displayName: name,
-    })
-      .then(() => {
-        console.log(auth.currentUser.displayName);
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  } catch (err) {
-    console.error(err);
-    toast(err.message, { type: "error" });
-  }
-  setIsLoading(false);
+    try {
+        setIsLoading(true);
+        const res = await createUserWithEmailAndPassword(auth, email, password);
+        const user = res.user;
+        await addDoc(collection(db, "users"), {
+            uid: user.uid,
+            name,
+            authProvider: "local",
+            email,
+        });
+        await updateProfile(auth.currentUser, {
+            displayName: name,
+        })
+            .then(() => {
+                console.log(auth.currentUser.displayName);
+            })
+            .catch((error) => {
+                console.log(error.message);
+            });
+    } catch (err) {
+        console.error(err);
+        toast(err.message, { type: "error" });
+    }
+    setIsLoading(false);
 };
 
 const sendPasswordReset = async (email) => {
-  try {
-    await sendPasswordResetEmail(auth, email);
-    toast("Password reset link sent!", { type: "info" });
-  } catch (err) {
-    console.error(err);
-    toast(err.message, { type: "error" });
-  }
+    try {
+        await sendPasswordResetEmail(auth, email);
+        toast("Password reset link sent!", { type: "info" });
+    } catch (err) {
+        console.error(err);
+        toast(err.message, { type: "error" });
+    }
 };
 
 const logout = () => {
-  signOut(auth);
+    signOut(auth);
 };
 
 function useAuth() {
-  const [currentUser, setCurrentUser] = useState();
-  // const [isAuth, setIsAuth] = useState(false);
-  useEffect(() => {
-    let isMounted = true;
-    const unsub = onAuthStateChanged(auth, (user) => {
-      if (user && isMounted) {
-        setCurrentUser(user);
-        // setIsAuth(true);
-      } else {
-        // setIsAuth(false);
-        setCurrentUser(false);
-      }
-    });
+    const [currentUser, setCurrentUser] = useState();
+    // const [isAuth, setIsAuth] = useState(false);
+    useEffect(() => {
+        let isMounted = true;
+        const unsub = onAuthStateChanged(auth, (user) => {
+            if (user && isMounted) {
+                setCurrentUser(user);
+                // setIsAuth(true);
+            } else {
+                // setIsAuth(false);
+                setCurrentUser(false);
+            }
+        });
 
-    return () => {
-      unsub();
-      isMounted = false;
-    };
-  }, []);
-  return currentUser;
+        return () => {
+            unsub();
+            isMounted = false;
+        };
+    }, []);
+    return currentUser;
 }
 
 function reauthenticate(currentPassword) {
-  const user = auth.currentUser;
-  const cred = EmailAuthProvider.credential(user.email, currentPassword);
-  return reauthenticateWithCredential(user, cred);
+    const user = auth.currentUser;
+    const cred = EmailAuthProvider.credential(user.email, currentPassword);
+    return reauthenticateWithCredential(user, cred);
 }
 
 const updateUserEmail = async (newEmail) => {
-  const user = auth.currentUser;
+    const user = auth.currentUser;
 
-  await updateEmail(user, newEmail).then(async () => {
-    const q = query(collection(db, "users"), where("uid", "==", user.uid));
-    const querySnapshot = await getDocs(q).catch((err) => {
-      console.log("getDocs from query error: ", err.message);
+    await updateEmail(user, newEmail).then(async () => {
+        const q = query(collection(db, "users"), where("uid", "==", user.uid));
+        const querySnapshot = await getDocs(q).catch((err) => {
+            console.log("getDocs from query error: ", err.message);
+        });
+
+        const userRef = querySnapshot.docs[0].ref;
+
+        await updateDoc(userRef, {
+            email: newEmail,
+        }).catch((err) => {
+            console.log("updateDoc (email field) error: ", err.message);
+        });
     });
-
-    const userRef = querySnapshot.docs[0].ref;
-
-    await updateDoc(userRef, {
-      email: newEmail,
-    }).catch((err) => {
-      console.log("updateDoc (email field) error: ", err.message);
-    });
-  });
-  // .catch((err) => {
-  //   //TODO reauthentication (separate function) when signed in too long ago
-  //   console.log("updateEmail (Authentication) error: ", err.message);
-  //   setError(true);
-  //   toast(err.message, { type: "error" });
-  // })
+    // .catch((err) => {
+    //   //TODO reauthentication (separate function) when signed in too long ago
+    //   console.log("updateEmail (Authentication) error: ", err.message);
+    //   setError(true);
+    //   toast(err.message, { type: "error" });
+    // })
 };
 
 async function updateName(newName, setLoading) {
-  const user = auth.currentUser;
+    const user = auth.currentUser;
 
-  setLoading(true);
+    setLoading(true);
 
-  const q = query(collection(db, "users"), where("uid", "==", user.uid));
-  const querySnapshot = await getDocs(q).catch((err) =>
-    console.log("getDocs from Query error: ", err.message)
-  );
-  const userRef = querySnapshot.docs[0].ref;
+    const q = query(collection(db, "users"), where("uid", "==", user.uid));
+    const querySnapshot = await getDocs(q).catch((err) =>
+        console.log("getDocs from Query error: ", err.message)
+    );
+    const userRef = querySnapshot.docs[0].ref;
 
-  await updateDoc(userRef, {
-    name: newName,
-  }).catch((err) => {
-    console.log("updateDoc (name field) error: ", err.message);
-  });
+    await updateDoc(userRef, {
+        name: newName,
+    }).catch((err) => {
+        console.log("updateDoc (name field) error: ", err.message);
+    });
 
-  await updateProfile(user, {
-    displayName: newName,
-  }).catch((err) => {
-    console.log("updateProfile (displayName) error: ", err.message);
-  });
-  setLoading(false);
+    await updateProfile(user, {
+        displayName: newName,
+    }).catch((err) => {
+        console.log("updateProfile (displayName) error: ", err.message);
+    });
+    setLoading(false);
+}
+
+async function updateStudentProfile(
+    newLevel,
+    newScore,
+    newAddress,
+    setLoading
+) {
+    const user = auth.currentUser;
+
+    setLoading(true);
+
+    const q = query(collection(db, "users"), where("uid", "==", user.uid));
+    const querySnapshot = await getDocs(q).catch((err) =>
+        console.log("getDocs from Query error: ", err.message)
+    );
+    const userRef = querySnapshot.docs[0].ref;
+
+    await updateDoc(userRef, {
+        level: newLevel,
+        score: newScore,
+        address: newAddress,
+    }).catch((err) => {
+        console.log(
+            "updateDoc (level/score/address field) error: ",
+            err.message
+        );
+    });
+
+    setLoading(false);
+}
+
+async function getStudentProfile(setLoading, setLevel, setScore, setAddress) {
+    const user = auth.currentUser;
+
+    setLoading(true);
+
+    const q = query(collection(db, "users"), where("uid", "==", user.uid));
+    const querySnapshot = await getDocs(q).catch((err) =>
+        console.log("getDocs from Query error: ", err.message)
+    );
+
+    setLevel(querySnapshot.docs[0].data().level);
+    setScore(querySnapshot.docs[0].data().score);
+    setAddress(querySnapshot.docs[0].data().address);
+    setLoading(false);
 }
 
 async function updatePhoto(file, setLoading) {
-  const user = auth.currentUser;
-  console.log("file type: ", typeof file);
+    const user = auth.currentUser;
+    console.log("file type: ", typeof file);
 
-  setLoading(true);
+    setLoading(true);
 
-  const fileRef = ref(storage, "/profilePics/" + user.uid);
+    const fileRef = ref(storage, "/profilePics/" + user.uid);
 
-  const metadata = {
-    contentType: "image/jpeg",
-  };
+    const metadata = {
+        contentType: "image/jpeg",
+    };
 
-  await uploadBytes(fileRef, file, metadata);
-  const photoURL = await getDownloadURL(fileRef);
+    await uploadBytes(fileRef, file, metadata);
+    const photoURL = await getDownloadURL(fileRef);
 
-  await updateProfile(user, {
-    photoURL: photoURL,
-  }).catch((err) => {
-    console.log("updateProfile (photoURL) error: ", err.message);
-  });
-  console.log("In Firebase updatePhoto, updated user photoURL:", user.photoURL);
-  setLoading(false);
+    await updateProfile(user, {
+        photoURL: photoURL,
+    }).catch((err) => {
+        console.log("updateProfile (photoURL) error: ", err.message);
+    });
+    console.log(
+        "In Firebase updatePhoto, updated user photoURL:",
+        user.photoURL
+    );
+    setLoading(false);
 }
 
 async function deleteAccount(setLoading) {
-  const user = auth.currentUser;
-  setLoading(true);
-  deleteUser(user)
-    .then(async () => {
-      const q = query(collection(db, "users"), where("uid", "==", user.uid));
-      const querySnapshot = await getDocs(q).catch((err) =>
-        console.log(err.message)
-      );
+    const user = auth.currentUser;
+    setLoading(true);
+    deleteUser(user)
+        .then(async () => {
+            const q = query(
+                collection(db, "users"),
+                where("uid", "==", user.uid)
+            );
+            const querySnapshot = await getDocs(q).catch((err) =>
+                console.log(err.message)
+            );
 
-      const userRef = querySnapshot.docs[0].ref;
+            const userRef = querySnapshot.docs[0].ref;
 
-      await deleteDoc(userRef).catch((err) => {
-        toast(err.message, { type: "error" });
-      });
+            await deleteDoc(userRef).catch((err) => {
+                toast(err.message, { type: "error" });
+            });
 
-      const fileRef = ref(storage, "/profilePics/" + user.uid);
-      deleteObject(fileRef).catch((err) => {
-        console.log(err.message);
-      });
-    })
-    .then(() => {
-      toast("Account deleted.", { type: "info" });
-    })
-    .catch((err) => {
-      toast(err.message, { type: "error" });
-    });
-  setLoading(false);
+            const fileRef = ref(storage, "/profilePics/" + user.uid);
+            deleteObject(fileRef).catch((err) => {
+                console.log(err.message);
+            });
+        })
+        .then(() => {
+            toast("Account deleted.", { type: "info" });
+        })
+        .catch((err) => {
+            toast(err.message, { type: "error" });
+        });
+    setLoading(false);
 }
 
 const useGetUsers = () => {
-  const [userList, setUserList] = useState();
+    const [userList, setUserList] = useState();
 
-  useEffect(() => {
-    let isMounted = true;
-    const getUser = async () => {
-      const querySnapshot = await getDocs(collection(db, "users"));
-      if (isMounted) {
-        setUserList(
-          querySnapshot.docs.map((doc) => ({
-            ...doc.data(),
-          }))
-        );
-      }
-    };
-    getUser();
-    return () => {
-      isMounted = false;
-    };
-  }, []);
-  return userList;
+    useEffect(() => {
+        let isMounted = true;
+        const getUser = async () => {
+            const querySnapshot = await getDocs(collection(db, "users"));
+            if (isMounted) {
+                setUserList(
+                    querySnapshot.docs.map((doc) => ({
+                        ...doc.data(),
+                    }))
+                );
+            }
+        };
+        getUser();
+        return () => {
+            isMounted = false;
+        };
+    }, []);
+    return userList;
 };
 
 export {
-  logInWithEmailAndPassword,
-  registerWithEmailAndPassword,
-  sendPasswordReset,
-  logout,
-  useAuth,
-  updateName,
-  updatePhoto,
-  updateUserEmail,
-  deleteAccount,
-  reauthenticate,
-  useGetUsers,
+    logInWithEmailAndPassword,
+    registerWithEmailAndPassword,
+    sendPasswordReset,
+    logout,
+    useAuth,
+    updateName,
+    updatePhoto,
+    updateUserEmail,
+    updateStudentProfile,
+    getStudentProfile,
+    deleteAccount,
+    reauthenticate,
+    useGetUsers,
 };
 export const storage = getStorage(app);
 export const db = getFirestore(app);

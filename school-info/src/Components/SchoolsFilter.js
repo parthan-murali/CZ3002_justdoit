@@ -35,7 +35,7 @@ function SchoolsFilter(props) {
     const others = ["Gifted Education Programme", "Integrated Programme"];
 
     const [locationF, setLocationF] = useState("");
-    const [ccaF, setCCAF] = useState("");
+    const [ccaF, setCCAF] = useState(new Set());
     const [subjectF, setSubjectF] = useState(new Set());
     const [electiveF, setElectiveF] = useState(new Set());
     const [minF, setMinF] = useState("4");
@@ -68,7 +68,7 @@ function SchoolsFilter(props) {
             localStorage.setItem(lvlName + "CCAData", JSON.stringify(ccaData));
             let groups = new Set(
                 ccaData.map((rec) => {
-                    return rec.cca_grouping_desc;
+                    return rec.cca_generic_name;
                 })
             );
             let sortedGroups = [...groups].sort();
@@ -192,11 +192,12 @@ function SchoolsFilter(props) {
                 toggleFilterAdd("location", locationF);
                 break;
             case "ccas":
-                console.log("Before:", ccaF);
-                newSet = ccaF.add(val);
-                setCCAF(newSet);
-                console.log("After: ", ccaF);
-                toggleFilterAdd(id, newSet); // when adding, input the whole array
+                console.log("val =", val);
+                if (ccaGrps.includes(val.toUpperCase())) {
+                    newSet = ccaF.add(val.toUpperCase());
+                    setCCAF(newSet);
+                    toggleFilterAdd(id, newSet); // when adding, input the whole array
+                }
                 break;
             case "min":
                 console.log("Before Change:", minF);
@@ -241,229 +242,243 @@ function SchoolsFilter(props) {
         <form id="school-filters">
             <div className="accordian" id="filterSections">
                 <div className="accordion-item">
-                    <h2 className="accordion-header" id="headingOne">
-                        <button
-                            className="accordion-button collapsed"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#collapseOne"
-                            aria-expanded="false"
-                            aria-controls="collapseOne"
-                        >
-                            Location
-                        </button>
-                    </h2>
-                    <div
-                        id="collapseOne"
-                        className="accordion-collapse collapse"
-                        aria-labelledby="headingOne"
-                        data-bs-parent="#filterSections"
-                    >
-                        <div className="accordion-body">
-                            <label htmlFor="location">Location</label>
-                            <select
-                                className="form-select"
-                                id="location"
-                                value={locationF}
-                                onChange={(e) => {
-                                    setLocationF(e.target.value);
-                                }}
-                                onClick={handleChange}
-                            >
-                                <option value="">Select an area</option>
-                                {districts.map(function (district) {
-                                    return (
-                                        <option value={district} key={district}>
-                                            {titleCase(district)}
-                                        </option>
-                                    );
-                                })}
-                            </select>
+                    <div className="card">
+                        <div className="card-header p-3">
+                            <h2 className="accordion-header" id="headingOne">
+                                <button
+                                    className="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne"
+                                    aria-expanded="false"
+                                    aria-controls="collapseOne"
+                                >
+                                    Location
+                                </button>
+                            </h2>
                         </div>
-                    </div>
-                </div>
-                <div className="accordion-item">
-                    <h2 className="accordion-header" id="headingTwo">
-                        <button
-                            className="accordion-button collapsed"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#collapseTwo"
-                            aria-expanded="false"
-                            aria-controls="collapseTwo"
+                        <div
+                            id="collapseOne"
+                            className="accordion-collapse collapse m-3"
+                            aria-labelledby="headingOne"
+                            data-bs-parent="#filterSections"
                         >
-                            Co-curricular Activities
-                        </button>
-                    </h2>
-                    <div
-                        id="collapseTwo"
-                        className="accordion-collapse collapse"
-                        aria-labelledby="headingTwo"
-                        data-bs-parent="#filterSections"
-                    >
-                        <div className="accordion-body">
-                            <label htmlFor="ccas" className="form-label">
-                                CCAs
-                            </label>
-                            <input
-                                className="form-control"
-                                list="ccaOptions"
-                                id="ccas"
-                                placeholder="Search for CCAs"
-                                onChange={handleChange}
-                            />
-                            <datalist id="ccaOptions">
-                                {ccaGrps?.map(function (cca) {
-                                    return (
-                                        <option
-                                            value={titleCase(cca)}
-                                            key={cca}
-                                        ></option>
-                                    );
-                                })}
-                            </datalist>
-                        </div>
-                    </div>
-                </div>
-                <div className="accordion-item">
-                    <h2 className="accordion-header" id="headingThree">
-                        <button
-                            className="accordion-button collapsed"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#collapseThree"
-                            aria-expanded="false"
-                            aria-controls="collapseThree"
-                        >
-                            Subjects
-                        </button>
-                    </h2>
-                    <div
-                        id="collapseThree"
-                        className="accordion-collapse collapse"
-                        aria-labelledby="headingThree"
-                        data-bs-parent="#filterSections"
-                    >
-                        <div className="accordion-body">
-                            <label htmlFor="subjects" className="form-label">
-                                Subjects
-                            </label>
-                            <input
-                                className="form-control"
-                                list="subjectOptions"
-                                id="subjects"
-                                placeholder="Search for subjects"
-                                onChange={handleChange}
-                            />
-                            <datalist id="subjectOptions">
-                                {subjects?.map(function (subj) {
-                                    return (
-                                        <option
-                                            value={titleCase(subj)}
-                                            key={subj}
-                                        ></option>
-                                    );
-                                })}
-                            </datalist>
-                        </div>
-                    </div>
-                </div>
-                <div className="accordion-item">
-                    <h2 className="accordion-header" id="headingFour">
-                        <button
-                            className="accordion-button collapsed"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#collapseFour"
-                            aria-expanded="false"
-                            aria-controls="collapseFour"
-                        >
-                            Electives & Programmes
-                        </button>
-                    </h2>
-                    <div
-                        id="collapseFour"
-                        className="accordion-collapse collapse"
-                        aria-labelledby="headingFour"
-                        data-bs-parent="#filterSections"
-                    >
-                        <div className="accordion-body">
-                            <label htmlFor="electives" className="form-label">
-                                Electives & Programmes
-                            </label>
-                            <input
-                                className="form-control"
-                                list="electiveOptions"
-                                id="electives"
-                                placeholder="Search for electives or programmes"
-                                onChange={handleChange}
-                            />
-                            <datalist id="electiveOptions">
-                                {electives?.map(function (elec) {
-                                    return (
-                                        <option
-                                            value={titleCase(elec)}
-                                            key={elec}
-                                        ></option>
-                                    );
-                                })}
-                            </datalist>
-                        </div>
-                    </div>
-                </div>
-                <div className="accordion-item">
-                    <h2 className="accordion-header" id="headingFive">
-                        <button
-                            className="accordion-button collapsed"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#collapseFive"
-                            aria-expanded="false"
-                            aria-controls="collapseFive"
-                        >
-                            PSLE score range
-                        </button>
-                    </h2>
-                    <div
-                        id="collapseFive"
-                        className="accordion-collapse collapse"
-                        aria-labelledby="headingFive"
-                        data-bs-parent="#filterSections"
-                    >
-                        <div className="accordion-body">
-                            <label htmlFor="scoreRange" className="form-label">
-                                PSLE Score
-                            </label>
-                            <div className="input-group">
-                                <span className="input-group-text">From</span>
+                            <div className="accordion-body">
+                                {/* <label htmlFor="location">Location</label> */}
                                 <select
                                     className="form-select"
-                                    id="min"
+                                    id="location"
+                                    value={locationF}
                                     onChange={(e) => {
-                                        setMinF(e.target.value);
+                                        setLocationF(e.target.value);
                                     }}
                                     onClick={handleChange}
                                 >
-                                    {[...Array(29).keys()].map((i) => {
+                                    <option value="">Select an area</option>
+                                    {districts.map(function (district) {
                                         return (
-                                            <option value={i + 4} key={i + 4}>
-                                                {i + 4}
+                                            <option
+                                                value={district}
+                                                key={district}
+                                            >
+                                                {titleCase(district)}
                                             </option>
                                         );
                                     })}
                                 </select>
-                                <span className="input-group-text">To</span>
-                                <select
-                                    className="form-select"
-                                    id="max"
-                                    onChange={(e) => {
-                                        setMaxF(e.target.value);
-                                    }}
-                                    onClick={handleChange}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="accordion-item">
+                    <div className="card">
+                        <div className="card-header p-3">
+                            <h2 className="accordion-header" id="headingTwo">
+                                <button
+                                    className="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo"
+                                    aria-expanded="false"
+                                    aria-controls="collapseTwo"
                                 >
-                                    {[...Array(29).keys()]
-                                        .reverse()
-                                        .map((i) => {
+                                    Co-curricular Activities (CCAs)
+                                </button>
+                            </h2>
+                        </div>
+                        <div
+                            id="collapseTwo"
+                            className="accordion-collapse collapse m-3"
+                            aria-labelledby="headingTwo"
+                            data-bs-parent="#filterSections"
+                        >
+                            <div className="accordion-body">
+                                {/* <label htmlFor="ccas" className="form-label">
+                                    CCAs
+                                </label> */}
+                                <input
+                                    className="form-control"
+                                    list="ccaOptions"
+                                    id="ccas"
+                                    placeholder="Search for CCAs"
+                                    onChange={handleChange}
+                                />
+                                <datalist id="ccaOptions">
+                                    {ccaGrps?.map(function (cca) {
+                                        return (
+                                            <option
+                                                value={titleCase(cca)}
+                                                key={cca}
+                                            ></option>
+                                        );
+                                    })}
+                                </datalist>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="accordion-item">
+                    <div className="card">
+                        <div className="card-header p-3">
+                            <h2 className="accordion-header" id="headingThree">
+                                <button
+                                    className="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree"
+                                    aria-expanded="false"
+                                    aria-controls="collapseThree"
+                                >
+                                    Subjects
+                                </button>
+                            </h2>
+                        </div>
+                        <div
+                            id="collapseThree"
+                            className="accordion-collapse collapse m-3"
+                            aria-labelledby="headingThree"
+                            data-bs-parent="#filterSections"
+                        >
+                            <div className="accordion-body">
+                                {/* <label
+                                    htmlFor="subjects"
+                                    className="form-label"
+                                >
+                                    Subjects
+                                </label> */}
+                                <input
+                                    className="form-control"
+                                    list="subjectOptions"
+                                    id="subjects"
+                                    placeholder="Search for subjects"
+                                    onChange={handleChange}
+                                />
+                                <datalist id="subjectOptions">
+                                    {subjects?.map(function (subj) {
+                                        return (
+                                            <option
+                                                value={titleCase(subj)}
+                                                key={subj}
+                                            ></option>
+                                        );
+                                    })}
+                                </datalist>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="accordion-item">
+                    <div className="card">
+                        <div className="card-header p-3">
+                            <h2 className="accordion-header" id="headingFour">
+                                <button
+                                    className="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFour"
+                                    aria-expanded="false"
+                                    aria-controls="collapseFour"
+                                >
+                                    Electives & Programmes
+                                </button>
+                            </h2>
+                        </div>
+                        <div
+                            id="collapseFour"
+                            className="accordion-collapse collapse m-3"
+                            aria-labelledby="headingFour"
+                            data-bs-parent="#filterSections"
+                        >
+                            <div className="accordion-body">
+                                {/* <label
+                                    htmlFor="electives"
+                                    className="form-label"
+                                >
+                                    Electives & Programmes
+                                </label> */}
+                                <input
+                                    className="form-control"
+                                    list="electiveOptions"
+                                    id="electives"
+                                    placeholder="Search for electives or programmes"
+                                    onChange={handleChange}
+                                />
+                                <datalist id="electiveOptions">
+                                    {electives?.map(function (elec) {
+                                        return (
+                                            <option
+                                                value={titleCase(elec)}
+                                                key={elec}
+                                            ></option>
+                                        );
+                                    })}
+                                </datalist>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="accordion-item">
+                    <div className="card">
+                        <div className="card-header p-3">
+                            <h2 className="accordion-header" id="headingFive">
+                                <button
+                                    className="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFive"
+                                    aria-expanded="false"
+                                    aria-controls="collapseFive"
+                                >
+                                    PSLE score range
+                                </button>
+                            </h2>
+                        </div>
+                        <div
+                            id="collapseFive"
+                            className="accordion-collapse collapse m-3"
+                            aria-labelledby="headingFive"
+                            data-bs-parent="#filterSections"
+                        >
+                            <div className="accordion-body">
+                                {/* <label
+                                    htmlFor="scoreRange"
+                                    className="form-label"
+                                >
+                                    PSLE Score
+                                </label> */}
+                                <div className="input-group">
+                                    <span className="input-group-text">
+                                        From
+                                    </span>
+                                    <select
+                                        className="form-select"
+                                        id="min"
+                                        onChange={(e) => {
+                                            setMinF(e.target.value);
+                                        }}
+                                        onClick={handleChange}
+                                    >
+                                        {[...Array(29).keys()].map((i) => {
                                             return (
                                                 <option
                                                     value={i + 4}
@@ -473,120 +488,159 @@ function SchoolsFilter(props) {
                                                 </option>
                                             );
                                         })}
-                                </select>
+                                    </select>
+                                    <span className="input-group-text">To</span>
+                                    <select
+                                        className="form-select"
+                                        id="max"
+                                        onChange={(e) => {
+                                            setMaxF(e.target.value);
+                                        }}
+                                        onClick={handleChange}
+                                    >
+                                        {[...Array(29).keys()]
+                                            .reverse()
+                                            .map((i) => {
+                                                return (
+                                                    <option
+                                                        value={i + 4}
+                                                        key={i + 4}
+                                                    >
+                                                        {i + 4}
+                                                    </option>
+                                                );
+                                            })}
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="accordion-item">
-                    <h2 className="accordion-header" id="headingSix">
-                        <button
-                            className="accordion-button collapsed"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#collapseSix"
-                            aria-expanded="false"
-                            aria-controls="collapseSix"
+                    <div className="card">
+                        <div className="card-header p-3">
+                            <h2 className="accordion-header" id="headingSix">
+                                <button
+                                    className="accordion-button collapsed"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapseSix"
+                                    aria-expanded="false"
+                                    aria-controls="collapseSix"
+                                >
+                                    School type
+                                </button>
+                            </h2>
+                        </div>
+                        <div
+                            id="collapseSix"
+                            className="accordion-collapse collapse m-3"
+                            aria-labelledby="headingSix"
+                            data-bs-parent="#filterSections"
                         >
-                            School type
-                        </button>
-                    </h2>
-                    <div
-                        id="collapseSix"
-                        className="accordion-collapse collapse"
-                        aria-labelledby="headingSix"
-                        data-bs-parent="#filterSections"
-                    >
-                        <div className="accordion-body">
-                            <div className="mb-3">
-                                <label className="form-label">Gender</label>
-                                {genders.map((item) => {
-                                    return (
-                                        <div className="form-check" key={item}>
-                                            <input
-                                                className="form-check-input"
-                                                type="checkbox"
-                                                value={item}
-                                                id={item}
-                                                onClick={(e) => {
-                                                    let temp = genderF;
-                                                    temp[item] = !temp[item];
-                                                    setGenderF(temp);
-                                                    console.log(
-                                                        "Gender =",
-                                                        genderF
-                                                    );
-                                                }}
-                                            />
-                                            <label
-                                                className="form-check-label"
-                                                htmlFor={item}
+                            <div className="accordion-body">
+                                <div className="mb-3">
+                                    <label className="form-label">Gender</label>
+                                    {genders.map((item) => {
+                                        return (
+                                            <div
+                                                className="form-check"
+                                                key={item}
                                             >
-                                                {item}
-                                            </label>
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                            <div className="mb-3">
-                                <label className="form-label">Type</label>
-                                {types.map((item) => {
-                                    return (
-                                        <div className="form-check" key={item}>
-                                            <input
-                                                className="form-check-input"
-                                                type="checkbox"
-                                                value={item}
-                                                id={item}
-                                                onClick={(e) => {
-                                                    let temp = typeF;
-                                                    temp[item] = !temp[item];
-                                                    setTypeF(temp);
-                                                    console.log(
-                                                        "Type =",
-                                                        typeF
-                                                    );
-                                                }}
-                                            />
-                                            <label
-                                                className="form-check-label"
-                                                htmlFor={item}
+                                                <input
+                                                    className="form-check-input"
+                                                    type="checkbox"
+                                                    value={item}
+                                                    id={item}
+                                                    onClick={(e) => {
+                                                        let temp = genderF;
+                                                        temp[item] =
+                                                            !temp[item];
+                                                        setGenderF(temp);
+                                                        console.log(
+                                                            "Gender =",
+                                                            genderF
+                                                        );
+                                                    }}
+                                                />
+                                                <label
+                                                    className="form-check-label"
+                                                    htmlFor={item}
+                                                >
+                                                    {item}
+                                                </label>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                                <div className="mb-3">
+                                    <label className="form-label">Type</label>
+                                    {types.map((item) => {
+                                        return (
+                                            <div
+                                                className="form-check"
+                                                key={item}
                                             >
-                                                {item}
-                                            </label>
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                            <div className="mb-3">
-                                <label className="form-label">Others</label>
-                                {others.map((item) => {
-                                    return (
-                                        <div className="form-check" key={item}>
-                                            <input
-                                                className="form-check-input"
-                                                type="checkbox"
-                                                value={item}
-                                                id={item}
-                                                onClick={(e) => {
-                                                    let temp = otherF;
-                                                    temp[item] = !temp[item];
-                                                    setOtherF(temp);
-                                                    console.log(
-                                                        "Other =",
-                                                        otherF
-                                                    );
-                                                }}
-                                            />
-                                            <label
-                                                className="form-check-label"
-                                                htmlFor={item}
+                                                <input
+                                                    className="form-check-input"
+                                                    type="checkbox"
+                                                    value={item}
+                                                    id={item}
+                                                    onClick={(e) => {
+                                                        let temp = typeF;
+                                                        temp[item] =
+                                                            !temp[item];
+                                                        setTypeF(temp);
+                                                        console.log(
+                                                            "Type =",
+                                                            typeF
+                                                        );
+                                                    }}
+                                                />
+                                                <label
+                                                    className="form-check-label"
+                                                    htmlFor={item}
+                                                >
+                                                    {item}
+                                                </label>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                                <div className="mb-3">
+                                    <label className="form-label">Others</label>
+                                    {others.map((item) => {
+                                        return (
+                                            <div
+                                                className="form-check"
+                                                key={item}
                                             >
-                                                {item}
-                                            </label>
-                                        </div>
-                                    );
-                                })}
+                                                <input
+                                                    className="form-check-input"
+                                                    type="checkbox"
+                                                    value={item}
+                                                    id={item}
+                                                    onClick={(e) => {
+                                                        let temp = otherF;
+                                                        temp[item] =
+                                                            !temp[item];
+                                                        setOtherF(temp);
+                                                        console.log(
+                                                            "Other =",
+                                                            otherF
+                                                        );
+                                                    }}
+                                                />
+                                                <label
+                                                    className="form-check-label"
+                                                    htmlFor={item}
+                                                >
+                                                    {item}
+                                                </label>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
                             </div>
                         </div>
                     </div>

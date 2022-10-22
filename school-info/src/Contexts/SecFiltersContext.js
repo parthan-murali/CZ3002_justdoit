@@ -7,6 +7,7 @@ const SecFiltersContext = createContext({
     filteredSchools: [],
     addFilter: (filter, value) => {},
     removeFilter: (filter, value) => {},
+    resetFilters: () => {},
     getFilterCount: () => {},
     itemIsFilter: (schoolId) => {},
 }); //context is a javascript object
@@ -54,21 +55,28 @@ export function SecFiltersContextProvider(props) {
 
     function byCCAs() {
         let ccaArr = userFilters.ccas;
-        console.log("by CCAs schools =", schools);
-
-        // get rows in CCAData that has chosen CCA filters
-        let chosenRows = savedCCAs.filter((rec) => {
-            return ccaArr.has(rec.cca_generic_name);
-        });
-
-        let chosenNames = new Set(
-            chosenRows.map((row) => {
-                return row.school_name;
-            })
-        );
 
         schools = schools.filter((s) => {
-            return chosenNames.has(s.school_name);
+            let count = ccaArr.size;
+            console.log("Count before =", count);
+            ccaArr.forEach((cca) => {
+                if (s.physical_sports.includes(cca)) {
+                    count -= 1;
+                } else if (s.visual_and_pa.includes(cca)) {
+                    count -= 1;
+                } else if (s.clubs_and_societies.includes(cca)) {
+                    count -= 1;
+                } else if (s.uniformed_groups.includes(cca)) {
+                    count -= 1;
+                } else if (s.others.includes(cca)) {
+                    count -= 1;
+                }
+            });
+
+            if (count === 0) {
+                console.log("Has all:", s.school_name);
+            }
+            return count === 0;
         });
     }
 
@@ -277,6 +285,20 @@ export function SecFiltersContextProvider(props) {
         // doFiltering();
     }
 
+    function resetFilterHandler() {
+        console.log("Clearing all filters...");
+        setuserFilters({
+            location: null,
+            ccas: new Set(),
+            subjects: new Set(),
+            min: "4",
+            max: "32",
+            genders: new Set(),
+            types: new Set(),
+            others: new Set(),
+        });
+    }
+
     function itemIsFilterHandler(schoolId) {
         return userFilters.some((school) => school._id === schoolId);
     }
@@ -302,6 +324,7 @@ export function SecFiltersContextProvider(props) {
         filteredSchools: filtered,
         addFilter: addFilterHandler,
         removeFilter: removeFilterHandler,
+        resetFilters: resetFilterHandler,
         countFilters: getFilterCount,
         itemIsFilter: itemIsFilterHandler,
         // exposes these functions to all wrapped components

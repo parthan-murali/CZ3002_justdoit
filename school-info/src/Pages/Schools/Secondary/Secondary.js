@@ -4,7 +4,6 @@ import SchoolsList from "../../../Components/SchoolsList";
 import ReactPaginate from "react-paginate";
 import { useState } from "react";
 import Dropdown from "../../../Components/Dropdown";
-//import CompareButton from "../../../Components/CompareButton";
 import SchoolsFilter from "../../../Components/SchoolsFilter";
 import data from "../../../JSON/combined_data.json"; // COMBINED DATASET OF EVERYTHING WE NEED
 
@@ -21,26 +20,30 @@ function Secondary() {
     const schoolsPerPage = 20;
     const noOfSchoolsVisited = pageNumber * schoolsPerPage;
     const [searchTerm, setSearchTerm] = useState("");
+    const [sort, setSort] = useState("A-Z");
 
     const { schoolsContext } = useContext(SchoolsContext);
     const secFiltersCtx = useContext(SecFiltersContext);
     //let data = schoolsContext.schools;
+    const parsedData = JSON.parse(JSON.stringify(data));
 
     // initialize schools
     let schools = [];
 
-    if (data !== undefined) {
+    if (parsedData !== undefined) {
         // filter to get primary school data
         let index = 0; // to ensure the school appear in numeric order, using i will skip some numbers
-        for (let i = 0; i < data.length; i++) {
+        for (let i = 0; i < parsedData.length; i++) {
             if (
-                data[i].mainlevel_code === "SECONDARY" ||
-                data[i].mainlevel_code === "MIXED LEVELS"
+                parsedData[i].mainlevel_code === "SECONDARY" ||
+                parsedData[i].mainlevel_code === "MIXED LEVELS"
             ) {
-                schools[index++] = data[i];
+                schools[index++] = parsedData[i];
             }
         }
     }
+
+    console.log("Secondary > schools =", schools);
 
     // Determine number of pages
     let pageCount = Math.ceil(schools.length / schoolsPerPage);
@@ -49,37 +52,46 @@ function Secondary() {
     const displaySchools = () => {
         console.log("Filter count:", secFiltersCtx.countFilters());
         if (secFiltersCtx.countFilters() === 0) {
-            return schools
-                .slice(noOfSchoolsVisited, noOfSchoolsVisited + schoolsPerPage)
-                .map((school) => (
-                    <div key={school.school_name}>
-                        <SchoolsCard data={school} />
-                    </div>
-                ));
+            return (
+                <SchoolsList
+                    level="SECONDARY"
+                    schools={schools}
+                    visitedCount={noOfSchoolsVisited}
+                    schPerPg={schoolsPerPage}
+                    sortBy={sort}
+                />
+            );
         } else {
             pageCount = Math.ceil(
                 secFiltersCtx.filteredSchools.length / schoolsPerPage
             );
-            return <SchoolsList schools={secFiltersCtx.filteredSchools} />;
+            return (
+                <SchoolsList
+                    level="SECONDARY"
+                    schools={secFiltersCtx.filteredSchools}
+                    visitedCount={noOfSchoolsVisited}
+                    schPerPg={schoolsPerPage}
+                    sortBy={sort}
+                />
+            );
         }
     };
 
     const searchSchools = schools
         .filter((value) => {
-            if (searchTerm === "") return value;
+            let copy = Object.assign({}, value);
+            if (searchTerm === "") return copy;
             else if (
-                value.school_name
+                copy.school_name
                     .toLowerCase()
                     .includes(searchTerm.toLowerCase()) ||
-                value.address
+                copy.address.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                copy.postal_code
                     .toLowerCase()
                     .includes(searchTerm.toLowerCase()) ||
-                value.postal_code
-                    .toLowerCase()
-                    .includes(searchTerm.toLowerCase()) ||
-                value.mrt_desc.toLowerCase().includes(searchTerm.toLowerCase())
+                copy.mrt_desc.toLowerCase().includes(searchTerm.toLowerCase())
             ) {
-                return value;
+                return copy;
             }
         })
         .map((school) => (
@@ -97,38 +109,6 @@ function Secondary() {
     };
 
     return searchTerm !== "" ? (
-        <div className="d-flex">
-            <div id="sidebar" className="w-25 p-2 flex-fill">
-                <SchoolsFilter level="SECONDARY" data={schools} />
-            </div>
-            <div id="content" className="w-75 p-5 flex-fill">
-                <div className="p-2 flex-fill">
-                    <Dropdown currentPage={"Secondary"} />
-                    <input
-                        className="search-bar"
-                        type="text"
-                        placeholder="Type to Search..."
-                        onChange={(e) => {
-                            setSearchTerm(e.target.value);
-                        }}
-                    />
-                </div>
-                <div
-                    style={{
-                        display: "flex",
-                        justifyContent: "center",
-                        width: "70%",
-                        margin: "auto",
-                        marginBottom: "1rem",
-                    }}
-                >
-                    <div className="school-level-title">Secondary Schools </div>
-                </div>
-
-                {searchSchools}
-            </div>
-        </div>
-    ) : (
         <div className="d-flex m-5">
             <div id="sidebar" className="col-3 me-3">
                 <SchoolsFilter level="SECONDARY" data={schools} />
@@ -142,6 +122,74 @@ function Secondary() {
                         <Dropdown currentPage={"Secondary"} />
                     </div>
                     <div className="d-flex justify-content-center">
+                        <input
+                            className="search-bar"
+                            type="text"
+                            placeholder="Type to Search..."
+                            onChange={(e) => {
+                                setSearchTerm(e.target.value);
+                            }}
+                        />
+                    </div>
+                    {searchSchools}
+                </div>
+            </div>
+        </div>
+    ) : (
+        <div className="d-flex m-5">
+            <div id="sidebar" className="col-3 me-3">
+                <SchoolsFilter level="SECONDARY" data={schools} />
+            </div>
+            <div id="content" className="col ms-3">
+                <div className="d-flex flex-column">
+                    <div className="d-flex justify-content-center">
+                        <div className="school-level-title">
+                            Secondary Schools
+                        </div>
+                        <div className="dropdown">
+                            <button
+                                className="btn btn-secondary dropdown-toggle"
+                                type="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                {sort}
+                            </button>
+                            <ul className="dropdown-menu">
+                                <li>
+                                    <a
+                                        className="dropdown-item"
+                                        onClick={(e) => {
+                                            setSort("A-Z");
+                                        }}
+                                    >
+                                        A-Z
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        className="dropdown-item"
+                                        onClick={(e) => {
+                                            setSort("Rank");
+                                            console.log("sort:", sort);
+                                        }}
+                                    >
+                                        Rank
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        className="dropdown-item"
+                                        onClick={(e) => setSort("Proximity")}
+                                    >
+                                        Proximity
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="d-flex justify-content-center">
+                        <Dropdown currentPage={"Secondary"} />
                         <input
                             className="search-bar"
                             type="text"

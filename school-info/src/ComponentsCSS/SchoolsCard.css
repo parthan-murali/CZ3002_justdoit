@@ -1,239 +1,236 @@
 .school-level-title {
-  /* found in pri/sec/tertiary page*/
-  font-family: "Saira Condensed", sans-serif;
-  font-weight: 400;
-  font-size: 32px;
-  margin: 1rem;
-  color: #041d3f;
+    /* found in pri/sec/tertiary page*/
+    /* font-family: "Saira Condensed", sans-serif; */
+    font-weight: 400;
+    font-size: 32px;
+    margin: 1rem;
+    color: #041d3f;
 }
 
 .school-card {
-  font-family: "Saira Condensed", sans-serif;
-  font-size: 24px;
-  background-color: #f2c0c0;
-  width: 35rem;
-  height: 18rem;
-  margin: auto;
-  border-radius: 1rem;
-  padding-left: 3rem;
-  margin-bottom: 2rem;
-  border-bottom: 4px solid #103b79;
+    /* font-family: "Saira Condensed", sans-serif; */
+    font-size: 20px;
+    background-color: #f2c0c0;
+    width: 40rem;
+    height: 15rem;
+    margin: 2rem auto;
+    border-radius: 1rem;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 8fr 2fr;
 }
 
 .school-card:hover {
-  transform: scale(1.05);
-  box-shadow: 4px 6px #103b79;
-  transition: all 0.3s ease;
-  transform: translateX(-10px) translateY(-10px);
+    transform: scale(1.05);
+    box-shadow: 4px 6px #103b79;
+    transition: all 0.3s ease;
+    transform: translateX(-10px) translateY(-10px);
+}
+
+.school-text {
+    grid-column: 1;
+    display: grid;
+    height: fit-content;
 }
 
 .school-name {
-  padding-top: 1rem;
-  margin-bottom: 12px;
-  font-weight: bold;
-  text-transform: capitalize;
-  font-size: 30px;
-  padding-left: 5px;
-  color: #3b8185;
+    margin-bottom: 12px;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: 25px;
+    color: #3b8185;
 }
-.school-name-enlarge :hover{
-  color : crimson;
+.school-name-enlarge :hover {
+    color: crimson;
+}
+
+.schools-card-icons {
+    grid-column: 2;
+    display: grid;
 }
 
 .fa-heart-icon {
-  color: #e28c92;
-  float: right;
-  padding: 6px 50px 0 0;
+    color: #e28c92;
+    margin: 0 0 0 auto;
+    padding: 0.5rem;
 }
 
 .fa-heart-icon-toggled {
-  color: #e7525b;
-  float: right;
-  padding: 6px 50px 0 0;
+    color: #e7525b;
+    margin: 0 0 0 auto;
+    padding: 0.5rem;
 }
 
 .fa-heart-icon:hover {
-  color: #e7525b;
+    color: #e7525b;
 }
 
 .compare-icon {
-  color: #636acf;
-  float: right;
-  padding: 6px 50px 20px 0;
+    color: #636acf;
+    margin: 0 0 0 auto;
+    padding: 0.5rem;
 }
 
 .compare-icon-toggled {
-  color: #1d1ad1;
-  float: right;
-  padding: 6px 50px 20px 0;
+    color: #1d1ad1;
+    margin: 0 0 0 auto;
+    padding: 0.5rem;
 }
 
 .compare-icon:hover {
-  color: #1d1ad1;
+    color: #1d1ad1;
 }
 
-
-.school-location {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 1.5rem;
+.school-text-row {
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    align-items: center;
+    margin: 0.2rem 0;
 }
 
 .fa-location-dot-icon {
-  width: 3rem;
-  font-size: 30px;
-  color: rgb(21, 78, 80);
+    color: rgb(21, 78, 80);
 }
 
 .school-address {
-  text-transform: capitalize;
-  padding-left: 0.2rem;
-}
-
-.school-postal {
-  padding-left: 1rem;
-}
-
-.school-mrt-wrapper {
-  display: flex;
-  margin-left: 7px;
+    text-transform: capitalize;
+    padding-left: 0.2rem;
 }
 
 .fa-train-subway-icon {
-  display: none;
+    color: rgb(21, 78, 80);
 }
 
 .mrt-icon {
-  width: 32px;
-  height: 36px;
-  margin-right: 0;
-  border-radius: 4px;
+    width: 32px;
+    height: 36px;
+    margin-right: 0;
+    border-radius: 4px;
 }
 
-.school-mrt-desc {
-  text-transform: capitalize;
-  text-align-last: left;
-  padding-left: 0.75rem;
-}
+/* .school-mrt-desc {
+    text-transform: capitalize;
+    text-align-last: left;
+    padding-left: 0.2rem;
+} */
 
 .container {
-  display: flex;
-  justify-content: flex-end;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .compare-btn-form-control {
-  font-size: 16px;
-  font-weight: 800;
-  line-height: 1.1;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.1;
 }
 
 .compare-btn {
-  cursor: pointer;
-  vertical-align: middle;
-  margin-left: 10px;
-  margin-right: 2rem;
-  width: 25px;
-  height: 25px;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-left: 10px;
+    margin-right: 2rem;
+    width: 25px;
+    height: 25px;
 }
 
 @media screen and (max-width: 1280px) {
-  .school-level-title {
-    font-size: 30px;
-    margin: auto;
-    margin-top: 0rem;
-    text-align: center;
-  }
+    .school-level-title {
+        font-size: 30px;
+        margin: auto;
+        margin-top: 0rem;
+        text-align: center;
+    }
 }
 
 @media screen and (max-width: 1024px) {
-  .school-level-title {
-    font-size: 30px;
-    margin: auto;
-    margin-top: 0rem;
-    text-align: center;
-  }
+    .school-level-title {
+        font-size: 30px;
+        margin: auto;
+        margin-top: 0rem;
+        text-align: center;
+    }
 }
 
 @media screen and (max-width: 700px) {
-  .school-level-title {
-    font-size: 22px;
-    margin-top: 0rem;
-    width: auto;
-    margin: auto;
-    text-align: center;
-  }
-  .school-card {
-    font-size: 16px;
-    width: 18rem;
-    height: 12rem;
-    margin: auto;
-    border-radius: 1rem;
-    padding-left: 1rem;
-    margin-top: 1.2rem;
-  }
+    .school-level-title {
+        font-size: 22px;
+        margin-top: 0rem;
+        width: auto;
+        margin: auto;
+        text-align: center;
+    }
+    .school-card {
+        font-size: 16px;
+        width: 18rem;
+        height: 12rem;
+        margin: auto;
+        border-radius: 1rem;
+        padding-left: 1rem;
+        margin-top: 1.2rem;
+    }
 
-  .school-name {
-    font-size: 20px;
-    text-align: center;
-  }
+    .school-name {
+        font-size: 20px;
+        text-align: center;
+    }
 
-  .school-location {
-    padding-bottom: 1rem;
-  }
+    .school-location {
+        padding-bottom: 1rem;
+    }
 
-  .fa-location-dot-icon {
-    font-size: 18px;
-  }
+    .fa-location-dot-icon {
+        font-size: 18px;
+    }
 
-  .fa-heart-icon {
-    padding: 4px 16px 0 0;
-  }
+    .fa-heart-icon {
+        padding: 4px 16px 0 0;
+    }
 
-  .mrt-icon {
-    display: none;
-  }
+    .mrt-icon {
+        display: none;
+    }
 
-  .school-mrt-wrapper {
-    display: inline-flex;
-    margin-left: 16px;
-  }
+    .school-mrt-wrapper {
+        display: inline-flex;
+        margin-left: 16px;
+    }
 
-  .fa-train-subway-icon {
-    display: inline;
-    padding-top: 3px;
-    margin-right: 10px;
-    font-size: 17px;
-    color: #c40f1b;
-  }
+    .fa-train-subway-icon {
+        display: inline;
+        padding-top: 3px;
+        margin-right: 10px;
+        font-size: 17px;
+        color: #c40f1b;
+    }
 
-  .compare-btn-form-control {
-    font-size: 14px;
-    font-weight: 800;
-  }
+    .compare-btn-form-control {
+        font-size: 14px;
+        font-weight: 800;
+    }
 
-  .compare-btn {
-    width: 20px;
-    height: 20px;
-  }
+    .compare-btn {
+        width: 20px;
+        height: 20px;
+    }
 }
 
 @media screen and (max-width: 300px) {
-  .school-level-title {
-    font-size: 18px;
-    margin-top: 0rem;
-    width: auto;
-    margin: auto;
-    text-align: center;
-  }
+    .school-level-title {
+        font-size: 18px;
+        margin-top: 0rem;
+        width: auto;
+        margin: auto;
+        text-align: center;
+    }
 
-  .school-card {
-    font-size: 14px;
-    width: 16rem;
-    height: 12rem;
-    margin: auto;
-    border-radius: 1rem;
-    padding-left: 0.6rem;
-    margin-top: 1.2rem;
-  }
+    .school-card {
+        font-size: 14px;
+        width: 16rem;
+        height: 12rem;
+        margin: auto;
+        border-radius: 1rem;
+        padding-left: 0.6rem;
+        margin-top: 1.2rem;
+    }
 }
