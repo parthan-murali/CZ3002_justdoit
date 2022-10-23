@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect, useContext } from "react";
 import SecFiltersContext from "../Contexts/SecFiltersContext";
+import PriFiltersContext from "../Contexts/PriFiltersContext";
 // import { collection, query, where, getDocs } from "firebase/firestore";
 // import { db } from "../Firebase";
 
@@ -23,15 +24,25 @@ function SchoolsFilter(props) {
     const [subjects, setSubjects] = useState(null);
     const [electives, setElectives] = useState(null);
     const genders = ["Boys", "Girls", "Mixed"];
-    const types = [
-        "Autonomous",
-        "Government School",
-        "Government-Aided School",
-        "Independent School",
-        "Specialised Assistance Plan (SAP)",
-        "Specialised Independent School",
-        "Specialised School",
-    ];
+    const types = () => {
+        if (level === "PRIMARY")
+            return [
+                "Autonomous",
+                "Government School",
+                "Government-Aided School",
+                "Specialised Assistance Plan (SAP)",
+            ];
+        if (level === "SECONDARY")
+            return [
+                "Autonomous",
+                "Government School",
+                "Government-Aided School",
+                "Independent School",
+                "Specialised Assistance Plan (SAP)",
+                "Specialised Independent School",
+                "Specialised School",
+            ];
+    };
     const others = ["Gifted Education Programme", "Integrated Programme"];
 
     const [locationF, setLocationF] = useState("");
@@ -42,7 +53,7 @@ function SchoolsFilter(props) {
     const [maxF, setMaxF] = useState("32");
     let genderDict = Object.assign({}, ...genders.map((x) => ({ [x]: false })));
     const [genderF, setGenderF] = useState(genderDict);
-    let typeDict = Object.assign({}, ...types.map((x) => ({ [x]: false })));
+    let typeDict = Object.assign({}, ...types().map((x) => ({ [x]: false })));
     const [typeF, setTypeF] = useState(typeDict);
     let otherDict = Object.assign({}, ...others.map((x) => ({ [x]: false })));
     const [otherF, setOtherF] = useState(otherDict);
@@ -137,7 +148,7 @@ function SchoolsFilter(props) {
         if (isMounted) {
             console.log("Fetching...");
             fetchData();
-            localStorage.setItem(lvlName + "Schools", JSON.stringify(schools));
+            localStorage.setItem("schools", JSON.stringify(schools));
         }
         return () => {
             isMounted = false;
@@ -483,70 +494,52 @@ function SchoolsFilter(props) {
                         </div>
                     </div>
                 </div>
-                <div className="accordion-item">
-                    <div className="card">
-                        <div className="card-header p-3">
-                            <h2 className="accordion-header" id="headingFive">
-                                <button
-                                    className="accordion-button collapsed"
-                                    type="button"
-                                    data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFive"
-                                    aria-expanded="false"
-                                    aria-controls="collapseFive"
+                {level === "SECONDARY" && (
+                    <div className="accordion-item">
+                        <div className="card">
+                            <div className="card-header p-3">
+                                <h2
+                                    className="accordion-header"
+                                    id="headingFive"
                                 >
-                                    PSLE score range
-                                </button>
-                            </h2>
-                        </div>
-                        <div
-                            id="collapseFive"
-                            className="accordion-collapse collapse m-3"
-                            aria-labelledby="headingFive"
-                            data-bs-parent="#filterSections"
-                        >
-                            <div className="accordion-body">
-                                {/* <label
+                                    <button
+                                        className="accordion-button collapsed"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#collapseFive"
+                                        aria-expanded="false"
+                                        aria-controls="collapseFive"
+                                    >
+                                        PSLE score range
+                                    </button>
+                                </h2>
+                            </div>
+                            <div
+                                id="collapseFive"
+                                className="accordion-collapse collapse m-3"
+                                aria-labelledby="headingFive"
+                                data-bs-parent="#filterSections"
+                            >
+                                <div className="accordion-body">
+                                    {/* <label
                                     htmlFor="scoreRange"
                                     className="form-label"
                                 >
                                     PSLE Score
                                 </label> */}
-                                <div className="input-group">
-                                    <span className="input-group-text">
-                                        From
-                                    </span>
-                                    <select
-                                        className="form-select"
-                                        id="min"
-                                        onChange={(e) => {
-                                            setMinF(e.target.value);
-                                        }}
-                                        onClick={handleChange}
-                                    >
-                                        {[...Array(29).keys()].map((i) => {
-                                            return (
-                                                <option
-                                                    value={i + 4}
-                                                    key={i + 4}
-                                                >
-                                                    {i + 4}
-                                                </option>
-                                            );
-                                        })}
-                                    </select>
-                                    <span className="input-group-text">To</span>
-                                    <select
-                                        className="form-select"
-                                        id="max"
-                                        onChange={(e) => {
-                                            setMaxF(e.target.value);
-                                        }}
-                                        onClick={handleChange}
-                                    >
-                                        {[...Array(29).keys()]
-                                            .reverse()
-                                            .map((i) => {
+                                    <div className="input-group">
+                                        <span className="input-group-text">
+                                            From
+                                        </span>
+                                        <select
+                                            className="form-select"
+                                            id="min"
+                                            onChange={(e) => {
+                                                setMinF(e.target.value);
+                                            }}
+                                            onClick={handleChange}
+                                        >
+                                            {[...Array(29).keys()].map((i) => {
                                                 return (
                                                     <option
                                                         value={i + 4}
@@ -556,12 +549,37 @@ function SchoolsFilter(props) {
                                                     </option>
                                                 );
                                             })}
-                                    </select>
+                                        </select>
+                                        <span className="input-group-text">
+                                            To
+                                        </span>
+                                        <select
+                                            className="form-select"
+                                            id="max"
+                                            onChange={(e) => {
+                                                setMaxF(e.target.value);
+                                            }}
+                                            onClick={handleChange}
+                                        >
+                                            {[...Array(29).keys()]
+                                                .reverse()
+                                                .map((i) => {
+                                                    return (
+                                                        <option
+                                                            value={i + 4}
+                                                            key={i + 4}
+                                                        >
+                                                            {i + 4}
+                                                        </option>
+                                                    );
+                                                })}
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                )}
                 <div className="accordion-item">
                     <div className="card">
                         <div className="card-header p-3">
@@ -623,7 +641,7 @@ function SchoolsFilter(props) {
                                 </div>
                                 <div className="mb-3">
                                     <label className="form-label">Type</label>
-                                    {types.map((item) => {
+                                    {types().map((item) => {
                                         let disable = false;
                                         for (const [
                                             key,

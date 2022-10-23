@@ -141,7 +141,9 @@ function SchoolsList(props) {
         }
     }
 
-    // function byProximity()
+    function byProximity(){
+        
+    }
 
     function getSorted() {
         const content = schools
@@ -165,7 +167,15 @@ function SchoolsList(props) {
 
     return (
         <ul className="list">
-            {sortBy === "A-Z"
+            {sortBy === "Fav"
+                ? schools.map((school) => {
+                      return (
+                          <div key={school.school_name}>
+                              <SchoolsCard data={school} />
+                          </div>
+                      );
+                  })
+                : sortBy === "A-Z"
                 ? schools
                       .slice(
                           noOfSchoolsVisited,

@@ -141,6 +141,17 @@ function Secondary() {
                         <div className="school-level-title">
                             Secondary Schools
                         </div>
+                        <Dropdown currentPage={"Secondary"} />
+                    </div>
+                    <div className="d-flex justify-content-center align-items-center">
+                        <input
+                            className="search-bar"
+                            type="text"
+                            placeholder="Type to Search..."
+                            onChange={(e) => {
+                                setSearchTerm(e.target.value);
+                            }}
+                        />
                         <div className="dropdown">
                             <button
                                 className="btn btn-secondary dropdown-toggle"
@@ -182,17 +193,6 @@ function Secondary() {
                                 </li>
                             </ul>
                         </div>
-                    </div>
-                    <div className="d-flex justify-content-center">
-                        <Dropdown currentPage={"Secondary"} />
-                        <input
-                            className="search-bar"
-                            type="text"
-                            placeholder="Type to Search..."
-                            onChange={(e) => {
-                                setSearchTerm(e.target.value);
-                            }}
-                        />
                     </div>
                     {searchSchools}
                 </div>
@@ -209,6 +209,17 @@ function Secondary() {
                         <div className="school-level-title">
                             Secondary Schools
                         </div>
+                        <Dropdown currentPage={"Secondary"} />
+                    </div>
+                    <div className="d-flex justify-content-center align-items-center">
+                        <input
+                            className="search-bar"
+                            type="text"
+                            placeholder="Type to Search..."
+                            onChange={(e) => {
+                                setSearchTerm(e.target.value);
+                            }}
+                        />
                         <div className="dropdown">
                             <button
                                 className="btn btn-secondary dropdown-toggle"
@@ -250,17 +261,6 @@ function Secondary() {
                                 </li>
                             </ul>
                         </div>
-                    </div>
-                    <div className="d-flex justify-content-center">
-                        <Dropdown currentPage={"Secondary"} />
-                        <input
-                            className="search-bar"
-                            type="text"
-                            placeholder="Type to Search..."
-                            onChange={(e) => {
-                                setSearchTerm(e.target.value);
-                            }}
-                        />
                     </div>
                     {displaySchools()}
                     <ReactPaginate

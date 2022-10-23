@@ -12,16 +12,19 @@ import { ToastContainer } from "react-toastify";
 import { SchoolsContextProvider } from "./Contexts/SchoolsContext";
 import { CompareContextProvider } from "./Contexts/CompareContext";
 import { SecFiltersContextProvider } from "./Contexts/SecFiltersContext";
+import { PriFiltersContextProvider } from "./Contexts/PriFiltersContext";
 
 ReactDOM.render(
     <SchoolsContextProvider>
         <FavouritesContextProvider>
             <CompareContextProvider>
                 <SecFiltersContextProvider>
-                    <BrowserRouter>
-                        <App />
-                        <ToastContainer />
-                    </BrowserRouter>
+                    <PriFiltersContextProvider>
+                        <BrowserRouter>
+                            <App />
+                            <ToastContainer />
+                        </BrowserRouter>
+                    </PriFiltersContextProvider>
                 </SecFiltersContextProvider>
             </CompareContextProvider>
         </FavouritesContextProvider>

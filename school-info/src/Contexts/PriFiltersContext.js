@@ -2,7 +2,7 @@ import { createContext } from "react";
 import { useState, useEffect } from "react";
 import cutOffs from "../JSON/PSLE Cut-Off.json";
 
-const SecFiltersContext = createContext({
+const PriFiltersContext = createContext({
     filters: {},
     filteredSchools: [],
     recDone: true,
@@ -15,25 +15,23 @@ const SecFiltersContext = createContext({
 }); //context is a javascript object
 // these are initial values
 
-export function SecFiltersContextProvider(props) {
+export function PriFiltersContextProvider(props) {
     const [userFilters, setuserFilters] = useState({
         location: null,
         ccas: new Set(),
         subjects: new Set(),
         electives: new Set(),
-        min: "4",
-        max: "32",
         genders: new Set(),
         types: new Set(),
         others: new Set(),
     });
 
-    const savedSchools = localStorage.getItem("schools");
+    const savedSchools = localStorage.getItem("primarySchools");
     const initialSchools = JSON.parse(savedSchools);
     var schools = initialSchools;
     const [filtered, setFiltered] = useState([]);
     var rec = true;
-    const savedCCAs = JSON.parse(localStorage.getItem("secondaryCCAData"));
+    const savedCCAs = JSON.parse(localStorage.getItem("primaryCCAData"));
 
     useEffect(() => {
         let isMounted = true;
@@ -80,104 +78,6 @@ export function SecFiltersContextProvider(props) {
                 console.log("Has all:", s.school_name);
             }
             return count === 0;
-        });
-    }
-
-    function byScore() {
-        let min = userFilters.min;
-        let max = userFilters.max;
-        console.log("min =", min);
-        console.log("max =", max);
-
-        // get all rows of cutoffs where the requested range fits
-        let withinRange = cutOffs.filter((rec) => {
-            let ranges = [];
-
-            // console.log("Name =", rec.Name);
-            let ex1 = rec.Express.Affiliated;
-            // console.log("ex1 =", ex1);
-            if (ex1 !== "Nil" && ex1 !== "NIL") {
-                ex1 = ex1.split("-");
-                ex1 = ex1.map((n) => {
-                    return n.replace(/\D/g, "");
-                });
-                ranges.push(ex1);
-            }
-
-            // console.log("Get ex2");
-            let ex2 = rec.Express.Non_affiliated;
-            // console.log("ex2 =", ex2);
-            if (ex2 !== "Nil" && ex2 !== "NIL") {
-                ex2 = ex2.split("-");
-                // console.log("ex2 =", ex2);
-                ex2 = ex2.map((n) => {
-                    return n.replace(/\D/g, "");
-                });
-                // console.log("ex2 =", ex2);
-                ranges.push(ex2);
-            }
-
-            // console.log("Get na1");
-            let na1 = rec.Na.Affiliated;
-            if (na1 !== "Nil" && na1 !== "NIL") {
-                na1 = na1.split("-");
-                ranges.push(na1);
-            }
-
-            // console.log("Get na2");
-            let na2 = rec.Na.Non_affiliated;
-            if (na2 !== "Nil" && na2 !== "NIL") {
-                na2 = na2.split("-");
-                ranges.push(na2);
-            }
-
-            let nt1 = rec.Nt.Affiliated;
-            if (nt1 !== "Nil" && nt1 !== "NIL") {
-                nt1 = nt1.split("-");
-                ranges.push(nt1);
-            }
-
-            let nt2 = rec.Nt.Non_affiliated;
-            if (nt2 !== "Nil" && nt2 !== "NIL") {
-                nt2 = nt2.split("-");
-                ranges.push(nt2);
-            }
-
-            for (let i = parseInt(min); i <= parseInt(max); i++) {
-                for (let j = 0; j < ranges.length; j++) {
-                    // console.log(
-                    //     "Name =",
-                    //     rec.Name,
-                    //     "i =",
-                    //     i,
-                    //     "range =",
-                    //     ranges[j][0],
-                    //     ranges[j][1]
-                    // );
-                    if (i >= ranges[j][0] && i <= ranges[j][1]) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        });
-
-        let chosenNames = withinRange.map((row) => {
-            let name = row.Name;
-            if (
-                name.charAt(name.length - 2) + name.charAt(name.length - 1) ===
-                "IP"
-            ) {
-                // console.log("IP!");
-                name = name.slice(0, -3);
-            }
-            return name.toUpperCase();
-        });
-
-        // console.log("chosenNames =", chosenNames);
-
-        schools = schools.filter((s) => {
-            return chosenNames.includes(s.school_name);
         });
     }
 
@@ -272,26 +172,8 @@ export function SecFiltersContextProvider(props) {
                 return true;
             }
             if (
-                types.has("Independent School") &&
-                s.type_code === "INDEPENDENT SCHOOL"
-            ) {
-                return true;
-            }
-            if (
                 types.has("Specialised Assistance Plan (SAP)") &&
                 s.sap_ind === "Yes"
-            ) {
-                return true;
-            }
-            if (
-                types.has("Specialised Independent School") &&
-                s.type_code === "SPECIALISED INDEPENDENT SCHOOL"
-            ) {
-                return true;
-            }
-            if (
-                types.has("Specialised School") &&
-                s.type_code === "SPECIALISED SCHOOL"
             ) {
                 return true;
             }
@@ -333,15 +215,6 @@ export function SecFiltersContextProvider(props) {
             console.log("Filtering by Electives", userFilters.electives);
             byElectives();
         }
-        if (userFilters.min !== "4" || userFilters.max !== "32") {
-            console.log(
-                "Filtering by score range",
-                userFilters.min,
-                "-",
-                userFilters.max
-            );
-            byScore();
-        }
         if (userFilters.genders.size !== 0) {
             console.log("Filtering by Genders", userFilters.genders);
             byGenders();
@@ -359,7 +232,7 @@ export function SecFiltersContextProvider(props) {
     }
 
     function addFilterHandler(filter, value) {
-        console.log("In SecFiltersContext > addFilterHandler...");
+        console.log("In PriFiltersContext > addFilterHandler...");
 
         setuserFilters((prev) => {
             console.log("Prev filters =", prev);
@@ -368,10 +241,6 @@ export function SecFiltersContextProvider(props) {
             switch (filter) {
                 case "location":
                     return { ...prev, location: value };
-                case "min":
-                    return { ...prev, min: value };
-                case "max":
-                    return { ...prev, max: value };
                 case "ccas":
                     // newSet = prev.ccas.add(value);
                     return { ...prev, ccas: value };
@@ -408,7 +277,7 @@ export function SecFiltersContextProvider(props) {
     }
 
     function removeFilterHandler(filter, value) {
-        console.log("In SecFiltersContext > removeFilterHandler...");
+        console.log("In PriFiltersContext > removeFilterHandler...");
 
         setuserFilters((prev) => {
             console.log("Prev filters =", prev);
@@ -417,10 +286,6 @@ export function SecFiltersContextProvider(props) {
             switch (filter) {
                 case "location":
                     return { ...prev, location: null };
-                case "min":
-                    return { ...prev, min: 4 };
-                case "max":
-                    return { ...prev, max: 32 };
                 case "ccas":
                     newSet = prev.ccas.delete(value);
                     return { ...prev, ccas: newSet };
@@ -458,8 +323,6 @@ export function SecFiltersContextProvider(props) {
             ccas: new Set(),
             subjects: new Set(),
             electives: new Set(),
-            min: "4",
-            max: "32",
             genders: new Set(),
             types: new Set(),
             others: new Set(),
@@ -485,9 +348,6 @@ export function SecFiltersContextProvider(props) {
         if (userFilters.location) {
             count += 1;
         }
-        if (userFilters.min !== "4" || userFilters.max !== "32") {
-            count += 1;
-        }
         return count;
     }
 
@@ -509,12 +369,12 @@ export function SecFiltersContextProvider(props) {
     // }, [context.filters]);
 
     return (
-        <SecFiltersContext.Provider value={context}>
+        <PriFiltersContext.Provider value={context}>
             {/* value={context} is for updating the context so that other components wrapped by this provider will be informed
        Wraps around all components that are interested in interacting with the context */}
             {props.children}
-        </SecFiltersContext.Provider>
+        </PriFiltersContext.Provider>
     );
 }
 
-export default SecFiltersContext;
+export default PriFiltersContext;

@@ -1,12 +1,12 @@
 .search-bar {
     /* position: absolute; */
     background-color: #e9dddd;
-    font-family: "Saira Condensed", sans-serif;
-    font-size: 20px;
+    /* font-family: "Saira Condensed", sans-serif; */
+    font-size: 1rem;
     border: none;
     border-radius: 5px;
-    padding: 0.4rem;
-    text-align: right;
+    padding: 0.5rem;
+    /* text-align: right; */
     /* top: 6rem;
   left: 55rem; */
     margin: 1rem;
@@ -16,7 +16,6 @@
 
 @media screen and (max-width: 1280px) {
     .search-bar {
-        position: static;
         position: static;
         max-height: 2rem;
         width: 30%;

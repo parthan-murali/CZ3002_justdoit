@@ -110,18 +110,20 @@ function Dashboard() {
 
     function getRecommended() {
         toggleFilterReset();
+        if (level === "PRIMARY") {
+            navigate("/schools/primary", { state: { sort: "A-Z" } });
+        }
         if (level === "SECONDARY") {
             if (score !== "") {
                 toggleFilterAdd("min", score);
                 toggleFilterAdd("max", score);
-                secFiltersCtx.setRecDone(false);
                 navigate("/schools/secondary", { state: { sort: "Rank" } });
                 return;
             }
         }
-        toast("One of the fields - Level, Score, Address - was not saved", {
-            type: "error",
-        });
+        // toast("One of the fields - Level, Score, Address - was not saved", {
+        //     type: "error",
+        // });
     }
 
     function handleChangePhoto(e) {
