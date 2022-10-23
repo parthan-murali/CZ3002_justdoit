@@ -52,7 +52,27 @@
   padding: 6px 50px 0 0;
 }
 
+.fa-thumbs-up {
+  color: #e28c92;
+  float: left;
+  padding: 50px 50px 0 0;
+  /* position:absolute;
+  bottom: 5px; */
+  width: 40px;
+  height:40px;
+}
+
+.fa-thumbs-up-toggled {
+  color: #e7525b;
+  float: left;
+  padding: 50px 50px 0 0;
+}
+
 .fa-heart-icon:hover {
+  color: #e7525b;
+}
+
+.fa-thumbs-up:hover {
   color: #e7525b;
 }
 

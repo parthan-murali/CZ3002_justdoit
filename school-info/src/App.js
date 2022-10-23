@@ -10,6 +10,7 @@ import SignUp from "./Pages/UserAccount/SignUp";
 import Reset from "./Pages/UserAccount/ResetPassword";
 import Dashboard from "./Pages/UserAccount/Dashboard";
 import Error from "./Pages/Error";
+import Recommended from "./Pages/Recommended";
 
 import Forum from "./Pages/Forum/ForumUI";
 import PostCreate from "./Pages/Forum/CreatePost";
@@ -115,6 +116,7 @@ function App() {
           </Route>
         </Route>
         <Route path="favourites" element={<Favourites />} />
+        <Route path="recommended" element={<Recommended />} />
         <Route path="forum" element={<Forum />} />
         <Route path="compare" element={<Compare />} />
         <Route>

@@ -9,11 +9,13 @@ import {
 import { faTrainSubway } from "@fortawesome/free-solid-svg-icons";
 import mrtIcon from "../Images/mrt-icon.png";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import "../ComponentsCSS/SchoolsCard.css";
 
 import { useContext } from "react";
 import FavouritesContext from "../Contexts/FavouritesContext";
 import CompareContext from "../Contexts/CompareContext";
+import UpvoteContext from "../Contexts/UpvoteContext";
 
 import { Link } from "react-router-dom";
 
@@ -31,6 +33,18 @@ function SchoolsCard(props) {
     } else {
       favouritesCtx.addFavourite(props.data);
     }
+  }
+
+  const upvoteCtx = useContext(UpvoteContext);
+  const itemIsUpvoted = upvoteCtx.itemIsUpvoted(props.data._id);
+
+  function toggleUpvoteStatusHandler() {
+    if (itemIsUpvoted){
+      upvoteCtx.removeUpvote(props.data._id);
+    } else{
+      upvoteCtx.addUpvote(props.data);
+    }
+
   }
 
   const compareCtx = useContext(CompareContext);
@@ -78,6 +92,16 @@ function SchoolsCard(props) {
         <img className="mrt-icon" src={mrtIcon} alt="mrt icon" />
 
         <div className="school-mrt-desc">{props.data.mrt_desc}</div>
+      </div>
+
+      <div className="upvote">
+      <FontAwesomeIcon
+          className={
+            !itemIsUpvoted ? "fa-thumbs-up" : "fa-thumbs-up-toggled"
+          }
+          icon={faThumbsUp}
+          onClick={toggleUpvoteStatusHandler}
+        ></FontAwesomeIcon>
       </div>
 
       <p className="container">
