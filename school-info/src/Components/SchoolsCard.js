@@ -5,17 +5,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faCodeCompare,
     faLocationDot,
-} from "@fortawesome/free-solid-svg-icons";
-import {
+    faThumbsUp,
+    faHeart,
     faTrainSubway,
     faLocationArrow,
 } from "@fortawesome/free-solid-svg-icons";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import "../ComponentsCSS/SchoolsCard.css";
 
 import { useContext } from "react";
 import FavouritesContext from "../Contexts/FavouritesContext";
 import CompareContext from "../Contexts/CompareContext";
+import UpvoteContext from "../Contexts/UpvoteContext";
 
 import { Link } from "react-router-dom";
 
@@ -45,6 +45,17 @@ function SchoolsCard(props) {
             compareCtx.removeFromCompare(props.data._id);
         } else if (compareCtx.school.length < 2) {
             compareCtx.addToCompare(props.data);
+        }
+    }
+
+    const upvoteCtx = useContext(UpvoteContext);
+    const itemIsUpvoted = upvoteCtx.itemIsUpvoted(props.data._id);
+
+    function toggleUpvoteStatusHandler() {
+        if (itemIsUpvoted) {
+            upvoteCtx.removeUpvote(props.data._id);
+        } else {
+            upvoteCtx.addUpvote(props.data);
         }
     }
 
@@ -111,6 +122,13 @@ function SchoolsCard(props) {
                     icon={faCodeCompare}
                     size="lg"
                     onClick={toggleCompareHandler}
+                ></FontAwesomeIcon>
+                <FontAwesomeIcon
+                    className={
+                        !itemIsUpvoted ? "fa-thumbs-up" : "fa-thumbs-up-toggled"
+                    }
+                    icon={faThumbsUp}
+                    onClick={toggleUpvoteStatusHandler}
                 ></FontAwesomeIcon>
             </div>
         </div>

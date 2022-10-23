@@ -6,6 +6,8 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { FavouritesContextProvider } from "./Contexts/FavouritesContext";
+import { UpvoteContextProvider } from "./Contexts/UpvoteContext";
+
 import "react-toastify/dist/ReactToastify.css";
 import "react-bootstrap";
 import { ToastContainer } from "react-toastify";
@@ -16,14 +18,16 @@ import { SecFiltersContextProvider } from "./Contexts/SecFiltersContext";
 ReactDOM.render(
     <SchoolsContextProvider>
         <FavouritesContextProvider>
-            <CompareContextProvider>
-                <SecFiltersContextProvider>
-                    <BrowserRouter>
-                        <App />
-                        <ToastContainer />
-                    </BrowserRouter>
-                </SecFiltersContextProvider>
-            </CompareContextProvider>
+            <UpvoteContextProvider>
+                <CompareContextProvider>
+                    <SecFiltersContextProvider>
+                        <BrowserRouter>
+                            <App />
+                            <ToastContainer />
+                        </BrowserRouter>
+                    </SecFiltersContextProvider>
+                </CompareContextProvider>
+            </UpvoteContextProvider>
         </FavouritesContextProvider>
     </SchoolsContextProvider>,
     document.getElementById("root")
