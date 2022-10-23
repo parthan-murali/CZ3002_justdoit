@@ -6,8 +6,10 @@ import {
     faCodeCompare,
     faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
-import { faTrainSubway } from "@fortawesome/free-solid-svg-icons";
-import mrtIcon from "../Images/mrt-icon.png";
+import {
+    faTrainSubway,
+    faLocationArrow,
+} from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import "../ComponentsCSS/SchoolsCard.css";
 
@@ -21,6 +23,8 @@ function SchoolsCard(props) {
     props.data.school_name = props.data.school_name.toLowerCase();
     props.data.address = props.data.address.toLowerCase();
     props.data.mrt_desc = props.data.mrt_desc.toLowerCase();
+    const address = props.address;
+    const dist = props.distance;
 
     const favouritesCtx = useContext(FavouritesContext);
     const itemIsFavourite = favouritesCtx.itemIsFavourite(props.data._id);
@@ -76,6 +80,17 @@ function SchoolsCard(props) {
                     />
                     <div className="school-address">{props.data.mrt_desc}</div>
                 </div>
+                {address && (
+                    <div className="school-text-row">
+                        <FontAwesomeIcon
+                            className="fa-arrow-icon"
+                            icon={faLocationArrow}
+                        />
+                        <div className="school-distance">
+                            Within {dist / 1000} km radius
+                        </div>
+                    </div>
+                )}
             </div>
 
             <div className="schools-card-icons">

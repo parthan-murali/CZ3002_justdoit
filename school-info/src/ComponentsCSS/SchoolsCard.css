@@ -97,7 +97,15 @@
     padding-left: 0.2rem;
 }
 
+.school-distance {
+    padding-left: 0.2rem;
+}
+
 .fa-train-subway-icon {
+    color: rgb(21, 78, 80);
+}
+
+.fa-arrow-icon {
     color: rgb(21, 78, 80);
 }
 

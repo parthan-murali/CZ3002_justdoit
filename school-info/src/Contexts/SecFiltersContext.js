@@ -1,6 +1,7 @@
 import { createContext } from "react";
 import { useState, useEffect } from "react";
 import cutOffs from "../JSON/PSLE Cut-Off.json";
+import jcRanks from "../JSON/jcRankings.json";
 
 const SecFiltersContext = createContext({
     filters: {},
@@ -11,18 +12,19 @@ const SecFiltersContext = createContext({
     removeFilter: (filter, value) => {},
     resetFilters: () => {},
     countFilters: () => {},
-    itemIsFilter: (schoolId) => {},
 }); //context is a javascript object
 // these are initial values
 
 export function SecFiltersContextProvider(props) {
     const [userFilters, setuserFilters] = useState({
         location: null,
+        address: null,
         ccas: new Set(),
         subjects: new Set(),
         electives: new Set(),
         min: "4",
         max: "32",
+        l1r5: "20",
         genders: new Set(),
         types: new Set(),
         others: new Set(),
@@ -80,6 +82,26 @@ export function SecFiltersContextProvider(props) {
                 console.log("Has all:", s.school_name);
             }
             return count === 0;
+        });
+    }
+
+    function byL1R5() {
+        let l1r5 = parseInt(userFilters.l1r5);
+
+        console.log("l1r5 =", l1r5);
+
+        schools = schools.filter((s) => {
+            if (s.arts.length !== 0 && s.arts[0] !== "-") {
+                if (parseInt(s.arts[0]) <= l1r5) {
+                    return true;
+                }
+            }
+            if (s.science.length !== 0 && s.science[0] !== "-") {
+                if (parseInt(s.science[0]) <= l1r5) {
+                    return true;
+                }
+            }
+            return false;
         });
     }
 
@@ -342,6 +364,10 @@ export function SecFiltersContextProvider(props) {
             );
             byScore();
         }
+        if (userFilters.l1r5 !== "20") {
+            console.log("Filtering by L1R5", userFilters.l1r5);
+            byL1R5();
+        }
         if (userFilters.genders.size !== 0) {
             console.log("Filtering by Genders", userFilters.genders);
             byGenders();
@@ -368,10 +394,14 @@ export function SecFiltersContextProvider(props) {
             switch (filter) {
                 case "location":
                     return { ...prev, location: value };
+                case "address":
+                    return { ...prev, address: value };
                 case "min":
                     return { ...prev, min: value };
                 case "max":
                     return { ...prev, max: value };
+                case "l1r5":
+                    return { ...prev, l1r5: value };
                 case "ccas":
                     // newSet = prev.ccas.add(value);
                     return { ...prev, ccas: value };
@@ -417,10 +447,14 @@ export function SecFiltersContextProvider(props) {
             switch (filter) {
                 case "location":
                     return { ...prev, location: null };
+                case "address":
+                    return { ...prev, address: null };
                 case "min":
-                    return { ...prev, min: 4 };
+                    return { ...prev, min: "4" };
                 case "max":
-                    return { ...prev, max: 32 };
+                    return { ...prev, max: "32" };
+                case "l1r5":
+                    return { ...prev, max: "20" };
                 case "ccas":
                     newSet = prev.ccas.delete(value);
                     return { ...prev, ccas: newSet };
@@ -455,11 +489,13 @@ export function SecFiltersContextProvider(props) {
         console.log("Clearing all filters...");
         setuserFilters({
             location: null,
+            address: null,
             ccas: new Set(),
             subjects: new Set(),
             electives: new Set(),
             min: "4",
             max: "32",
+            l1r5: "20",
             genders: new Set(),
             types: new Set(),
             others: new Set(),
@@ -500,7 +536,6 @@ export function SecFiltersContextProvider(props) {
         removeFilter: removeFilterHandler,
         resetFilters: resetFilterHandler,
         countFilters: getFilterCount,
-        itemIsFilter: itemIsFilterHandler,
         // exposes these functions to all wrapped components
     };
 

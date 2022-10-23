@@ -1,0 +1,65 @@
+[
+    { "school_name": "HWA CHONG INSTITUTION", "jc_rank": "1" },
+    { "school_name": "RAFFLES INSTITUTION", "jc_rank": "1" },
+    {
+        "school_name": "ANGLO-CHINESE SCHOOL (INDEPENDENT)",
+        "jc_rank": "2"
+    },
+    { "school_name": "NANYANG JUNIOR COLLEGE", "jc_rank": "3" },
+    {
+        "school_name": "ST. JOSEPH'S INSTITUTION",
+        "jc_rank": "4"
+    },
+    {
+        "school_name": "EUNOIA JUNIOR COLLEGE",
+        "jc_rank": "5"
+    },
+    {
+        "school_name": "NATIONAL JUNIOR COLLEGE",
+        "jc_rank": "6"
+    },
+    {
+        "school_name": "VICTORIA JUNIOR COLLEGE",
+        "jc_rank": "6"
+    },
+    {
+        "school_name": "ANGLO-CHINESE JUNIOR COLLEGE",
+        "jc_rank": "7"
+    },
+    {
+        "school_name": "DUNMAN HIGH SCHOOL",
+        "jc_rank": "7"
+    },
+    {
+        "school_name": "RIVER VALLEY HIGH SCHOOL",
+        "jc_rank": "7"
+    },
+    {
+        "school_name": "TEMASEK JUNIOR COLLEGE",
+        "jc_rank": "7"
+    },
+    {
+        "school_name": "ST. ANDREW'S JUNIOR COLLEGE",
+        "jc_rank": "8"
+    },
+    {
+        "school_name": "ANDERSON SERANGOON JUNIOR COLLEGE",
+        "jc_rank": "9"
+    },
+    {
+        "school_name": "CATHOLIC JUNIOR COLLEGE",
+        "jc_rank": "10"
+    },
+    {
+        "school_name": "TAMPINES MERIDIAN JUNIOR COLLEGE",
+        "jc_rank": "10"
+    },
+    {
+        "school_name": "JURONG PIONEER JUNIOR COLLEGE",
+        "jc_rank": "11"
+    },
+    {
+        "school_name": "YISHUN INNOVA JUNIOR COLLEGE",
+        "jc_rank": "12"
+    }
+]
