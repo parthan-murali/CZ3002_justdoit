@@ -60,10 +60,7 @@ function SchoolsFilter(props) {
             const getCCAs = await axios.get(ccasURL);
             let ccaData = getCCAs.data.result.records;
             ccaData = ccaData.filter((rec) => {
-                return (
-                    rec.school_section === level ||
-                    rec.school_section === "MIXED LEVELS"
-                );
+                return inLevel(rec.school_name);
             });
             localStorage.setItem(lvlName + "CCAData", JSON.stringify(ccaData));
             let groups = new Set(
@@ -105,6 +102,24 @@ function SchoolsFilter(props) {
                     return rec.moe_programme_desc;
                 })
             );
+            schools.forEach((sch) => {
+                if (sch.alp_title.length !== 0 && sch.alp_title[0] !== "NULL") {
+                    elecSet.add(sch.alp_title[0].toUpperCase());
+                }
+                if (
+                    sch.llp_title1.length !== 0 &&
+                    sch.llp_title1[0] !== "NULL"
+                ) {
+                    elecSet.add(sch.llp_title1[0].toUpperCase());
+                }
+                if (
+                    sch.llp_title2.length !== 0 &&
+                    sch.llp_title2[0] !== "NULL"
+                ) {
+                    elecSet.add(sch.llp_title2[0].toUpperCase());
+                }
+            });
+
             let sortedElec = [...elecSet].sort();
             setElectives(sortedElec);
 
@@ -192,10 +207,24 @@ function SchoolsFilter(props) {
                 toggleFilterAdd("location", locationF);
                 break;
             case "ccas":
-                console.log("val =", val);
+                // console.log("val =", val);
                 if (ccaGrps.includes(val.toUpperCase())) {
                     newSet = ccaF.add(val.toUpperCase());
                     setCCAF(newSet);
+                    toggleFilterAdd(id, newSet); // when adding, input the whole array
+                }
+                break;
+            case "subjects":
+                if (subjects.includes(val.toUpperCase())) {
+                    newSet = subjectF.add(val.toUpperCase());
+                    setSubjectF(newSet);
+                    toggleFilterAdd(id, newSet); // when adding, input the whole array
+                }
+                break;
+            case "electives":
+                if (electives.includes(val.toUpperCase())) {
+                    newSet = electiveF.add(val.toUpperCase());
+                    setElectiveF(newSet);
                     toggleFilterAdd(id, newSet); // when adding, input the whole array
                 }
                 break;
@@ -218,22 +247,39 @@ function SchoolsFilter(props) {
         }
     }
 
-    function handleClick(e) {
-        let id = e.target.id;
-        let val = e.target.value;
+    function handleClick(id) {
+        let val;
 
         switch (id) {
-            case "location":
-                console.log("val =", val, "locationF =", locationF);
-                if (val !== "" && val !== locationF) {
-                    setLocationF(val);
-                    console.log("After Click:", locationF);
-                    toggleFilterRemove("location", locationF);
-                    toggleFilterAdd("location", locationF);
-                }
+            case "genders":
+                val = [];
+                Object.keys(genderF).forEach((key) => {
+                    if (genderF[key]) {
+                        val.push(key);
+                    }
+                });
+                break;
+            case "types":
+                val = [];
+                Object.keys(typeF).forEach((key) => {
+                    if (typeF[key]) {
+                        val.push(key);
+                    }
+                });
+                break;
+            case "others":
+                val = [];
+                Object.keys(otherF).forEach((key) => {
+                    if (otherF[key]) {
+                        val.push(key);
+                    }
+                });
+                break;
             default:
                 console.log("Default Click");
         }
+
+        toggleFilterAdd(id, val);
     }
 
     // TODO: Disable filters when fetchData() not completed yet!
@@ -551,6 +597,7 @@ function SchoolsFilter(props) {
                                                     className="form-check-input"
                                                     type="checkbox"
                                                     value={item}
+                                                    name="gender"
                                                     id={item}
                                                     onClick={(e) => {
                                                         let temp = genderF;
@@ -561,6 +608,7 @@ function SchoolsFilter(props) {
                                                             "Gender =",
                                                             genderF
                                                         );
+                                                        handleClick("genders");
                                                     }}
                                                 />
                                                 <label
@@ -576,6 +624,22 @@ function SchoolsFilter(props) {
                                 <div className="mb-3">
                                     <label className="form-label">Type</label>
                                     {types.map((item) => {
+                                        let disable = false;
+                                        for (const [
+                                            key,
+                                            value,
+                                        ] of Object.entries(typeF)) {
+                                            if (key !== item && value) {
+                                                disable = true;
+                                            }
+                                        }
+                                        if (
+                                            item === "Autonomous" ||
+                                            item ===
+                                                "Specialised Assistance Plan (SAP)"
+                                        ) {
+                                            disable = false;
+                                        }
                                         return (
                                             <div
                                                 className="form-check"
@@ -585,7 +649,9 @@ function SchoolsFilter(props) {
                                                     className="form-check-input"
                                                     type="checkbox"
                                                     value={item}
+                                                    name="type"
                                                     id={item}
+                                                    disabled={disable}
                                                     onClick={(e) => {
                                                         let temp = typeF;
                                                         temp[item] =
@@ -595,6 +661,7 @@ function SchoolsFilter(props) {
                                                             "Type =",
                                                             typeF
                                                         );
+                                                        handleClick("types");
                                                     }}
                                                 />
                                                 <label
@@ -619,6 +686,7 @@ function SchoolsFilter(props) {
                                                     className="form-check-input"
                                                     type="checkbox"
                                                     value={item}
+                                                    name="other"
                                                     id={item}
                                                     onClick={(e) => {
                                                         let temp = otherF;
@@ -629,6 +697,7 @@ function SchoolsFilter(props) {
                                                             "Other =",
                                                             otherF
                                                         );
+                                                        handleClick("others");
                                                     }}
                                                 />
                                                 <label

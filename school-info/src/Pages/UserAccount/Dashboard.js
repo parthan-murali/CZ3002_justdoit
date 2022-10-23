@@ -114,7 +114,8 @@ function Dashboard() {
             if (score !== "") {
                 toggleFilterAdd("min", score);
                 toggleFilterAdd("max", score);
-                navigate("/schools/secondary");
+                secFiltersCtx.setRecDone(false);
+                navigate("/schools/secondary", { state: { sort: "Rank" } });
                 return;
             }
         }

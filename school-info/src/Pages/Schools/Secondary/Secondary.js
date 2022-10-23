@@ -12,8 +12,9 @@ import "../../../ComponentsCSS/SchoolsCard.css";
 import "../../../ComponentsCSS/SchoolSearchBar.css";
 
 import { SchoolsContext } from "../../../Contexts/SchoolsContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import SecFiltersContext from "../../../Contexts/SecFiltersContext";
+import { useLocation } from "react-router-dom";
 
 function Secondary() {
     const [pageNumber, setPageNumber] = useState(0);
@@ -21,9 +22,11 @@ function Secondary() {
     const noOfSchoolsVisited = pageNumber * schoolsPerPage;
     const [searchTerm, setSearchTerm] = useState("");
     const [sort, setSort] = useState("A-Z");
+    const from = useLocation();
 
     const { schoolsContext } = useContext(SchoolsContext);
     const secFiltersCtx = useContext(SecFiltersContext);
+
     //let data = schoolsContext.schools;
     const parsedData = JSON.parse(JSON.stringify(data));
 
@@ -43,7 +46,13 @@ function Secondary() {
         }
     }
 
-    console.log("Secondary > schools =", schools);
+    // console.log("Secondary > schools =", schools);
+
+    useEffect(() => {
+        if (from.state) {
+            setSort(from.state.sort);
+        }
+    }, [from]);
 
     // Determine number of pages
     let pageCount = Math.ceil(schools.length / schoolsPerPage);
@@ -59,6 +68,19 @@ function Secondary() {
                     visitedCount={noOfSchoolsVisited}
                     schPerPg={schoolsPerPage}
                     sortBy={sort}
+                />
+            );
+        } else if (from.state !== null && !secFiltersCtx.recDone) {
+            secFiltersCtx.setRecDone(true);
+            console.log("From recommended");
+            pageCount = Math.ceil(secFiltersCtx.filteredSchools.length / 5);
+            return (
+                <SchoolsList
+                    level="SECONDARY"
+                    schools={secFiltersCtx.filteredSchools}
+                    visitedCount={noOfSchoolsVisited}
+                    schPerPg={5}
+                    sortBy={from.state.sort}
                 />
             );
         } else {
@@ -119,9 +141,50 @@ function Secondary() {
                         <div className="school-level-title">
                             Secondary Schools
                         </div>
-                        <Dropdown currentPage={"Secondary"} />
+                        <div className="dropdown">
+                            <button
+                                className="btn btn-secondary dropdown-toggle"
+                                type="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                {sort}
+                            </button>
+                            <ul className="dropdown-menu">
+                                <li>
+                                    <a
+                                        className="dropdown-item"
+                                        onClick={(e) => {
+                                            setSort("A-Z");
+                                        }}
+                                    >
+                                        A-Z
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        className="dropdown-item"
+                                        onClick={(e) => {
+                                            setSort("Rank");
+                                            console.log("sort:", sort);
+                                        }}
+                                    >
+                                        Rank
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        className="dropdown-item"
+                                        onClick={(e) => setSort("Proximity")}
+                                    >
+                                        Proximity
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                     <div className="d-flex justify-content-center">
+                        <Dropdown currentPage={"Secondary"} />
                         <input
                             className="search-bar"
                             type="text"

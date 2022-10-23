@@ -26,7 +26,7 @@ function SchoolsList(props) {
                 let bName = b.school_name.toUpperCase();
 
                 if (name === aName) {
-                    console.log("NAME FOUND");
+                    // console.log("NAME FOUND");
                     let ex = rec.Express.Non_affiliated;
                     if (ex !== "Nil" && ex !== "NIL") {
                         ex = ex.split("-");
