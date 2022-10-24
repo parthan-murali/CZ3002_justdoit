@@ -1,0 +1,22 @@
+
+
+.error-style {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 15rem;
+    height: fit-content;
+    margin: auto;
+    margin-top: 10rem;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    box-shadow: 10px 10px #e0e8f9;
+    text-align: center;
+    color: #990000;
+}
+
+@media screen and (max-width: 700px) {
+
+}

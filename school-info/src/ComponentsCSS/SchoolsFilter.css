@@ -1,0 +1,5 @@
+.sidebar {
+    position: sticky;
+    top: 9rem;
+    z-index: initial;
+}

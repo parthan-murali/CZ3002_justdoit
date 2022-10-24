@@ -1,0 +1,11 @@
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.list-count {
+    font-size: 20px;
+    color: #0c7187;
+    margin-top: 1rem;
+}

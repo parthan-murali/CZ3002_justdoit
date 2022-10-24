@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand:400,700");
+
+.fa-chevron-down {
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+.dropdown-container {
+    /* position: absolute; */
+    /* left: 5rem;
+  top: 5rem; */
+    /* font-family: "Saira Condensed", sans-serif; */
+    font-size: 20px;
+    background-color: #e9dddd;
+    /* width: 15%; */
+    margin: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    padding-bottom: 0%;
+}
+
+.dropdown-button {
+    border-radius: 5px;
+    padding: 6px 20px;
+    /* font-weight: bold; */
+    color: rgb(88, 79, 81);
+}
+
+.dropdown-item {
+    list-style: none;
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+}
+
+.dropdown-item:hover {
+    background-color: lightgray;
+}
+
+@media screen and (max-width: 1280px) {
+    .dropdown-container {
+        position: static;
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .dropdown-container {
+        position: static;
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .dropdown-container {
+        position: static;
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .dropdown-container {
+        font-size: 16px;
+        position: static;
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .dropdown-container {
+        font-size: 15px;
+        position: static;
+        width: auto;
+    }
+}
