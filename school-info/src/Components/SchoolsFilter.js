@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect, useContext } from "react";
 import SecFiltersContext from "../Contexts/SecFiltersContext";
-import PriFiltersContext from "../Contexts/PriFiltersContext";
+
 // import { collection, query, where, getDocs } from "firebase/firestore";
 // import { db } from "../Firebase";
 
@@ -42,15 +42,26 @@ function SchoolsFilter(props) {
                 "Specialised Independent School",
                 "Specialised School",
             ];
+        if (level === "JC")
+            return [
+                "Autonomous",
+                "Government School",
+                "Government-Aided School",
+                "Independent School",
+                "Specialised Assistance Plan (SAP)",
+                "Specialised Independent School",
+            ];
     };
     const others = ["Gifted Education Programme", "Integrated Programme"];
 
     const [locationF, setLocationF] = useState("");
+    const [addressF, setAddressF] = useState("");
     const [ccaF, setCCAF] = useState(new Set());
     const [subjectF, setSubjectF] = useState(new Set());
     const [electiveF, setElectiveF] = useState(new Set());
     const [minF, setMinF] = useState("4");
     const [maxF, setMaxF] = useState("32");
+    const [l1r5, setl1r5] = useState("20");
     let genderDict = Object.assign({}, ...genders.map((x) => ({ [x]: false })));
     const [genderF, setGenderF] = useState(genderDict);
     let typeDict = Object.assign({}, ...types().map((x) => ({ [x]: false })));
@@ -194,6 +205,11 @@ function SchoolsFilter(props) {
         secFiltersCtx.removeFilter(filter, value);
     }
 
+    function toggleFilterReset(filter, value) {
+        console.log("SchoolsFilter > toggleFilterReset");
+        secFiltersCtx.resetFilters();
+    }
+
     function validTerm(field, term) {
         let upper = term.toUpperCase();
 
@@ -217,6 +233,9 @@ function SchoolsFilter(props) {
                 toggleFilterRemove("location", locationF);
                 toggleFilterAdd("location", locationF);
                 break;
+            case "address":
+                console.log("Got address:", addressF);
+                toggleFilterAdd(id, addressF);
             case "ccas":
                 // console.log("val =", val);
                 if (ccaGrps.includes(val.toUpperCase())) {
@@ -252,6 +271,11 @@ function SchoolsFilter(props) {
                 console.log("After Change:", maxF);
                 toggleFilterRemove("max", maxF);
                 toggleFilterAdd("max", maxF);
+                break;
+            case "l1r5":
+                setl1r5(val);
+                toggleFilterRemove(id, l1r5);
+                toggleFilterAdd(id, l1r5);
                 break;
             default:
                 console.log("Default Change");
@@ -296,7 +320,17 @@ function SchoolsFilter(props) {
     // TODO: Disable filters when fetchData() not completed yet!
 
     return (
-        <form id="school-filters">
+        <form id="school-filters" className="sidebar">
+            <div className="d-flex justify-content-end my-3">
+                <button
+                    type="button"
+                    className="btn btn-outline-light"
+                    onClick={toggleFilterReset}
+                >
+                    Clear all
+                </button>
+            </div>
+
             <div className="accordian" id="filterSections">
                 <div className="accordion-item">
                     <div className="card">
@@ -321,28 +355,57 @@ function SchoolsFilter(props) {
                             data-bs-parent="#filterSections"
                         >
                             <div className="accordion-body">
-                                {/* <label htmlFor="location">Location</label> */}
-                                <select
-                                    className="form-select"
-                                    id="location"
-                                    value={locationF}
-                                    onChange={(e) => {
-                                        setLocationF(e.target.value);
-                                    }}
-                                    onClick={handleChange}
-                                >
-                                    <option value="">Select an area</option>
-                                    {districts.map(function (district) {
-                                        return (
-                                            <option
-                                                value={district}
-                                                key={district}
-                                            >
-                                                {titleCase(district)}
-                                            </option>
-                                        );
-                                    })}
-                                </select>
+                                <div>
+                                    <label
+                                        htmlFor="location"
+                                        className="form-label"
+                                    >
+                                        Search for schools by area
+                                    </label>
+                                    <select
+                                        className="form-select"
+                                        id="location"
+                                        value={locationF}
+                                        onChange={(e) => {
+                                            setLocationF(e.target.value);
+                                        }}
+                                        onClick={handleChange}
+                                    >
+                                        <option value="">Select an area</option>
+                                        {districts.map(function (district) {
+                                            return (
+                                                <option
+                                                    value={district}
+                                                    key={district}
+                                                >
+                                                    {titleCase(district)}
+                                                </option>
+                                            );
+                                        })}
+                                    </select>
+                                </div>
+                                <div className="mt-3">
+                                    <label
+                                        htmlFor="address"
+                                        className="form-label"
+                                    >
+                                        Search for schools near you
+                                    </label>
+                                    <input
+                                        type="number"
+                                        className="form-control"
+                                        id="address"
+                                        placeholder="Enter your postal code"
+                                        onChange={(e) => {
+                                            setAddressF(e.target.value);
+                                            handleChange(e);
+                                        }}
+                                    />
+                                    <div id="addressHelp" className="form-text">
+                                        To view schools nearest to you, sort by
+                                        Proximity.
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -562,6 +625,67 @@ function SchoolsFilter(props) {
                                             onClick={handleChange}
                                         >
                                             {[...Array(29).keys()]
+                                                .reverse()
+                                                .map((i) => {
+                                                    return (
+                                                        <option
+                                                            value={i + 4}
+                                                            key={i + 4}
+                                                        >
+                                                            {i + 4}
+                                                        </option>
+                                                    );
+                                                })}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
+                {level === "JC" && (
+                    <div className="accordion-item">
+                        <div className="card">
+                            <div className="card-header p-3">
+                                <h2
+                                    className="accordion-header"
+                                    id="headingFive"
+                                >
+                                    <button
+                                        className="accordion-button collapsed"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#collapseFive"
+                                        aria-expanded="false"
+                                        aria-controls="collapseFive"
+                                    >
+                                        O-Level L1R5
+                                    </button>
+                                </h2>
+                            </div>
+                            <div
+                                id="collapseFive"
+                                className="accordion-collapse collapse m-3"
+                                aria-labelledby="headingFive"
+                                data-bs-parent="#filterSections"
+                            >
+                                <div className="accordion-body">
+                                    {/* <label
+                                    htmlFor="scoreRange"
+                                    className="form-label"
+                                >
+                                    PSLE Score
+                                </label> */}
+                                    <div className="input-group">
+                                        <select
+                                            className="form-select"
+                                            id="l1r5"
+                                            onChange={(e) => {
+                                                setl1r5(e.target.value);
+                                            }}
+                                            onClick={handleChange}
+                                        >
+                                            {[...Array(17).keys()]
                                                 .reverse()
                                                 .map((i) => {
                                                     return (

@@ -6,27 +6,28 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { FavouritesContextProvider } from "./Contexts/FavouritesContext";
+import { UpvoteContextProvider } from "./Contexts/UpvoteContext";
+
 import "react-toastify/dist/ReactToastify.css";
 import "react-bootstrap";
 import { ToastContainer } from "react-toastify";
 import { SchoolsContextProvider } from "./Contexts/SchoolsContext";
 import { CompareContextProvider } from "./Contexts/CompareContext";
 import { SecFiltersContextProvider } from "./Contexts/SecFiltersContext";
-import { PriFiltersContextProvider } from "./Contexts/PriFiltersContext";
 
 ReactDOM.render(
     <SchoolsContextProvider>
         <FavouritesContextProvider>
-            <CompareContextProvider>
-                <SecFiltersContextProvider>
-                    <PriFiltersContextProvider>
+            <UpvoteContextProvider>
+                <CompareContextProvider>
+                    <SecFiltersContextProvider>
                         <BrowserRouter>
                             <App />
                             <ToastContainer />
                         </BrowserRouter>
-                    </PriFiltersContextProvider>
-                </SecFiltersContextProvider>
-            </CompareContextProvider>
+                    </SecFiltersContextProvider>
+                </CompareContextProvider>
+            </UpvoteContextProvider>
         </FavouritesContextProvider>
     </SchoolsContextProvider>,
     document.getElementById("root")

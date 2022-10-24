@@ -13,6 +13,7 @@ import { useState, useContext } from "react";
 import FavouritesContext from "../Contexts/FavouritesContext";
 import { useAuth, logout } from "../Firebase";
 import CompareContext from "../Contexts/CompareContext";
+import UpvoteContext from "../Contexts/UpvoteContext";
 
 // Change the inline-style on selecting the respective tabs
 let activeStyle = {
@@ -24,6 +25,7 @@ function Navbar() {
     const [expandNavBar, setExpandNavBar] = useState(false);
     const favouritesCtx = useContext(FavouritesContext);
     const compareCtx = useContext(CompareContext);
+    const upvoteCtx = useContext(UpvoteContext);
 
     const user = useAuth();
 
@@ -77,6 +79,19 @@ function Navbar() {
                             <span className="navbar-badge">
                                 {favouritesCtx.totalFavourites}
                             </span>
+                        </NavLink>
+                    </li>
+
+                    {/* To Recommended page */}
+                    <li className="navbar-list">
+                        <NavLink
+                            className="navbar-items"
+                            to="/recommended"
+                            style={({ isActive }) =>
+                                isActive ? activeStyle : undefined
+                            }
+                        >
+                            Recommended
                         </NavLink>
                     </li>
 
@@ -248,6 +263,21 @@ function Navbar() {
                                                 {favouritesCtx.totalFavourites}
                                             </span>
                                             Favourites
+                                        </NavLink>
+                                    </li>
+
+                                    {/* To Recommended page */}
+                                    <li className="navbar-list-mobile">
+                                        <NavLink
+                                            className="navbar-items-mobile"
+                                            to="/recommended"
+                                            style={({ isActive }) =>
+                                                isActive
+                                                    ? activeStyle
+                                                    : undefined
+                                            }
+                                        >
+                                            Recommended
                                         </NavLink>
                                     </li>
 
