@@ -12,7 +12,7 @@
   }
   
   .comp-title {
-    color: black;
+    color: rgb(249, 245, 245);
     display: inline;
     font-size: 45px;
     background: linear-gradient(120deg, #80ced7 0%, #80ced7 100%);
@@ -33,13 +33,13 @@
   .comp-empty-heading {
     font-size: 30px;
     margin-bottom: 0.5em;
-    color: #0c7187;
+    color: #f9fafa;
   }
   
   .comp-empty-text {
     font-size: 20px;
     margin-bottom: 0.5em;
-    color: #0c7187;
+    color: #f1f5f6;
   }
   
   .comp-button {

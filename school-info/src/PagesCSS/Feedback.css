@@ -1,6 +1,6 @@
 .feedback-form-container {
   font-family: "Saira Condensed", sans-serif;
-  background-color: #ffd9d9;
+  background-color: #dc3545;
   height: 36rem;
   width: 25rem;
   border-radius: 2rem;
@@ -45,7 +45,7 @@
   border: none;
   width: 20rem;
   height: 30px;
-  background-color: #ddcccc;
+  background-color: #f8f9f9;
   padding-left: 1rem;
   padding-right: 1rem;
 }
@@ -59,7 +59,7 @@
 
 .feedback-form-submit-button {
   border-radius: 20px;
-  background-color: #2dc1c1;
+  background-color: #f2c0c0;
   border: none;
   font-size: 16px;
   cursor: pointer;
