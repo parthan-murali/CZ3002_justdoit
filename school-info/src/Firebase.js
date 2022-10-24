@@ -304,6 +304,85 @@ async function updateRec(schools) {
     // setLoading(false);
 }
 
+async function getUpvotes() {
+    const user = auth.currentUser;
+    console.log(user.email);
+
+    // setLoading(true);
+
+    const q = query(collection(db, "users"), where("uid", "==", user.uid));
+    const querySnapshot = await getDocs(q).catch((err) =>
+        console.log("getDocs from Query error: ", err.message)
+    );
+
+    const upvotes = querySnapshot.docs[0].data().upvotes;
+    console.log("Firebase > getUpvotes COMPLETE:", upvotes);
+
+    // setLoading(false);
+
+    return upvotes;
+}
+
+async function updateUpvotes(schools) {
+    const user = auth.currentUser;
+
+    // setLoading(true);
+
+    const q = query(collection(db, "users"), where("uid", "==", user.uid));
+    const querySnapshot = await getDocs(q).catch((err) =>
+        console.log("getDocs from Query error: ", err.message)
+    );
+    const userRef = querySnapshot.docs[0].ref;
+
+    await updateDoc(userRef, {
+        upvotes: schools,
+    }).catch((err) => {
+        console.log("updateDoc (upvotes field) error: ", err.message);
+    });
+
+    console.log("SAVED UPVOTES");
+    // setLoading(false);
+}
+
+async function getFav() {
+    const user = auth.currentUser;
+
+    // setLoading(true);
+
+    const q = query(collection(db, "users"), where("uid", "==", user.uid));
+    const querySnapshot = await getDocs(q).catch((err) =>
+        console.log("getDocs from Query error: ", err.message)
+    );
+
+    const favorites = querySnapshot.docs[0].data().favorites;
+    console.log("Firebase > getFav COMPLETE");
+
+    // setLoading(false);
+
+    return favorites;
+}
+
+async function updateFav(schools) {
+    const user = auth.currentUser;
+
+    // setLoading(true);
+
+    const q = query(collection(db, "users"), where("uid", "==", user.uid));
+    const querySnapshot = await getDocs(q).catch((err) =>
+        console.log("getDocs from Query error: ", err.message)
+    );
+    const userRef = querySnapshot.docs[0].ref;
+
+    await updateDoc(userRef, {
+        favorites: schools,
+    }).catch((err) => {
+        console.log("updateDoc (favorites field) error: ", err.message);
+    });
+
+    console.log("SAVED FAVS");
+    // setLoading(false);
+}
+
 async function updatePhoto(file, setLoading) {
     const user = auth.currentUser;
     console.log("file type: ", typeof file);
@@ -403,6 +482,10 @@ export {
     useGetUsers,
     getRec,
     updateRec,
+    getUpvotes,
+    updateUpvotes,
+    getFav,
+    updateFav,
 };
 export const storage = getStorage(app);
 export const db = getFirestore(app);

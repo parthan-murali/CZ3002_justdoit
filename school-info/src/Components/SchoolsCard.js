@@ -50,6 +50,7 @@ function SchoolsCard(props) {
 
     const upvoteCtx = useContext(UpvoteContext);
     const itemIsUpvoted = upvoteCtx.itemIsUpvoted(props.data._id);
+    const itemTotalUpvotes = upvoteCtx.totalUpvotes[props.data._id];
 
     function toggleUpvoteStatusHandler() {
         if (itemIsUpvoted) {
@@ -131,6 +132,7 @@ function SchoolsCard(props) {
                     size="lg"
                     onClick={toggleUpvoteStatusHandler}
                 ></FontAwesomeIcon>
+                {itemTotalUpvotes}
             </div>
         </div>
     );

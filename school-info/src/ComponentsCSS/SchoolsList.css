@@ -9,3 +9,9 @@
     color: #0c7187;
     margin-top: 1rem;
 }
+
+.sidebar {
+    position: sticky;
+    top: 9rem;
+    z-index: initial;
+}
