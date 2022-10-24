@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import SecFiltersContext from "../../Contexts/SecFiltersContext";
+import RecommendCard from "../../Components/RecommendCard";
 import Modal from "../../Components/Modal.js";
 import "../../PagesCSS/Dashboard/Dashboard.css";
 import {
@@ -12,13 +11,17 @@ import {
     updateName,
     updatePhoto,
     updateUserEmail,
-    updateStudentProfile,
-    getStudentProfile,
     deleteAccount,
     reauthenticate,
 } from "../../Firebase";
 import { toast } from "react-toastify";
 import { sendEmailVerification } from "firebase/auth";
+import {
+    faCircleCheck,
+    faTriangleExclamation,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 function Dashboard() {
     const [currentUser, isLoading /* , err*/] = useAuthState(auth);
     const [uid, setUid] = useState("");
@@ -30,16 +33,11 @@ function Dashboard() {
     );
     const [photoURL, setPhotoURL] = useState(null);
     const [password, setPassword] = useState("");
-    const [level, setLevel] = useState("");
-    const [score, setScore] = useState("");
-    const [address, setAddress] = useState("");
 
     const [loading, setLoading] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
     const [toDelete, setToDelete] = useState(false);
-
-    const secFiltersCtx = useContext(SecFiltersContext);
-
+    const [view, setView] = useState("default");
     async function fetchData() {
         if (currentUser) {
             setUid(currentUser.uid);
@@ -57,7 +55,6 @@ function Dashboard() {
                 photoURL,
                 photo
             );
-            await getStudentProfile(setLoading, setLevel, setScore, setAddress);
         }
         // if (currentUser?.photoURL) {
         //   setPhoto(currentUser.photoURL);
@@ -81,54 +78,9 @@ function Dashboard() {
         }
         if (isSubscribed) {
             fetchData();
-            console.log(
-                "level =",
-                level,
-                "score =",
-                score,
-                "address =",
-                address
-            );
         }
         return () => (isSubscribed = false);
     }, [currentUser, isLoading, uid]);
-
-    function toggleFilterAdd(filter, value) {
-        console.log("Dashboard > toggleFilterAdd");
-        secFiltersCtx.addFilter(filter, value);
-    }
-
-    function toggleFilterRemove(filter, value) {
-        console.log("Dashboard > toggleFilterRemove");
-        secFiltersCtx.removeFilter(filter, value);
-    }
-
-    function toggleFilterReset() {
-        console.log("Dashboard > toggleFilterReset");
-        secFiltersCtx.resetFilters();
-    }
-
-    function getRecommended() {
-        toggleFilterReset();
-        if (level === "PRIMARY") {
-            if (address !== "") {
-                toggleFilterAdd("address", address);
-                navigate("/schools/primary", { state: { sort: "Proximity" } });
-                return;
-            }
-        }
-        if (level === "SECONDARY") {
-            if (score !== "") {
-                toggleFilterAdd("min", score);
-                toggleFilterAdd("max", score);
-                navigate("/schools/secondary", { state: { sort: "Rank" } });
-                return;
-            }
-        }
-        toast("One of the fields - Level, Score, Address - was not saved", {
-            type: "error",
-        });
-    }
 
     function handleChangePhoto(e) {
         if (e.target.files[0]) {
@@ -194,18 +146,6 @@ function Dashboard() {
                     toast(err.message, { type: "error" });
                 }
             });
-
-        console.log("Updating student profile...");
-        await updateStudentProfile(level, score, address, setLoading)
-            .then(() => {
-                toast("Changes saved", { type: "success" });
-                return;
-            })
-            .catch((err) => {
-                console.log("updateStudentProfile error: ", err.message);
-
-                toast("Error updating student profile", { type: "error" });
-            });
     }
 
     useEffect(() => {
@@ -243,181 +183,170 @@ function Dashboard() {
         }
     }
 
+    useEffect(() => {}, [view]);
+
+    function display() {
+        if (view === "recommendations") {
+            console.log("Showing RecommendCard");
+            return <RecommendCard />;
+        } else {
+            return (
+                <div className="card mx-5 p-5 d-flex flex-column">
+                    <div className="d-flex flex-column align-items-center">
+                        <img
+                            src={photo}
+                            className="rounded-circle dbd-avatar"
+                            alt="Avatar"
+                        />
+                    </div>
+
+                    <div className="d-flex flex-column m-3">
+                        <label htmlFor="avatar" className="form-label">
+                            Change photo
+                        </label>
+                        <input
+                            className="form-control"
+                            type="file"
+                            onChange={handleChangePhoto}
+                            id="avatar"
+                        />
+                    </div>
+                    <div className="d-flex align-items-start">
+                        <div className="m-3">
+                            <label htmlFor="dispName" className="form-label">
+                                Name
+                            </label>
+                            <input
+                                type="text"
+                                value={name === null ? "" : name}
+                                onChange={(e) => setName(e.target.value)}
+                                placeholder="Full name"
+                                className="form-control"
+                            />
+                        </div>
+                        <div className="m-3">
+                            <label htmlFor="email" className="form-label">
+                                E-mail Address
+                            </label>
+                            <input
+                                type="text"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                placeholder="Valid e-mail address"
+                                className="form-control"
+                            />
+                        </div>
+                    </div>
+                    <button
+                        disabled={loading}
+                        onClick={handleSave}
+                        className="btn btn-primary m-3"
+                    >
+                        Save
+                    </button>
+                </div>
+            );
+        }
+    }
+
     return (
-        <div className="dashboard">
-            <div className="dashboard__container">
-                <span className="dashboard-details">Dashboard</span>
-                {/* <div>{name}</div>
-        <div>{currentUser?.email}</div> */}
-                <button className="dashboard-logout-btn" onClick={logout}>
-                    Logout
-                </button>
-
-                <div>
-                    <input
-                        type="file"
-                        onChange={handleChangePhoto}
-                        className="dashboard-attachment"
-                    />
-                    <img src={photo} alt="Avatar" className="dashboard-img" />
-                </div>
-
-                <div>
-                    {currentUser && (
-                        <p>
-                            {currentUser.emailVerified
-                                ? "Email Verified"
-                                : "Email Not Verified"}
-                        </p>
-                    )}
-                </div>
-
-                <input
-                    type="text"
-                    value={name === null ? "" : name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="Full Name"
-                    className="dashboard-name"
-                />
-                <input
-                    type="text"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="E-mail Address"
-                    className="dashboard-email"
-                />
-
-                <div className="m-3">
-                    <label className="form-label h6">
-                        What level of education are you pursuing next?
-                    </label>
-                    <div>
-                        <div className="form-check text-start">
-                            <input
-                                className="form-check-input"
-                                type="radio"
-                                name="level"
-                                id="primary"
-                                value="PRIMARY"
-                                onChange={(e) => setLevel(e.target.value)}
-                                checked={level === "PRIMARY" ? true : false}
-                            />
-                            <label
-                                className="form-check-label"
-                                htmlFor="primary"
-                            >
-                                Primary
-                            </label>
+        <div className="d-flex flex-column p-5 align-items-center">
+            <div className="d-flex m-3 justify-content-center">
+                <div className="d-flex flex-column align-items-end">
+                    <div className="dbd-sidebar">
+                        <div>
+                            <h1 className="dbd-title">Dashboard</h1>
                         </div>
-                        <div className="form-check text-start">
-                            <input
-                                className="form-check-input"
-                                type="radio"
-                                name="level"
-                                id="secondary"
-                                value="SECONDARY"
-                                onChange={(e) => setLevel(e.target.value)}
-                                checked={level === "SECONDARY" ? true : false}
-                            />
-                            <label
-                                className="form-check-label"
-                                htmlFor="secondary"
+                        <div className="list-group my-4">
+                            <button
+                                type="button"
+                                className={
+                                    view === "default"
+                                        ? "list-group-item list-group-item-action active"
+                                        : "list-group-item list-group-item-action"
+                                }
+                                onClick={() => {
+                                    setView("default");
+                                }}
                             >
-                                Secondary
-                            </label>
+                                Edit Profile
+                            </button>
+                            <button
+                                type="button"
+                                className={
+                                    view === "recommendations"
+                                        ? "list-group-item list-group-item-action active"
+                                        : "list-group-item list-group-item-action"
+                                }
+                                onClick={() => {
+                                    setView("recommendations");
+                                }}
+                            >
+                                Get Recommendations
+                            </button>
+                            <button
+                                type="button"
+                                className="list-group-item list-group-item-action"
+                                disabled={loading}
+                                onClick={changePwd}
+                            >
+                                Change Password
+                            </button>
+                            <button
+                                type="button"
+                                className="list-group-item list-group-item-action"
+                                disabled={loading}
+                                onClick={sendEmail}
+                            >
+                                Resend Verification Email
+                            </button>
+                            <button
+                                type="button"
+                                className="list-group-item list-group-item-action"
+                                disabled={loading}
+                                onClick={handleDelete}
+                            >
+                                Delete Account
+                            </button>
+                            <button
+                                type="button"
+                                className="list-group-item list-group-item-action"
+                                onClick={logout}
+                            >
+                                Logout
+                            </button>
                         </div>
-                        <div className="form-check text-start">
-                            <input
-                                className="form-check-input"
-                                type="radio"
-                                name="level"
-                                id="jc"
-                                value="JC"
-                                onChange={(e) => setLevel(e.target.value)}
-                                checked={level === "JC" ? true : false}
-                            />
-                            <label className="form-check-label" htmlFor="jc">
-                                Junior College
-                            </label>
+
+                        <div>
+                            {currentUser && currentUser.emailVerified ? (
+                                <div
+                                    className="alert alert-info p-2"
+                                    role="alert"
+                                >
+                                    <FontAwesomeIcon
+                                        icon={faCircleCheck}
+                                        size="sm"
+                                    ></FontAwesomeIcon>
+                                    &nbsp; Email verified
+                                </div>
+                            ) : (
+                                <div
+                                    className="alert alert-warning p-2"
+                                    role="alert"
+                                >
+                                    <FontAwesomeIcon
+                                        icon={faTriangleExclamation}
+                                        size="sm"
+                                    ></FontAwesomeIcon>
+                                    &nbsp; Email not verified
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
-
-                <div className="m-3">
-                    <label htmlFor="score" className="form-label h6">
-                        Please input your PSLE score:
-                    </label>
-                    <input
-                        type="number"
-                        className="form-control"
-                        id="score"
-                        min="4"
-                        max="32"
-                        placeholder="PSLE Score"
-                        value={score !== "" ? score : ""}
-                        onChange={(e) => setScore(e.target.value)}
-                    />
-                </div>
-
-                <div className="m-3">
-                    <label htmlFor="address" className="form-label h6">
-                        Please input your postal code:
-                    </label>
-                    <input
-                        type="number"
-                        className="form-control"
-                        id="address"
-                        placeholder="Postal Code"
-                        onChange={(e) => setAddress(e.target.value)}
-                    />
-                </div>
-
-                <button
-                    disabled={loading}
-                    onClick={() => {
-                        handleSave();
-                    }}
-                    className="dashboard-buttons"
-                >
-                    Save Changes
-                </button>
-
-                <button
-                    disabled={loading}
-                    onClick={() => {
-                        getRecommended();
-                    }}
-                    className="dashboard-buttons"
-                >
-                    Get Recommendations
-                </button>
-
-                <button
-                    disabled={loading}
-                    onClick={changePwd}
-                    className="dashboard-buttons"
-                >
-                    Change Password
-                </button>
-
-                <button
-                    disabled={loading}
-                    onClick={sendEmail}
-                    className="dashboard-buttons"
-                >
-                    Resend Verification Email
-                </button>
-
-                <button
-                    disabled={loading}
-                    onClick={() => {
-                        handleDelete();
-                    }}
-                    className="dashboard-buttons"
-                >
-                    Delete Account
-                </button>
+                {display()}
             </div>
+
             {modalOpen && (
                 <Modal
                     setOpenModal={setModalOpen}

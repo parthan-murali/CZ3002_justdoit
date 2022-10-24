@@ -186,6 +186,7 @@ async function updateStudentProfile(
     newLevel,
     newScore,
     newAddress,
+    newGender,
     setLoading
 ) {
     const user = auth.currentUser;
@@ -202,6 +203,7 @@ async function updateStudentProfile(
         level: newLevel,
         score: newScore,
         address: newAddress,
+        gender: newGender,
     }).catch((err) => {
         console.log(
             "updateDoc (level/score/address field) error: ",
@@ -212,7 +214,14 @@ async function updateStudentProfile(
     setLoading(false);
 }
 
-async function getStudentProfile(setLoading, setLevel, setScore, setAddress) {
+async function getStudentProfile(
+    setLoading,
+    setLevel,
+    setScore,
+    setAddress,
+    setGenderF,
+    setGender
+) {
     const user = auth.currentUser;
 
     setLoading(true);
@@ -222,10 +231,77 @@ async function getStudentProfile(setLoading, setLevel, setScore, setAddress) {
         console.log("getDocs from Query error: ", err.message)
     );
 
-    setLevel(querySnapshot.docs[0].data().level);
-    setScore(querySnapshot.docs[0].data().score);
-    setAddress(querySnapshot.docs[0].data().address);
+    setLevel(
+        querySnapshot.docs[0].data().level
+            ? querySnapshot.docs[0].data().level
+            : ""
+    );
+    setScore(
+        querySnapshot.docs[0].data().score
+            ? querySnapshot.docs[0].data().score
+            : ""
+    );
+    setAddress(
+        querySnapshot.docs[0].data().address
+            ? querySnapshot.docs[0].data().address
+            : ""
+    );
+    setGenderF(
+        querySnapshot.docs[0].data().gender
+            ? querySnapshot.docs[0].data().gender
+            : {
+                  Boys: false,
+                  Girls: false,
+                  Mixed: true,
+              }
+    );
+    if (querySnapshot.docs[0].data().gender.Boys) {
+        setGender("Boys");
+    } else if (querySnapshot.docs[0].data().gender.Girls) {
+        setGender("Girls");
+    }
     setLoading(false);
+}
+
+async function getRec(setLoading) {
+    const user = auth.currentUser;
+
+    setLoading(true);
+
+    const q = query(collection(db, "users"), where("uid", "==", user.uid));
+    const querySnapshot = await getDocs(q).catch((err) =>
+        console.log("getDocs from Query error: ", err.message)
+    );
+
+    const schools = querySnapshot.docs[0].data().recommended;
+    const level = querySnapshot.docs[0].data().level;
+
+    console.log("Firebase > getRec COMPLETE");
+
+    setLoading(false);
+
+    return { schools: schools, level: level };
+}
+
+async function updateRec(schools) {
+    const user = auth.currentUser;
+
+    // setLoading(true);
+
+    const q = query(collection(db, "users"), where("uid", "==", user.uid));
+    const querySnapshot = await getDocs(q).catch((err) =>
+        console.log("getDocs from Query error: ", err.message)
+    );
+    const userRef = querySnapshot.docs[0].ref;
+
+    await updateDoc(userRef, {
+        recommended: schools,
+    }).catch((err) => {
+        console.log("updateDoc (recommended field) error: ", err.message);
+    });
+
+    console.log("SAVED REC");
+    // setLoading(false);
 }
 
 async function updatePhoto(file, setLoading) {
@@ -325,6 +401,8 @@ export {
     deleteAccount,
     reauthenticate,
     useGetUsers,
+    getRec,
+    updateRec,
 };
 export const storage = getStorage(app);
 export const db = getFirestore(app);

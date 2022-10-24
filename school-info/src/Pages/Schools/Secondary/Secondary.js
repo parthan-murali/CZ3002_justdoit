@@ -14,7 +14,6 @@ import "../../../ComponentsCSS/SchoolSearchBar.css";
 import { SchoolsContext } from "../../../Contexts/SchoolsContext";
 import { useContext, useEffect } from "react";
 import SecFiltersContext from "../../../Contexts/SecFiltersContext";
-import { useLocation } from "react-router-dom";
 
 function Secondary() {
     const [pageNumber, setPageNumber] = useState(0);
@@ -22,10 +21,9 @@ function Secondary() {
     const noOfSchoolsVisited = pageNumber * schoolsPerPage;
     const [searchTerm, setSearchTerm] = useState("");
     const [sort, setSort] = useState("A-Z");
-    const from = useLocation();
 
     const { schoolsContext } = useContext(SchoolsContext);
-    const secFiltersCtx = useContext(SecFiltersContext);
+    const filtersCtx = useContext(SecFiltersContext);
 
     //let data = schoolsContext.schools;
     const parsedData = JSON.parse(JSON.stringify(data));
@@ -48,19 +46,13 @@ function Secondary() {
 
     // console.log("Secondary > schools =", schools);
 
-    useEffect(() => {
-        if (from.state) {
-            setSort(from.state.sort);
-        }
-    }, [from]);
-
     // Determine number of pages
     let pageCount = Math.ceil(schools.length / schoolsPerPage);
 
     // get only the schools we want
     const displaySchools = () => {
-        console.log("Filter count:", secFiltersCtx.countFilters());
-        if (secFiltersCtx.countFilters() === 0) {
+        console.log("Filter count:", filtersCtx.countFilters());
+        if (filtersCtx.countFilters() === 0) {
             return (
                 <SchoolsList
                     level="SECONDARY"
@@ -70,27 +62,14 @@ function Secondary() {
                     sortBy={sort}
                 />
             );
-        } else if (from.state !== null && !secFiltersCtx.recDone) {
-            secFiltersCtx.setRecDone(true);
-            console.log("From recommended");
-            pageCount = Math.ceil(secFiltersCtx.filteredSchools.length / 5);
-            return (
-                <SchoolsList
-                    level="SECONDARY"
-                    schools={secFiltersCtx.filteredSchools}
-                    visitedCount={noOfSchoolsVisited}
-                    schPerPg={5}
-                    sortBy={from.state.sort}
-                />
-            );
         } else {
             pageCount = Math.ceil(
-                secFiltersCtx.filteredSchools.length / schoolsPerPage
+                filtersCtx.filteredSchools.length / schoolsPerPage
             );
             return (
                 <SchoolsList
                     level="SECONDARY"
-                    schools={secFiltersCtx.filteredSchools}
+                    schools={filtersCtx.filteredSchools}
                     visitedCount={noOfSchoolsVisited}
                     schPerPg={schoolsPerPage}
                     sortBy={sort}
@@ -121,7 +100,7 @@ function Secondary() {
                 key={school.school_name}
                 className="d-flex justify-content-center"
             >
-                <SchoolsCard data={school} />
+                <SchoolsCard data={school} address={null} distance={null} />
             </div>
         ));
 

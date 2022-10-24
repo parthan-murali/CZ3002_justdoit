@@ -4,19 +4,16 @@ import SchoolsList from "../../../Components/SchoolsList";
 import ReactPaginate from "react-paginate";
 import { useState } from "react";
 import Dropdown from "../../../Components/Dropdown";
-//import CompareButton from "../../../Components/CompareButton";
 import SchoolsFilter from "../../../Components/SchoolsFilter";
 import data from "../../../JSON/combined_data.json"; // COMBINED DATASET OF EVERYTHING WE NEED
 
 import "../../../ComponentsCSS/PaginationButtons.css";
 import "../../../ComponentsCSS/SchoolsCard.css";
 import "../../../ComponentsCSS/SchoolSearchBar.css";
-import "../../../ComponentsCSS/SchoolsList.css";
 
 import { SchoolsContext } from "../../../Contexts/SchoolsContext";
 import { useContext, useEffect } from "react";
 import SecFiltersContext from "../../../Contexts/SecFiltersContext";
-import { useLocation } from "react-router-dom";
 
 function Tertiary() {
     const [pageNumber, setPageNumber] = useState(0);
@@ -24,10 +21,10 @@ function Tertiary() {
     const noOfSchoolsVisited = pageNumber * schoolsPerPage;
     const [searchTerm, setSearchTerm] = useState("");
     const [sort, setSort] = useState("A-Z");
-    const from = useLocation();
 
     const { schoolsContext } = useContext(SchoolsContext);
-    const secFiltersCtx = useContext(SecFiltersContext);
+    const filtersCtx = useContext(SecFiltersContext);
+
     //let data = schoolsContext.schools;
     const parsedData = JSON.parse(JSON.stringify(data));
 
@@ -74,85 +71,33 @@ function Tertiary() {
         }
     }
 
-    useEffect(() => {
-        if (from.state) {
-            setSort(from.state.sort);
-        }
-    }, [from]);
-
     let pageCount = Math.ceil(schools.length / schoolsPerPage);
 
     // get only the schools we want
     const displaySchools = () => {
-        console.log("Filter count:", secFiltersCtx.countFilters());
-        if (secFiltersCtx.countFilters() === 0) {
+        console.log("Filter count:", filtersCtx.countFilters());
+        if (filtersCtx.countFilters() === 0) {
             return (
-                <div className="d-flex flex-column">
-                    <div className="d-flex justify-content-center list-count">
-                        Showing&nbsp;
-                        <b>
-                            {secFiltersCtx.countFilters === 0
-                                ? schools.length
-                                : secFiltersCtx.filteredSchools.length}
-                        </b>
-                        &nbsp;schools
-                    </div>
-                    <SchoolsList
-                        level="JC"
-                        schools={schools}
-                        visitedCount={noOfSchoolsVisited}
-                        schPerPg={schoolsPerPage}
-                        sortBy={sort}
-                    />
-                </div>
-            );
-        } else if (from.state !== null && !secFiltersCtx.recDone) {
-            secFiltersCtx.setRecDone(true);
-            console.log("From recommended");
-            pageCount = Math.ceil(secFiltersCtx.filteredSchools.length / 5);
-            return (
-                <div className="d-flex flex-column">
-                    <div className="d-flex justify-content-center list-count">
-                        Showing&nbsp;
-                        <b>
-                            {secFiltersCtx.countFilters === 0
-                                ? schools.length
-                                : secFiltersCtx.filteredSchools.length}
-                        </b>
-                        &nbsp;schools
-                    </div>
-                    <SchoolsList
-                        level="JC"
-                        schools={secFiltersCtx.filteredSchools}
-                        visitedCount={noOfSchoolsVisited}
-                        schPerPg={5}
-                        sortBy={from.state.sort}
-                    />
-                </div>
+                <SchoolsList
+                    level="JC"
+                    schools={schools}
+                    visitedCount={noOfSchoolsVisited}
+                    schPerPg={schoolsPerPage}
+                    sortBy={sort}
+                />
             );
         } else {
             pageCount = Math.ceil(
-                secFiltersCtx.filteredSchools.length / schoolsPerPage
+                filtersCtx.filteredSchools.length / schoolsPerPage
             );
             return (
-                <div className="d-flex flex-column">
-                    <div className="d-flex justify-content-center list-count">
-                        Showing&nbsp;
-                        <b>
-                            {secFiltersCtx.countFilters === 0
-                                ? schools.length
-                                : secFiltersCtx.filteredSchools.length}
-                        </b>
-                        &nbsp;schools
-                    </div>
-                    <SchoolsList
-                        level="JC"
-                        schools={secFiltersCtx.filteredSchools}
-                        visitedCount={noOfSchoolsVisited}
-                        schPerPg={schoolsPerPage}
-                        sortBy={sort}
-                    />
-                </div>
+                <SchoolsList
+                    level="JC"
+                    schools={filtersCtx.filteredSchools}
+                    visitedCount={noOfSchoolsVisited}
+                    schPerPg={schoolsPerPage}
+                    sortBy={sort}
+                />
             );
         }
     };
@@ -179,7 +124,7 @@ function Tertiary() {
                 key={school.school_name}
                 className="d-flex justify-content-center"
             >
-                <SchoolsCard data={school} />
+                <SchoolsCard data={school} address={null} distance={null} />
             </div>
         ));
 

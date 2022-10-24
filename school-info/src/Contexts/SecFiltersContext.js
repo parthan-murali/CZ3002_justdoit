@@ -6,8 +6,6 @@ import jcRanks from "../JSON/jcRankings.json";
 const SecFiltersContext = createContext({
     filters: {},
     filteredSchools: [],
-    recDone: true,
-    setRecDone: (flag) => {},
     addFilter: (filter, value) => {},
     removeFilter: (filter, value) => {},
     resetFilters: () => {},
@@ -32,9 +30,10 @@ export function SecFiltersContextProvider(props) {
 
     const savedSchools = localStorage.getItem("schools");
     const initialSchools = JSON.parse(savedSchools);
+    console.log("filtersContext > savedSchools", initialSchools);
+
     var schools = initialSchools;
     const [filtered, setFiltered] = useState([]);
-    var rec = true;
     const savedCCAs = JSON.parse(localStorage.getItem("secondaryCCAData"));
 
     useEffect(() => {
@@ -506,10 +505,6 @@ export function SecFiltersContextProvider(props) {
         return userFilters.some((school) => school._id === schoolId);
     }
 
-    function setRecDone(flag) {
-        rec = flag;
-    }
-
     function getFilterCount() {
         let count =
             userFilters.ccas.size +
@@ -530,8 +525,6 @@ export function SecFiltersContextProvider(props) {
     const context = {
         filters: userFilters,
         filteredSchools: filtered,
-        recDone: rec,
-        setRecDone: setRecDone,
         addFilter: addFilterHandler,
         removeFilter: removeFilterHandler,
         resetFilters: resetFilterHandler,

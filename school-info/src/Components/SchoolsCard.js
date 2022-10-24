@@ -128,6 +128,7 @@ function SchoolsCard(props) {
                         !itemIsUpvoted ? "fa-thumbs-up" : "fa-thumbs-up-toggled"
                     }
                     icon={faThumbsUp}
+                    size="lg"
                     onClick={toggleUpvoteStatusHandler}
                 ></FontAwesomeIcon>
             </div>

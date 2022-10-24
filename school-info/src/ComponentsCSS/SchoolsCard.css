@@ -82,23 +82,19 @@
 }
 
 .fa-thumbs-up {
-    color: #e2d28c;
-    float: left;
-    padding: 50px 50px 0 0;
-    /* position:absolute;
-    bottom: 5px; */
-    width: 40px;
-    height: 40px;
+    color: #76aabd;
+    margin: 0 0 0 auto;
+    padding: 0.5rem;
 }
 
 .fa-thumbs-up-toggled {
-    color: #e79f52;
-    float: left;
-    padding: 50px 50px 0 0;
+    color: #25b4be;
+    margin: 0 0 0 auto;
+    padding: 0.5rem;
 }
 
 .fa-thumbs-up:hover {
-    color: #e79f52;
+    color: #25b4be;
 }
 
 .school-text-row {

@@ -241,65 +241,79 @@ function SchoolsList(props) {
     }
 
     function getSorted() {
-        const content = schools
-            .sort((a, b) => {
-                if (sortBy === "Rank") {
-                    // console.log("Sorting by Rank");
-                    return byRank(a, b);
-                }
-                if (sortBy === "Proximity") {
-                    return byProximity(a, b);
-                }
-            })
-            .slice(noOfSchoolsVisited, noOfSchoolsVisited + schoolsPerPage)
-            .map((school) => {
-                return (
-                    <div key={school.school_name}>
-                        <SchoolsCard
-                            data={school}
-                            address={address}
-                            distance={getDist(school)}
-                        />
-                    </div>
-                );
-            });
+        let content;
 
+        if (sortBy === "A-Z") {
+            content = schools
+                .slice(noOfSchoolsVisited, noOfSchoolsVisited + schoolsPerPage)
+                .map((school) => {
+                    return (
+                        <div key={school.school_name}>
+                            <SchoolsCard
+                                data={school}
+                                address={address}
+                                distance={getDist(school)}
+                            />
+                        </div>
+                    );
+                });
+        } else {
+            content = schools
+                .sort((a, b) => {
+                    if (sortBy === "Rank") {
+                        console.log("Sorting by Rank");
+                        return byRank(a, b);
+                    }
+                    if (sortBy === "Proximity") {
+                        return byProximity(a, b);
+                    }
+                })
+                .slice(noOfSchoolsVisited, noOfSchoolsVisited + schoolsPerPage)
+                .map((school) => {
+                    console.log(school.school_name);
+                    return (
+                        <div key={school.school_name}>
+                            <SchoolsCard
+                                data={school}
+                                address={address}
+                                distance={getDist(school)}
+                            />
+                        </div>
+                    );
+                });
+        }
         return content;
     }
 
-    return (
-        <ul className="list">
-            {sortBy === "Fav"
-                ? schools.map((school) => {
-                      return (
-                          <div key={school.school_name}>
-                              <SchoolsCard
-                                  data={school}
-                                  address={address}
-                                  distance={getDist(school)}
-                              />
-                          </div>
-                      );
-                  })
-                : sortBy === "A-Z"
-                ? schools
-                      .slice(
-                          noOfSchoolsVisited,
-                          noOfSchoolsVisited + schoolsPerPage
-                      )
-                      .map((school) => {
-                          return (
-                              <div key={school.school_name}>
-                                  <SchoolsCard
-                                      data={school}
-                                      address={address}
-                                      distance={getDist(school)}
-                                  />
-                              </div>
-                          );
-                      })
-                : getSorted()}
-        </ul>
+    return sortBy === "Fav" ? (
+        <div className="d-flex flex-column">
+            <ul className="list">
+                {schools.map((school) => {
+                    return (
+                        <div key={school.school_name}>
+                            <SchoolsCard
+                                data={school}
+                                address={address}
+                                distance={getDist(school)}
+                            />
+                        </div>
+                    );
+                })}
+            </ul>
+        </div>
+    ) : (
+        <div>
+            {schoolsPerPage === 0 && (
+                <div className="d-flex justify-content-center list-count">
+                    Showing&nbsp;
+                    <b>{schools.length}</b>
+                    &nbsp;schools
+                </div>
+            )}
+            <div className="d-flex flex-column">
+                <ul className="list">{getSorted()}</ul>
+            </div>
+        </div>
     );
 }
 
