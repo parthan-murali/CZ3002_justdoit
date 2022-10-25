@@ -31,6 +31,8 @@ export function UpvoteContextProvider(props) {
     const fetchUser = async () => {
         if (currentUser) {
             setUid(currentUser.uid);
+        } else {
+            setuserUpvotes([]);
         }
     };
     const fetchCounts = async () => {

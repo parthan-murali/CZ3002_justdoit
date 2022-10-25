@@ -306,7 +306,7 @@ async function updateRec(schools) {
 
 async function getUpvotes() {
     const user = auth.currentUser;
-    console.log(user.email);
+    // console.log(user.email);
 
     // setLoading(true);
 
