@@ -16,6 +16,8 @@ import { useContext } from "react";
 import FavouritesContext from "../Contexts/FavouritesContext";
 import CompareContext from "../Contexts/CompareContext";
 import UpvoteContext from "../Contexts/UpvoteContext";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../Firebase";
 
 import { Link } from "react-router-dom";
 
@@ -25,6 +27,7 @@ function SchoolsCard(props) {
     props.data.mrt_desc = props.data.mrt_desc.toLowerCase();
     const address = props.address;
     const dist = props.distance;
+    const [currentUser, isLoading /* , err*/] = useAuthState(auth);
 
     const favouritesCtx = useContext(FavouritesContext);
     const itemIsFavourite = favouritesCtx.itemIsFavourite(props.data._id);
@@ -124,15 +127,23 @@ function SchoolsCard(props) {
                     size="lg"
                     onClick={toggleCompareHandler}
                 ></FontAwesomeIcon>
-                <FontAwesomeIcon
-                    className={
-                        !itemIsUpvoted ? "fa-thumbs-up" : "fa-thumbs-up-toggled"
-                    }
-                    icon={faThumbsUp}
-                    size="lg"
-                    onClick={toggleUpvoteStatusHandler}
-                ></FontAwesomeIcon>
-                {itemTotalUpvotes}
+                <div className="thumbs-up-row">
+                    <p className="thumbs-up-badge">
+                        {itemTotalUpvotes ? itemTotalUpvotes : 0}
+                    </p>
+                    <FontAwesomeIcon
+                        className={
+                            !currentUser
+                                ? "fa-thumbs-up-disabled"
+                                : !itemIsUpvoted
+                                ? "fa-thumbs-up"
+                                : "fa-thumbs-up-toggled"
+                        }
+                        icon={faThumbsUp}
+                        size="lg"
+                        onClick={toggleUpvoteStatusHandler}
+                    ></FontAwesomeIcon>
+                </div>
             </div>
         </div>
     );

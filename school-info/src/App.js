@@ -48,7 +48,7 @@ import ErrorCompare from "./Pages/ErrorCompare";
 
 function App() {
     return (
-        <>
+        <div className="body">
             <Navbar />
             <Routes>
                 <Route path="/" element={<Home />} />
@@ -152,7 +152,7 @@ function App() {
                 <Route path="*" element={<Error />} />
                 <Route path="*" element={<ErrorCompare />} />
             </Routes>
-        </>
+        </div>
     );
 }
 

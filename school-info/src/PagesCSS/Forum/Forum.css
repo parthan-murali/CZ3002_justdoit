@@ -6,7 +6,7 @@
   align-items: center;
   text-align: center;
   flex-direction: column;
-  font-family: "Quicksand", serif;
+  /* font-family: "Quicksand", serif; */
 }
 .forum-header {
   display: flex;
@@ -18,7 +18,7 @@
 .forum-title {
   margin: 1rem;
   margin-top: 2rem;
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
 }
 .search-input-with-dropdown {
   display: flex;
