@@ -410,7 +410,6 @@ function RecommendCard() {
                 </div>
             </div>
             <button
-                disabled={loading}
                 onClick={async () => {
                     const saved = await handleSave();
                     if (saved) {
