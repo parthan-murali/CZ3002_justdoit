@@ -133,7 +133,7 @@ function CreatePost() {
             <div className="pc-form">
               <Form>
                 {/* title */}
-                <div className="form-control">
+                <div className="pc-form-control">
                   <label className="pc-label">Title:</label>
                   <Field
                     className="pc-field"
@@ -146,7 +146,7 @@ function CreatePost() {
                 </div>
 
                 {/* Query */}
-                <div className="form-control">
+                <div className="pc-form-control">
                   <label className="pc-label">Query:</label>
                   <Field
                     as="textarea"
@@ -159,7 +159,7 @@ function CreatePost() {
                 </div>
 
                 {/* checkbox */}
-                <div className="form-control checkbox">
+                <div className="pc-form-control checkbox">
                   <label>
                     <Field type="checkbox" name="toggle" />
                     Post anonymously
@@ -167,7 +167,7 @@ function CreatePost() {
                 </div>
 
                 {/* image */}
-                <div className="form-control checkbox">
+                <div className="pc-form-control checkbox">
                   <label htmlFor="">
                     <input
                       type="file"
@@ -181,13 +181,13 @@ function CreatePost() {
 
                 {/*Progress Bar */}
                 {progress > 0 && (
-                  <div className="form-control" style={fillerStyles}>
+                  <div className="pc-form-control" style={fillerStyles}>
                     <ProgressBar progress={progress} />
                   </div>
                 )}
 
                 {/* Submit button */}
-                <div className="form-control">
+                <div className="pc-form-control">
                   <button
                     className="pc-button"
                     type="submit"

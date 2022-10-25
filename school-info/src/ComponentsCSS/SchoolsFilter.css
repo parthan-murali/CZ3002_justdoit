@@ -3,3 +3,9 @@
     top: 9rem;
     z-index: initial;
 }
+
+.scroller {
+    /* width: 300px; */
+    height: 500px;
+    overflow-y: scroll;
+  }

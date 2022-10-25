@@ -68,6 +68,7 @@ function SchoolsFilter(props) {
     const [typeF, setTypeF] = useState(typeDict);
     let otherDict = Object.assign({}, ...others.map((x) => ({ [x]: false })));
     const [otherF, setOtherF] = useState(otherDict);
+    const [reset, setReset] = useState(false);
 
     async function fetchData() {
         let controller = new AbortController();
@@ -161,10 +162,25 @@ function SchoolsFilter(props) {
             fetchData();
             localStorage.setItem("schools", JSON.stringify(schools));
         }
+
+        if (reset) {
+            setLocationF("");
+            setAddressF("");
+            setCCAF(new Set());
+            setSubjectF(new Set());
+            setElectiveF(new Set());
+            setMinF("4");
+            setMaxF("32");
+            setl1r5("20");
+            setGenderF(genderDict);
+            setTypeF(typeDict);
+            setOtherF(otherDict);
+            setReset(false);
+        }
         return () => {
             isMounted = false;
         };
-    }, [level]);
+    }, [level, reset]);
 
     function titleCase(str) {
         // console.log("str =", str);
@@ -205,9 +221,11 @@ function SchoolsFilter(props) {
         secFiltersCtx.removeFilter(filter, value);
     }
 
-    function toggleFilterReset(filter, value) {
+    function toggleFilterReset() {
         console.log("SchoolsFilter > toggleFilterReset");
         secFiltersCtx.resetFilters();
+        setReset(true);
+        console.log("Reset filters:", secFiltersCtx.filters);
     }
 
     function validTerm(field, term) {
@@ -230,8 +248,8 @@ function SchoolsFilter(props) {
                 console.log("Before Change:", locationF);
                 setLocationF(val);
                 console.log("After Change:", locationF);
-                toggleFilterRemove("location", locationF);
-                toggleFilterAdd("location", locationF);
+                toggleFilterRemove(id, locationF);
+                toggleFilterAdd(id, locationF);
                 break;
             case "address":
                 console.log("Got address:", addressF);
@@ -322,13 +340,12 @@ function SchoolsFilter(props) {
     return (
         <form id="school-filters" className="sidebar">
             <div className="d-flex justify-content-end my-3">
-                <button
-                    type="button"
+                <input
+                    type="reset"
                     className="btn btn-outline-light"
                     onClick={toggleFilterReset}
-                >
-                    Clear all
-                </button>
+                    value="Clear all"
+                />
             </div>
 
             <div className="accordian" id="filterSections">

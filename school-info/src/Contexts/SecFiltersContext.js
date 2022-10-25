@@ -499,6 +499,7 @@ export function SecFiltersContextProvider(props) {
             types: new Set(),
             others: new Set(),
         });
+        // console.log("Reset filters:", userFilters);
     }
 
     function itemIsFilterHandler(schoolId) {

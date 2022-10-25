@@ -26,7 +26,7 @@
   border-bottom: 0.1px black solid;
 }
 
-.form-control {
+.pc-form-control {
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -221,20 +221,17 @@ function Primary() {
                                 <li>
                                     <a
                                         className="dropdown-item"
-                                        onClick={(e) => {
-                                            setSort("Popularity");
-                                            console.log("sort:", sort);
-                                        }}
+                                        onClick={(e) => setSort("Proximity")}
                                     >
-                                        Popularity
+                                        Proximity
                                     </a>
                                 </li>
                                 <li>
                                     <a
                                         className="dropdown-item"
-                                        onClick={(e) => setSort("Proximity")}
+                                        onClick={(e) => setSort("Upvotes")}
                                     >
-                                        Proximity
+                                        Upvotes
                                     </a>
                                 </li>
                             </ul>

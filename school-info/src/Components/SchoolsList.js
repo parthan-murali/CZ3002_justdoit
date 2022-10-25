@@ -6,6 +6,7 @@ import geoData from "../JSON/allGeoData.json";
 import jcRanks from "../JSON/jcRankings.json";
 import { getDistance } from "geolib";
 import SecFiltersContext from "../Contexts/SecFiltersContext";
+import UpvoteContext from "../Contexts/UpvoteContext";
 import axios from "axios";
 
 function SchoolsList(props) {
@@ -15,6 +16,8 @@ function SchoolsList(props) {
     const sortBy = props.sortBy;
     const level = props.level;
     const filtersCtx = useContext(SecFiltersContext);
+    const upvotesCtx = useContext(UpvoteContext);
+    const upvotesCount = upvotesCtx.totalUpvotes;
     const address = filtersCtx.filters.address;
     console.log("address =", address);
     const [lat, setLat] = useState("");
@@ -240,6 +243,24 @@ function SchoolsList(props) {
         }
     }
 
+    function byUpvotes(a, b) {
+        const aId = a._id;
+        const bId = b._id;
+
+        let aCount, bCount;
+
+        aCount = upvotesCount[aId];
+        if (!aCount) {
+            aCount = 0;
+        }
+        bCount = upvotesCount[bId];
+        if (!bCount) {
+            bCount = 0;
+        }
+
+        return bCount - aCount;
+    }
+
     function getSorted() {
         let content;
 
@@ -266,6 +287,9 @@ function SchoolsList(props) {
                     }
                     if (sortBy === "Proximity") {
                         return byProximity(a, b);
+                    }
+                    if (sortBy === "Upvotes") {
+                        return byUpvotes(a, b);
                     }
                 })
                 .slice(noOfSchoolsVisited, noOfSchoolsVisited + schoolsPerPage)
@@ -303,7 +327,7 @@ function SchoolsList(props) {
         </div>
     ) : (
         <div>
-            {schoolsPerPage === 0 && (
+            {schoolsPerPage === 20 && (
                 <div className="d-flex justify-content-center list-count">
                     Showing&nbsp;
                     <b>{schools.length}</b>
