@@ -170,6 +170,14 @@ function Secondary() {
                                         Proximity
                                     </a>
                                 </li>
+                                <li>
+                                    <a
+                                        className="dropdown-item"
+                                        onClick={(e) => setSort("Upvotes")}
+                                    >
+                                        Upvotes
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
