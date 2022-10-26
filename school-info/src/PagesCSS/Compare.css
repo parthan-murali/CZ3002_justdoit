@@ -12,7 +12,7 @@
   }
   
   .comp-title {
-    color: rgb(249, 245, 245);
+    color: black;
     display: inline;
     font-size: 45px;
     background: linear-gradient(120deg, #80ced7 0%, #80ced7 100%);

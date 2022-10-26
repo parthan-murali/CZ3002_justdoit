@@ -16,8 +16,14 @@
   gap: 40rem;
 }
 .forum-title {
-  margin: 1rem;
-  margin-top: 2rem;
+    color: black;
+    display: inline;
+    font-size: 45px;
+    background: linear-gradient(120deg, #80ced7 0%, #80ced7 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 50%;
+    background-position: 0% 120%;
+    margin: 3rem;
   /* font-family: sans-serif; */
 }
 .search-input-with-dropdown {
@@ -37,7 +43,7 @@
 }
 
 .forum-create-post {
-  background-color: #ed9797;
+  background-color: #e7e7e9;
   border-radius: 0.4rem;
   padding-top: 0.4rem;
   width: 10rem;

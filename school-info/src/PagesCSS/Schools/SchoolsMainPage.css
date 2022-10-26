@@ -22,14 +22,15 @@
     text-decoration: none;
     color: black;
     font-size: 25px;
-    border: 1px solid #80ced7;
+    border: 1px solid white;
     border-radius: 5px;
     padding: 5px 0 5px 0;
     text-align: center;
 }
 
 .schools-main-items:hover {
-    background-color: #80ced7;
+    color: white;
+    background-color: #f87b7b;
 }
 
 .primary {
