@@ -20,7 +20,7 @@ function Feedback() {
   });
 
   function sendEmail(content) {
-    emailjs.send("gmail", "feedback", content, "oHVWubkS14mRrJvSS").then(
+    emailjs.send("gmail", "feedback", content, "5CZeuaC2T0mfogLrI").then(
       (result) => {
         console.log(result.text);
       },
